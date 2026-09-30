@@ -61,6 +61,8 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
   const [demos, setDemos] = useState<Demo[]>([]);
   const [selected, setSelected] = useState('');
   const [result, setResult] = useState<CheckResponse | null>(null);
+  const [hasChecked, setHasChecked] = useState(false);
+  const [exposure, setExposure] = useState<'checking' | 'card' | 'password' | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
@@ -73,7 +75,7 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
   const t = ui[language], g = guideCopy[language];
   useEffect(() => { api<Demo[]>('/demos').then(setDemos).catch(e => setError(e.message)); }, []);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
-  const clear = () => { setResult(null); setError(''); };
+  const clear = () => { setResult(null); setExposure(null); setError(''); };
   async function pickDemo(id: string) {
     clear(); setSelected(id);
     const demo = demos.find(d => d.id === id);
@@ -97,7 +99,7 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
   }
   async function submit(event: React.FormEvent) {
     event.preventDefault(); setBusy(true); clear();
-    try { setResult(await api<CheckResponse>('/check', { ...(tab === 'text' ? { text } : { image }), language })); }
+    try { setResult(await api<CheckResponse>('/check', { ...(tab === 'text' ? { text } : { image }), language })); setHasChecked(true); }
     catch (e) { setError((e as Error).message); }
     finally { setBusy(false); }
   }
@@ -112,9 +114,10 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
     {notices}
     <section className="hero"><div className="hero-copy"><p className="eyebrow"><span className="small-diamond"/>{t.eyebrow}</p><h1>{t.title}<br/><span>{t.subtitle}</span></h1><p className="hero-description">{t.intro}</p></div><div className="hero-seal" aria-hidden="true"><div className="seal-ring"><ShieldCheck size={66} strokeWidth={1.1}/></div><span>HERE TO HELP YOU<br/>FEEL MORE SURE</span><i className="seal-dot one"/><i className="seal-dot two"/></div></section>
     <div className={`customer-grid ${result ? 'has-result' : ''}`}>
+      {result && <div className="result-followup" ref={resultRef} tabIndex={-1} role="region" aria-label={followupCopy[result.language].question}><Followup key={result.id} language={result.language} exposure={exposure} onChange={setExposure}/></div>}
       <div className="input-column">
         <form className="panel checker-panel" onSubmit={submit}>
-          <div className="panel-heading"><span className="icon-box"><MessageSquareText size={20}/></span><h2>{t.checkTitle}</h2></div>
+          <div className="panel-heading"><span className="icon-box"><MessageSquareText size={20}/></span><h2>{hasChecked ? t.checkAnotherTitle : t.checkTitle}</h2></div>
           <fieldset disabled={busy}><legend className="sr-only">Message input</legend>
           <div className="input-tabs"><button type="button" className={tab === 'text' ? 'selected' : ''} onClick={() => { setTab('text'); clear(); }}><MessageSquareText size={17}/>{t.textTab}</button><button type="button" className={tab === 'image' ? 'selected' : ''} onClick={() => { setTab('image'); clear(); }}><ImagePlus size={17}/>{t.imageTab}</button></div>
           {tab === 'text' ? <div className="text-field"><label htmlFor="message">{t.label}</label><textarea dir="auto" id="message" placeholder={t.placeholder} value={text} maxLength={6000} onChange={e => { setText(e.target.value); setSelected(''); clear(); }} rows={6}/><span className="character-count">{text.length.toLocaleString()} / 6,000</span></div> : <div className="upload-area">
@@ -128,21 +131,20 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
         </form>
         <div className="samples"><p className="eyebrow">{t.examples}</p><div className="sample-buttons">{[{ id: 'ups-fee', title: t.ups, Icon: Package }, { id: 'harbor-alert', title: t.bank, Icon: Landmark }, { id: 'injection', title: t.injection, Icon: CodeXml }].map(({ id, title, Icon }) => <button key={id} disabled={busy} className={selected === id ? 'selected' : ''} onClick={() => void pickDemo(id).catch(e => setError(e.message))}><Icon size={15}/>{title}</button>)}</div><p className="synthetic-note">{t.synthetic}</p></div>
       </div>
-      <div className="result-column" ref={resultRef} tabIndex={-1} role="region" aria-label={t.result} aria-live="polite" aria-busy={busy}>
-        {busy ? <div className="panel loading-panel"><div className="loading-symbol"><ShieldCheck size={36}/><LoaderCircle className="spin" size={65}/></div><h2>{t.checking}</h2><p>{meta?.mode === 'live' ? g.loadingLive : g.loadingMock}</p></div> : result ? <ResultCard key={result.id} data={result} refresh={refresh}/> : <aside className="guide-panel"><div className="guide-art" aria-hidden="true"><div className="art-message"><span/><span/><span/><div className="art-link"><LockKeyhole size={12}/> harbor.example</div></div><div className="art-shield"><ShieldCheck size={34}/></div><span className="art-spark"><Sparkles size={20}/></span></div><p className="eyebrow">{g.eyebrow}</p><h2>{g.title}</h2><p className="guide-description">{g.description}</p><div className="guide-steps"><div><span>01</span><p><strong>{g.share}</strong>{g.shareBody}</p></div><div><span>02</span><p><strong>{g.understand}</strong>{g.understandBody}</p></div><div><span>03</span><p><strong>{g.decide}</strong>{g.decideBody}</p></div></div><div className="guide-bottom"><ShieldCheck size={17}/><span>{g.policy}</span></div></aside>}
+      <div className="result-column" role="region" aria-label={t.result} aria-live="polite" aria-busy={busy}>
+        {busy ? <div className="panel loading-panel"><div className="loading-symbol"><ShieldCheck size={36}/><LoaderCircle className="spin" size={65}/></div><h2>{t.checking}</h2><p>{meta?.mode === 'live' ? g.loadingLive : g.loadingMock}</p></div> : result ? <ResultCard key={result.id} data={result} refresh={refresh} exposure={exposure}/> : <aside className="guide-panel"><div className="guide-art" aria-hidden="true"><div className="art-message"><span/><span/><span/><div className="art-link"><LockKeyhole size={12}/> harbor.example</div></div><div className="art-shield"><ShieldCheck size={34}/></div><span className="art-spark"><Sparkles size={20}/></span></div><p className="eyebrow">{g.eyebrow}</p><h2>{g.title}</h2><p className="guide-description">{g.description}</p><div className="guide-steps"><div><span>01</span><p><strong>{g.share}</strong>{g.shareBody}</p></div><div><span>02</span><p><strong>{g.understand}</strong>{g.understandBody}</p></div><div><span>03</span><p><strong>{g.decide}</strong>{g.decideBody}</p></div></div><div className="guide-bottom"><ShieldCheck size={17}/><span>{g.policy}</span></div></aside>}
       </div>
     </div>
     <div className="principle-strip"><span><span className="principle-dot"/>{g.interprets}</span><span><span className="principle-dot"/>{g.validates}</span><span><span className="principle-dot"/>{g.youDecide}</span></div>
   </div>;
 }
 
-function ResultCard({ data, refresh }: { data: CheckResponse; refresh: () => Promise<void> }) {
+function ResultCard({ data, refresh, exposure }: { data: CheckResponse; refresh: () => Promise<void>; exposure: 'checking' | 'card' | 'password' | null }) {
   const { result: r } = data;
   const t = ui[data.language], f = followupCopy[data.language];
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
-  const [exposure, setExposure] = useState<'checking' | 'card' | 'password' | null>(null);
   const safe = r.verdict === 'likely_legitimate';
   const danger = r.verdict === 'scam' || r.verdict === 'likely_scam';
   async function send() {
@@ -152,7 +154,6 @@ function ResultCard({ data, refresh }: { data: CheckResponse; refresh: () => Pro
   }
   return <div className={`panel result-panel ${safe ? 'safe' : danger ? 'danger' : 'unclear'}`}>
     <div className="result-top"><p className="eyebrow">{t.result}</p><span className="result-mode">{data.mode === 'mock' ? 'SAVED RESPONSE' : 'LIVE ANALYSIS'}</span></div>
-    <div className="result-followup"><Followup language={data.language} exposure={exposure} onChange={setExposure}/></div>
     <div className="verdict-heading"><span className="verdict-icon">{safe ? <ShieldCheck size={27}/> : danger ? <ShieldAlert size={27}/> : <CircleHelp size={27}/>}</span><h2>{copy[data.language][r.verdict]}</h2></div>
     <div className="result-overview">
       <p className="result-explanation">{r.explanation_in_user_language}</p>

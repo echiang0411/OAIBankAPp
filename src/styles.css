@@ -21,12 +21,13 @@
 
 button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:inherit;transition:border-color .15s,box-shadow .15s}button.stat-card:hover{border-color:#8ca97a;box-shadow:0 3px 12px #234e3f12}button.stat-card:focus-visible{outline:3px solid #234e3f;outline-offset:4px}#analyst-records{scroll-margin-top:20px}#analyst-records:focus{outline:none}
 
-/* Give completed checks the full width, with next steps beside the explanation. */
-.customer-grid.has-result{grid-template-columns:minmax(0,1fr)}
-.has-result .result-column{grid-row:1;scroll-margin-top:110px}
-.has-result .input-column{grid-row:2;width:100%;max-width:660px;margin-inline:auto}
+/* Keep follow-up choices above the side-by-side input and result. */
+.customer-grid>.result-followup{grid-column:1/-1;grid-row:1;margin:0;scroll-margin-top:110px}
+.has-result .input-column{grid-row:2;grid-column:1}
+.has-result .result-column{grid-row:2;grid-column:2}
+.result-followup:focus{outline:none}
 .result-column:focus{outline:none}
-.result-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr;grid-template-areas:"explanation actions" "flags actions";gap:24px 32px;margin-top:24px;align-items:start}
+.result-overview{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"explanation" "flags" "actions";gap:22px;margin-top:24px;align-items:start}
 .result-overview .result-explanation{grid-area:explanation;margin:0;font-size:16px;line-height:1.8}
 .result-overview .flags{grid-area:flags}
 .result-overview .flags h3{font-size:16px}
@@ -44,6 +45,6 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 .result-actions .report-row button{background:#fff;min-height:48px;font-size:15px}
 .result-followup .recovery-actions{padding:0;background:transparent}
 .result-actions .human-note{line-height:1.7}
-@media(max-width:760px){.result-overview{grid-template-columns:minmax(0,1fr);grid-template-areas:"explanation" "actions" "flags";gap:22px}.result-actions{padding:18px}.has-result .result-column{scroll-margin-top:140px}.result-overview .result-explanation{font-size:15px}}
+@media(max-width:760px){.result-overview{grid-template-columns:minmax(0,1fr);grid-template-areas:"explanation" "flags" "actions";gap:22px}.result-actions{padding:18px}.customer-grid.has-result{grid-template-columns:minmax(0,1fr)}.has-result .result-column{grid-column:1;grid-row:2}.has-result .input-column{grid-column:1;grid-row:3}.customer-grid>.result-followup{scroll-margin-top:140px}.result-overview .result-explanation{font-size:15px}}
 
 @media(max-width:760px){.result-followup{padding:18px;margin-bottom:24px}.result-followup .exposure-options{grid-template-columns:1fr}.result-followup .followup h3{font-size:18px}}

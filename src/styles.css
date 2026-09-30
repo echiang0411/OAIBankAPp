@@ -20,3 +20,28 @@
 .eval-panel th:first-child,.eval-panel td:first-child{width:170px;min-width:150px}.eval-panel td:nth-child(2){min-width:280px;max-width:530px;white-space:normal;overflow-wrap:anywhere}.eval-date{font-variant-numeric:tabular-nums}.eval-date time{display:block;line-height:1.7}
 
 button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:inherit;transition:border-color .15s,box-shadow .15s}button.stat-card:hover{border-color:#8ca97a;box-shadow:0 3px 12px #234e3f12}button.stat-card:focus-visible{outline:3px solid #234e3f;outline-offset:4px}#analyst-records{scroll-margin-top:20px}#analyst-records:focus{outline:none}
+
+/* Give completed checks the full width, with next steps beside the explanation. */
+.customer-grid.has-result{grid-template-columns:minmax(0,1fr)}
+.has-result .result-column{grid-row:1;scroll-margin-top:110px}
+.has-result .input-column{grid-row:2;width:100%;max-width:660px;margin-inline:auto}
+.result-column:focus{outline:none}
+.result-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr;grid-template-areas:"explanation actions" "flags actions";gap:24px 32px;margin-top:24px;align-items:start}
+.result-overview .result-explanation{grid-area:explanation;margin:0;font-size:16px;line-height:1.8}
+.result-overview .flags{grid-area:flags}
+.result-overview .flags h3{font-size:16px}
+.result-overview .flags li{font-size:15px}
+.result-actions{grid-area:actions;min-width:0;padding:22px;border:1px solid #c8d9bb;border-radius:12px;background:#f1f6eb}
+.result-actions .next-step{padding:0;margin:0;border:0;background:transparent}
+.result-actions .next-step h3{font-size:20px;line-height:1.4}
+.result-actions .next-step p,.result-actions .safe-steps{font-size:16px;line-height:1.75}
+.result-actions .next-step svg{flex-shrink:0}
+.result-actions .followup{margin-top:20px;padding-top:18px;border-color:#d1dfc5}
+.result-actions .followup h3{font-size:16px}
+.result-actions .exposure-options{display:grid;grid-template-columns:1fr;gap:8px}
+.result-actions .exposure-options button{min-height:48px;font-size:15px;background:#fff}
+.result-actions .exposure-options button.selected{background:#dceace;border-color:#6e8e57}
+.result-actions .report-row button{background:#fff;min-height:48px;font-size:15px}
+.result-actions .recovery-actions{padding:0;background:transparent}
+.result-actions .human-note{line-height:1.7}
+@media(max-width:760px){.result-overview{grid-template-columns:minmax(0,1fr);grid-template-areas:"explanation" "actions" "flags";gap:22px}.result-actions{padding:18px}.has-result .result-column{scroll-margin-top:140px}.result-overview .result-explanation{font-size:15px}}

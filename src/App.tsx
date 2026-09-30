@@ -27,7 +27,7 @@ export default function App() {
   useEffect(() => { void refresh(); const timer = setInterval(() => void refreshNotifications(), 5000); return () => clearInterval(timer); }, []);
   return <div className="app-shell">
     <header className="site-header"><div className="header-inner">
-      <button className="brand" onClick={() => setScreen('customer')} aria-label="Harbot National Bank home"><span className="brand-mark"><Anchor size={23} strokeWidth={1.7}/></span><span>harbot<span className="brand-sub">NATIONAL BANK</span></span></button>
+      <button className="brand" onClick={() => setScreen('customer')} aria-label="Harbor National Bank home"><span className="brand-mark"><Anchor size={23} strokeWidth={1.7}/></span><span>Harbor<span className="brand-sub">NATIONAL BANK</span></span></button>
       <nav aria-label="Demo views"><button className={screen === 'customer' ? 'nav-button active' : 'nav-button'} onClick={() => setScreen('customer')}><ShieldCheck size={17}/> Customer view</button><button className={screen === 'analyst' ? 'nav-button active' : 'nav-button'} onClick={() => setScreen('analyst')}><SlidersHorizontal size={16}/> Analyst view{Boolean(meta?.pendingCount) && <span className="nav-count">{meta?.pendingCount}</span>}</button></nav>
       <div className="header-status"><span className={`mode-badge ${meta?.mode === 'live' ? 'live' : ''}`}><span/>{meta?.mode === 'live' ? 'Live API' : 'Mock mode'}</span><span className="demo-label">LOCAL DEMO</span></div>
     </div></header>
@@ -64,6 +64,12 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!result) return;
+    resultRef.current?.focus({ preventScroll: true });
+    resultRef.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+  }, [result]);
   const t = ui[language], g = guideCopy[language];
   useEffect(() => { api<Demo[]>('/demos').then(setDemos).catch(e => setError(e.message)); }, []);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
@@ -122,7 +128,7 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
         </form>
         <div className="samples"><p className="eyebrow">{t.examples}</p><div className="sample-buttons">{[{ id: 'ups-fee', title: t.ups, Icon: Package }, { id: 'harbor-alert', title: t.bank, Icon: Landmark }, { id: 'injection', title: t.injection, Icon: CodeXml }].map(({ id, title, Icon }) => <button key={id} disabled={busy} className={selected === id ? 'selected' : ''} onClick={() => void pickDemo(id).catch(e => setError(e.message))}><Icon size={15}/>{title}</button>)}</div><p className="synthetic-note">{t.synthetic}</p></div>
       </div>
-      <div className="result-column" aria-live="polite" aria-busy={busy}>
+      <div className="result-column" ref={resultRef} tabIndex={-1} role="region" aria-label={t.result} aria-live="polite" aria-busy={busy}>
         {busy ? <div className="panel loading-panel"><div className="loading-symbol"><ShieldCheck size={36}/><LoaderCircle className="spin" size={65}/></div><h2>{t.checking}</h2><p>{meta?.mode === 'live' ? g.loadingLive : g.loadingMock}</p></div> : result ? <ResultCard key={result.id} data={result} refresh={refresh}/> : <aside className="guide-panel"><div className="guide-art" aria-hidden="true"><div className="art-message"><span/><span/><span/><div className="art-link"><LockKeyhole size={12}/> harbor.example</div></div><div className="art-shield"><ShieldCheck size={34}/></div><span className="art-spark"><Sparkles size={20}/></span></div><p className="eyebrow">{g.eyebrow}</p><h2>{g.title}</h2><p className="guide-description">{g.description}</p><div className="guide-steps"><div><span>01</span><p><strong>{g.share}</strong>{g.shareBody}</p></div><div><span>02</span><p><strong>{g.understand}</strong>{g.understandBody}</p></div><div><span>03</span><p><strong>{g.decide}</strong>{g.decideBody}</p></div></div><div className="guide-bottom"><ShieldCheck size={17}/><span>{g.policy}</span></div></aside>}
       </div>
     </div>
@@ -147,13 +153,17 @@ function ResultCard({ data, refresh }: { data: CheckResponse; refresh: () => Pro
   return <div className={`panel result-panel ${safe ? 'safe' : danger ? 'danger' : 'unclear'}`}>
     <div className="result-top"><p className="eyebrow">{t.result}</p><span className="result-mode">{data.mode === 'mock' ? 'SAVED RESPONSE' : 'LIVE ANALYSIS'}</span></div>
     <div className="verdict-heading"><span className="verdict-icon">{safe ? <ShieldCheck size={27}/> : danger ? <ShieldAlert size={27}/> : <CircleHelp size={27}/>}</span><h2>{copy[data.language][r.verdict]}</h2></div>
-    <p className="result-explanation">{r.explanation_in_user_language}</p>
-    <section className="flags"><h3>{t.flags}</h3>{r.red_flags.length ? <ul>{r.red_flags.map((flag, i) => <li key={i}><span>{i + 1}</span>{flag}</li>)}</ul> : <p className="no-flags"><CircleCheck size={17}/>{t.noFlags}</p>}</section>
-    <div className="next-step"><div><ShieldCheck size={19}/><h3>{t.next}</h3></div>{exposure === 'checking' ? <ul className="safe-steps">{f.safeSteps.map(step => <li key={step}>{step}</li>)}</ul> : <p>{r.recommended_action}</p>}</div>
-    {r.escalate_to_human && exposure !== 'checking' && <p className="human-note"><CircleHelp size={16}/>{t.human}</p>}
-    <Followup language={data.language} exposure={exposure} onChange={setExposure}/>
-    {!safe && <div className="report-row">{sent ? <p className="feedback-thanks" role="status"><CircleCheck size={18}/>{f.sent}</p> : <button className="secondary-button" disabled={sending} onClick={() => void send()}>{sending ? <LoaderCircle size={16} className="spin"/> : <ShieldAlert size={16}/>} {danger ? f.report : f.escalation}</button>}</div>}
-    {error && <p className="error-message" role="alert">{error}</p>}
+    <div className="result-overview">
+      <p className="result-explanation">{r.explanation_in_user_language}</p>
+      <section className="result-actions" aria-label={t.next}>
+        <div className="next-step"><div><ShieldCheck size={22}/><h3>{t.next}</h3></div>{exposure === 'checking' ? <ul className="safe-steps">{f.safeSteps.map(step => <li key={step}>{step}</li>)}</ul> : <p>{r.recommended_action}</p>}</div>
+        {r.escalate_to_human && exposure !== 'checking' && <p className="human-note"><CircleHelp size={16}/>{t.human}</p>}
+        <Followup language={data.language} exposure={exposure} onChange={setExposure}/>
+        {!safe && <div className="report-row">{sent ? <p className="feedback-thanks" role="status"><CircleCheck size={18}/>{f.sent}</p> : <button className="secondary-button" disabled={sending} onClick={() => void send()}>{sending ? <LoaderCircle size={16} className="spin"/> : <ShieldAlert size={16}/>} {danger ? f.report : f.escalation}</button>}</div>}
+        {error && <p className="error-message" role="alert">{error}</p>}
+      </section>
+      <section className="flags"><h3>{t.flags}</h3>{r.red_flags.length ? <ul>{r.red_flags.map((flag, i) => <li key={i}><span>{i + 1}</span>{flag}</li>)}</ul> : <p className="no-flags"><CircleCheck size={17}/>{t.noFlags}</p>}</section>
+    </div>
     <CheckDetails data={data}/>
   </div>;
 }

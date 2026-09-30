@@ -152,13 +152,13 @@ function ResultCard({ data, refresh }: { data: CheckResponse; refresh: () => Pro
   }
   return <div className={`panel result-panel ${safe ? 'safe' : danger ? 'danger' : 'unclear'}`}>
     <div className="result-top"><p className="eyebrow">{t.result}</p><span className="result-mode">{data.mode === 'mock' ? 'SAVED RESPONSE' : 'LIVE ANALYSIS'}</span></div>
+    <div className="result-followup"><Followup language={data.language} exposure={exposure} onChange={setExposure}/></div>
     <div className="verdict-heading"><span className="verdict-icon">{safe ? <ShieldCheck size={27}/> : danger ? <ShieldAlert size={27}/> : <CircleHelp size={27}/>}</span><h2>{copy[data.language][r.verdict]}</h2></div>
     <div className="result-overview">
       <p className="result-explanation">{r.explanation_in_user_language}</p>
       <section className="result-actions" aria-label={t.next}>
         <div className="next-step"><div><ShieldCheck size={22}/><h3>{t.next}</h3></div>{exposure === 'checking' ? <ul className="safe-steps">{f.safeSteps.map(step => <li key={step}>{step}</li>)}</ul> : <p>{r.recommended_action}</p>}</div>
         {r.escalate_to_human && exposure !== 'checking' && <p className="human-note"><CircleHelp size={16}/>{t.human}</p>}
-        <Followup language={data.language} exposure={exposure} onChange={setExposure}/>
         {!safe && <div className="report-row">{sent ? <p className="feedback-thanks" role="status"><CircleCheck size={18}/>{f.sent}</p> : <button className="secondary-button" disabled={sending} onClick={() => void send()}>{sending ? <LoaderCircle size={16} className="spin"/> : <ShieldAlert size={16}/>} {danger ? f.report : f.escalation}</button>}</div>}
         {error && <p className="error-message" role="alert">{error}</p>}
       </section>

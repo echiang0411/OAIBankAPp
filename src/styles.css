@@ -36,12 +36,14 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 .result-actions .next-step h3{font-size:20px;line-height:1.4}
 .result-actions .next-step p,.result-actions .safe-steps{font-size:16px;line-height:1.75}
 .result-actions .next-step svg{flex-shrink:0}
-.result-actions .followup{margin-top:20px;padding-top:18px;border-color:#d1dfc5}
-.result-actions .followup h3{font-size:16px}
-.result-actions .exposure-options{display:grid;grid-template-columns:1fr;gap:8px}
-.result-actions .exposure-options button{min-height:48px;font-size:15px;background:#fff}
-.result-actions .exposure-options button.selected{background:#dceace;border-color:#6e8e57}
+.result-followup{padding:22px;margin-bottom:28px;border:1px solid #c8d9bb;border-radius:12px;background:#f1f6eb}.result-followup .followup{margin:0;padding:0;border:0}
+.result-followup .followup h3{font-size:20px}
+.result-followup .exposure-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.result-followup .exposure-options button{min-height:48px;font-size:15px;background:#fff}
+.result-followup .exposure-options button.selected{background:#dceace;border-color:#6e8e57}
 .result-actions .report-row button{background:#fff;min-height:48px;font-size:15px}
-.result-actions .recovery-actions{padding:0;background:transparent}
+.result-followup .recovery-actions{padding:0;background:transparent}
 .result-actions .human-note{line-height:1.7}
 @media(max-width:760px){.result-overview{grid-template-columns:minmax(0,1fr);grid-template-areas:"explanation" "actions" "flags";gap:22px}.result-actions{padding:18px}.has-result .result-column{scroll-margin-top:140px}.result-overview .result-explanation{font-size:15px}}
+
+@media(max-width:760px){.result-followup{padding:18px;margin-bottom:24px}.result-followup .exposure-options{grid-template-columns:1fr}.result-followup .followup h3{font-size:18px}}

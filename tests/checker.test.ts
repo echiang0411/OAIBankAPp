@@ -320,3 +320,47 @@ test('a customer escalation after a completed random-sample review reopens the q
     assert.equal(store.notifications().length, 1);
   } finally { store.close(); }
 });
+
+test('customers can escalate every verdict without labeling it, and analysts resolve each escalation', async () => {
+  const check = await checkMessage({ text: demos[1].text, language: 'es', mode: 'mock' });
+  for (const verdict of ['scam', 'likely_scam', 'unclear', 'likely_legitimate'] as const) {
+    const store = openStore(':memory:');
+    try {
+      const item = { ...check, id: randomUUID(), result: { ...check.result, verdict, escalate_to_human: false } };
+      const before = store.evals().length;
+      assert.equal(store.submit(item, 'escalation').added, true);
+      assert.equal(store.submit(item, 'escalation').added, false);
+      const [review] = store.pending();
+      assert.equal(store.pending().length, 1);
+      assert.deepEqual(review.sources, ['escalation']);
+      assert.equal(review.analystLabel, undefined);
+      assert.equal(store.evals().length, before);
+      store.approve(review.id, 'likely_legitimate');
+      assert.equal(store.pending().length, 0);
+      assert.equal(store.notifications()[0].language, 'es');
+      assert.equal(store.notifications()[0].verdict, 'likely_legitimate');
+      assert.equal(store.evals().find(e => e.text === check.redactedText && e.language === 'es')?.label, 'likely_legitimate');
+    } finally { store.close(); }
+  }
+});
+
+test('report and escalation share a queue item, including an escalation after report approval', async () => {
+  const check = await checkMessage({ text: demos[0].text, language: 'en', mode: 'mock' });
+  for (const approveFirst of [false, true]) {
+    const store = openStore(':memory:');
+    try {
+      store.submit(check, 'report');
+      const review = store.pending()[0];
+      if (approveFirst) store.approve(review.id, 'scam');
+      assert.equal(store.notifications().length, 0);
+      store.submit(check, 'escalation');
+      assert.equal(store.pending().length, 1);
+      assert.equal(store.pending()[0].id, review.id);
+      assert.deepEqual(store.pending()[0].sources, ['report', 'escalation']);
+      assert.equal(store.pending()[0].analystLabel, undefined);
+      store.approve(review.id, 'scam');
+      assert.equal(store.notifications().length, 1);
+      assert.equal(store.notifications()[0].checkId, check.id);
+    } finally { store.close(); }
+  }
+});

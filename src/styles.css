@@ -48,3 +48,10 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 @media(max-width:760px){.result-overview{grid-template-columns:minmax(0,1fr);grid-template-areas:"explanation" "flags" "actions";gap:22px}.result-actions{padding:18px}.customer-grid.has-result{grid-template-columns:minmax(0,1fr)}.has-result .result-column{grid-column:1;grid-row:2}.has-result .input-column{grid-column:1;grid-row:3}.customer-grid>.result-followup{scroll-margin-top:140px}.result-overview .result-explanation{font-size:15px}}
 
 @media(max-width:760px){.result-followup{padding:18px;margin-bottom:24px}.result-followup .exposure-options{grid-template-columns:1fr}.result-followup .followup h3{font-size:18px}}
+
+.fraud-help{margin-top:20px}
+.fraud-help.recommended{padding:18px;background:#eef5e8;border:1px solid #c8d9bb;border-radius:10px}
+.fraud-help .human-note{margin:0 0 12px;font-size:14px;line-height:1.7}
+.fraud-help button{width:100%;min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px}
+.fraud-help button svg{flex-shrink:0}
+.fraud-help .feedback-thanks{line-height:1.7;align-items:flex-start}

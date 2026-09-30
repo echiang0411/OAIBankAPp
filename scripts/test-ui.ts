@@ -169,8 +169,8 @@ try {
     await page.locator('.check-button').click();
     await page.locator('.result-panel.unclear').waitFor();
     assert.equal(await page.locator('.recovery-actions').count(), 0);
-    await page.locator('.report-row button').click();
-    await page.locator('.report-row [role="status"]').waitFor();
+    await page.locator('.fraud-help button').click();
+    await page.locator('.fraud-help [role="status"]').waitFor();
     await page.getByRole('button', { name: /Analyst view/ }).click();
     await page.locator('.review-card').getByText('Escalation', { exact: true }).waitFor();
     await page.getByLabel("Analyst's expected verdict").selectOption('likely_legitimate');

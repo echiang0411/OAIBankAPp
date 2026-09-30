@@ -142,26 +142,30 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
 function ResultCard({ data, refresh, exposure }: { data: CheckResponse; refresh: () => Promise<void>; exposure: 'checking' | 'card' | 'password' | null }) {
   const { result: r } = data;
   const t = ui[data.language], f = followupCopy[data.language];
-  const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState<Array<'report' | 'escalation'>>([]);
+  const [sending, setSending] = useState<'report' | 'escalation' | null>(null);
   const [error, setError] = useState('');
   const safe = r.verdict === 'likely_legitimate';
   const danger = r.verdict === 'scam' || r.verdict === 'likely_scam';
-  async function send() {
-    setSending(true); setError('');
-    try { await api('/reports', { checkId: data.id, kind: danger ? 'report' : 'escalation' }); setSent(true); await refresh(); }
-    catch (e) { setError((e as Error).message); } finally { setSending(false); }
+  async function send(kind: 'report' | 'escalation') {
+    setSending(kind); setError('');
+    try { await api('/reports', { checkId: data.id, kind }); setSent(previous => [...new Set([...previous, kind])]); await refresh(); }
+    catch (e) { setError((e as Error).message); } finally { setSending(null); }
   }
   return <div className={`panel result-panel ${safe ? 'safe' : danger ? 'danger' : 'unclear'}`}>
     <div className="result-top"><p className="eyebrow">{t.result}</p><span className="result-mode">{data.mode === 'mock' ? 'SAVED RESPONSE' : 'LIVE ANALYSIS'}</span></div>
     <div className="verdict-heading"><span className="verdict-icon">{safe ? <ShieldCheck size={27}/> : danger ? <ShieldAlert size={27}/> : <CircleHelp size={27}/>}</span><h2>{copy[data.language][r.verdict]}</h2></div>
+    <div className={`fraud-help ${r.escalate_to_human || r.verdict === 'unclear' ? 'recommended' : ''}`}>
+      {(r.escalate_to_human || r.verdict === 'unclear') && <p className="human-note"><CircleHelp size={18}/>{t.human}</p>}
+      <button className={r.escalate_to_human || r.verdict === 'unclear' ? 'primary-button' : 'secondary-button'} disabled={Boolean(sending) || sent.includes('escalation')} onClick={() => void send('escalation')}>{sending === 'escalation' ? <LoaderCircle size={18} className="spin"/> : sent.includes('escalation') ? <CircleCheck size={18}/> : <CircleHelp size={18}/>} {f.escalation}</button>
+      {sent.length > 0 && <p className="feedback-thanks" role="status"><CircleCheck size={18}/>{f.sent}</p>}
+      {error && <p className="error-message" role="alert">{error}</p>}
+    </div>
     <div className="result-overview">
       <p className="result-explanation">{r.explanation_in_user_language}</p>
       <section className="result-actions" aria-label={t.next}>
         <div className="next-step"><div><ShieldCheck size={22}/><h3>{t.next}</h3></div>{exposure === 'checking' ? <ul className="safe-steps">{f.safeSteps.map(step => <li key={step}>{step}</li>)}</ul> : <p>{r.recommended_action}</p>}</div>
-        {r.escalate_to_human && exposure !== 'checking' && <p className="human-note"><CircleHelp size={16}/>{t.human}</p>}
-        {!safe && <div className="report-row">{sent ? <p className="feedback-thanks" role="status"><CircleCheck size={18}/>{f.sent}</p> : <button className="secondary-button" disabled={sending} onClick={() => void send()}>{sending ? <LoaderCircle size={16} className="spin"/> : <ShieldAlert size={16}/>} {danger ? f.report : f.escalation}</button>}</div>}
-        {error && <p className="error-message" role="alert">{error}</p>}
+        {danger && <div className="report-row"><button className="secondary-button" disabled={Boolean(sending) || sent.includes('report')} onClick={() => void send('report')}>{sending === 'report' ? <LoaderCircle size={16} className="spin"/> : sent.includes('report') ? <CircleCheck size={16}/> : <ShieldAlert size={16}/>} {f.report}</button></div>}
       </section>
       <section className="flags"><h3>{t.flags}</h3>{r.red_flags.length ? <ul>{r.red_flags.map((flag, i) => <li key={i}><span>{i + 1}</span>{flag}</li>)}</ul> : <p className="no-flags"><CircleCheck size={17}/>{t.noFlags}</p>}</section>
     </div>

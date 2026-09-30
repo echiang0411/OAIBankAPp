@@ -88,7 +88,7 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
       db.prepare('INSERT OR IGNORE INTO checks VALUES (?, ?, ?)').run(check.id, at, JSON.stringify(safe));
     },
     submit(check: CheckResponse, kind: 'report' | 'escalation') {
-      if ((kind === 'report' && !['scam', 'likely_scam'].includes(check.result.verdict)) || (kind === 'escalation' && check.result.verdict !== 'unclear')) throw new Error('This action is not available for the result verdict.');
+      if (kind === 'report' && !['scam', 'likely_scam'].includes(check.result.verdict)) throw new Error('This action is not available for the result verdict.');
       return queue(check, kind);
     },
     sample(now = new Date()) {

@@ -54,7 +54,7 @@ app.post('/api/reports', (req, res) => {
   const check = recentChecks.get(checkId);
   if (!check || check.expires < Date.now()) return res.status(410).json({ error: 'This result has expired. Check the message again before sending it to the fraud team.' });
   const verdict = check.value.result.verdict;
-  if ((kind === 'report' && !['scam', 'likely_scam'].includes(verdict)) || (kind === 'escalation' && verdict !== 'unclear')) return res.status(400).json({ error: 'This action is not available for this verdict.' });
+  if (kind === 'report' && !['scam', 'likely_scam'].includes(verdict)) return res.status(400).json({ error: 'This action is not available for this verdict.' });
   res.json(store.submit(check.value, kind));
 });
 app.get('/api/reviews', (_req, res) => res.json({ items: store.pending(), recentChecks: store.latestChecks(), evalCount: store.evals().length, historyCount: store.historyCount(), sampleSize: config.weeklySampleSize, lookbackDays: config.sampleLookbackDays, campaigns: store.campaigns(), campaignWindowDays: config.campaignWindowDays }));

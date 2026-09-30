@@ -27,7 +27,7 @@ export default function App() {
   useEffect(() => { void refresh(); const timer = setInterval(() => void refreshNotifications(), 5000); return () => clearInterval(timer); }, []);
   return <div className="app-shell">
     <header className="site-header"><div className="header-inner">
-      <button className="brand" onClick={() => setScreen('customer')} aria-label="Harbor home"><span className="brand-mark"><Anchor size={23} strokeWidth={1.7}/></span><span>harbor<span className="brand-sub">COMMUNITY BANK</span></span></button>
+      <button className="brand" onClick={() => setScreen('customer')} aria-label="Harbot National Bank home"><span className="brand-mark"><Anchor size={23} strokeWidth={1.7}/></span><span>harbot<span className="brand-sub">NATIONAL BANK</span></span></button>
       <nav aria-label="Demo views"><button className={screen === 'customer' ? 'nav-button active' : 'nav-button'} onClick={() => setScreen('customer')}><ShieldCheck size={17}/> Customer view</button><button className={screen === 'analyst' ? 'nav-button active' : 'nav-button'} onClick={() => setScreen('analyst')}><SlidersHorizontal size={16}/> Analyst view{Boolean(meta?.pendingCount) && <span className="nav-count">{meta?.pendingCount}</span>}</button></nav>
       <div className="header-status"><span className={`mode-badge ${meta?.mode === 'live' ? 'live' : ''}`}><span/>{meta?.mode === 'live' ? 'Live API' : 'Mock mode'}</span><span className="demo-label">LOCAL DEMO</span></div>
     </div></header>

@@ -1,0 +1,4652 @@
+{
+  "c30ece51dab8c940025edf65805bfd1469a73805325fb1a2fc6f19528c846163:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "An unexpected small delivery fee is used to request payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "An unexpected small delivery fee is used to request payment details. Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "An unexpected small delivery fee is used to request payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "An unexpected small delivery fee is used to request payment details. Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "c30ece51dab8c940025edf65805bfd1469a73805325fb1a2fc6f19528c846163:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以少量、未預期的配送費用索取付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "以少量、未預期的配送費用索取付款資料。 催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以少量、未預期的配送費用索取付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "以少量、未預期的配送費用索取付款資料。 催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "c30ece51dab8c940025edf65805bfd1469a73805325fb1a2fc6f19528c846163:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以小额、意料之外的配送费用索取付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "以小额、意料之外的配送费用索取付款资料。 催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以小额、意料之外的配送费用索取付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "以小额、意料之外的配送费用索取付款资料。 催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "c30ece51dab8c940025edf65805bfd1469a73805325fb1a2fc6f19528c846163:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "c30ece51dab8c940025edf65805bfd1469a73805325fb1a2fc6f19528c846163:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "50051c298e06f8aa5f8754829b81190f3d1db19a09115a28379acde787e15749:en": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "50051c298e06f8aa5f8754829b81190f3d1db19a09115a28379acde787e15749:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "50051c298e06f8aa5f8754829b81190f3d1db19a09115a28379acde787e15749:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "50051c298e06f8aa5f8754829b81190f3d1db19a09115a28379acde787e15749:es": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "50051c298e06f8aa5f8754829b81190f3d1db19a09115a28379acde787e15749:ar": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "8d0bde75b9eec0bcb9d17561f0b065dedf72677dcd894d1988ec8e5251ac256b:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "This message contains instructions trying to change the checker’s answer."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. Pressure to act quickly discourages you from checking first. This message contains instructions trying to change the checker’s answer.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "This message contains instructions trying to change the checker’s answer."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. Pressure to act quickly discourages you from checking first. This message contains instructions trying to change the checker’s answer.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "8d0bde75b9eec0bcb9d17561f0b065dedf72677dcd894d1988ec8e5251ac256b:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "訊息含有試圖改變檢查結果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 催促您立即行動，讓您來不及查證。 訊息含有試圖改變檢查結果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "訊息含有試圖改變檢查結果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 催促您立即行動，讓您來不及查證。 訊息含有試圖改變檢查結果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "8d0bde75b9eec0bcb9d17561f0b065dedf72677dcd894d1988ec8e5251ac256b:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "消息含有试图改变检查结果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 催促您立即行动，让您来不及核实。 消息含有试图改变检查结果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "消息含有试图改变检查结果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 催促您立即行动，让您来不及核实。 消息含有试图改变检查结果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "8d0bde75b9eec0bcb9d17561f0b065dedf72677dcd894d1988ec8e5251ac256b:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "8d0bde75b9eec0bcb9d17561f0b065dedf72677dcd894d1988ec8e5251ac256b:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "a6aedcb9059282d1aec884c217a341cd42c5c005cf165cbe3d28bd3142d8c697:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "a6aedcb9059282d1aec884c217a341cd42c5c005cf165cbe3d28bd3142d8c697:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "a6aedcb9059282d1aec884c217a341cd42c5c005cf165cbe3d28bd3142d8c697:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "a6aedcb9059282d1aec884c217a341cd42c5c005cf165cbe3d28bd3142d8c697:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "a6aedcb9059282d1aec884c217a341cd42c5c005cf165cbe3d28bd3142d8c697:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": "E-ZPass",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "19c683a4d2206bb6cd69f16f8094151ae5346fcfde900c83466100283c935b96:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "A request for gift card codes to receive a prize is a scam signal."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "A request for gift card codes to receive a prize is a scam signal.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "A request for gift card codes to receive a prize is a scam signal."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "A request for gift card codes to receive a prize is a scam signal.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "19c683a4d2206bb6cd69f16f8094151ae5346fcfde900c83466100283c935b96:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "要求用禮品卡代碼領獎是詐騙警訊。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "要求用禮品卡代碼領獎是詐騙警訊。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "要求用禮品卡代碼領獎是詐騙警訊。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "要求用禮品卡代碼領獎是詐騙警訊。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "19c683a4d2206bb6cd69f16f8094151ae5346fcfde900c83466100283c935b96:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "要求用礼品卡代码领奖是诈骗信号。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "要求用礼品卡代码领奖是诈骗信号。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "要求用礼品卡代码领奖是诈骗信号。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "要求用礼品卡代码领奖是诈骗信号。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "19c683a4d2206bb6cd69f16f8094151ae5346fcfde900c83466100283c935b96:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Pedir códigos de tarjetas de regalo para recibir un premio es una señal de estafa."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Pedir códigos de tarjetas de regalo para recibir un premio es una señal de estafa.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Pedir códigos de tarjetas de regalo para recibir un premio es una señal de estafa."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Pedir códigos de tarjetas de regalo para recibir un premio es una señal de estafa.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "19c683a4d2206bb6cd69f16f8094151ae5346fcfde900c83466100283c935b96:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "طلب رموز بطاقات الهدايا لاستلام جائزة علامة على الاحتيال."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "طلب رموز بطاقات الهدايا لاستلام جائزة علامة على الاحتيال.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "طلب رموز بطاقات الهدايا لاستلام جائزة علامة على الاحتيال."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "طلب رموز بطاقات الهدايا لاستلام جائزة علامة على الاحتيال.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "ffa3fd0e7eb5283bda24649bad5ab697af75e389fb024225736074229f7a8b71:en": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "There is too little information to verify the sender or request."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "We could not verify this message. Contact the bank through the app or the number on your card before taking action.",
+        "explanation_in_user_language": "There is too little information to verify the sender or request.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "There is too little information to verify the sender or request."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "We could not verify this message. Contact the bank through the app or the number on your card before taking action.",
+        "explanation_in_user_language": "There is too little information to verify the sender or request.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "ffa3fd0e7eb5283bda24649bad5ab697af75e389fb024225736074229f7a8b71:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "資訊不足，無法確認寄件者或要求。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我們無法確認這則訊息。採取行動前，請透過銀行應用程式或卡片上的電話號碼聯絡銀行。",
+        "explanation_in_user_language": "資訊不足，無法確認寄件者或要求。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "資訊不足，無法確認寄件者或要求。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我們無法確認這則訊息。採取行動前，請透過銀行應用程式或卡片上的電話號碼聯絡銀行。",
+        "explanation_in_user_language": "資訊不足，無法確認寄件者或要求。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "ffa3fd0e7eb5283bda24649bad5ab697af75e389fb024225736074229f7a8b71:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "信息不足，无法确认发件人或请求。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我们无法确认这条消息。采取行动前，请通过银行应用或卡片上的电话号码联系银行。",
+        "explanation_in_user_language": "信息不足，无法确认发件人或请求。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "信息不足，无法确认发件人或请求。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我们无法确认这条消息。采取行动前，请通过银行应用或卡片上的电话号码联系银行。",
+        "explanation_in_user_language": "信息不足，无法确认发件人或请求。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "ffa3fd0e7eb5283bda24649bad5ab697af75e389fb024225736074229f7a8b71:es": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "No hay información suficiente para verificar al remitente o la solicitud."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No pudimos verificar este mensaje. Antes de actuar, contacta con el banco desde la aplicación o llama al número de tu tarjeta.",
+        "explanation_in_user_language": "No hay información suficiente para verificar al remitente o la solicitud.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "No hay información suficiente para verificar al remitente o la solicitud."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No pudimos verificar este mensaje. Antes de actuar, contacta con el banco desde la aplicación o llama al número de tu tarjeta.",
+        "explanation_in_user_language": "No hay información suficiente para verificar al remitente o la solicitud.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "ffa3fd0e7eb5283bda24649bad5ab697af75e389fb024225736074229f7a8b71:ar": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "لا توجد معلومات كافية للتحقق من المرسل أو الطلب."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لم نتمكن من التحقق من هذه الرسالة. تواصل مع البنك عبر التطبيق أو الرقم الموجود على بطاقتك قبل اتخاذ أي إجراء.",
+        "explanation_in_user_language": "لا توجد معلومات كافية للتحقق من المرسل أو الطلب.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "لا توجد معلومات كافية للتحقق من المرسل أو الطلب."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لم نتمكن من التحقق من هذه الرسالة. تواصل مع البنك عبر التطبيق أو الرقم الموجود على بطاقتك قبل اتخاذ أي إجراء.",
+        "explanation_in_user_language": "لا توجد معلومات كافية للتحقق من المرسل أو الطلب.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2453bf08ce953c079a23db6e937b59ba1367ce5eecfa9b35cf60c4758815b268:en": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2453bf08ce953c079a23db6e937b59ba1367ce5eecfa9b35cf60c4758815b268:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2453bf08ce953c079a23db6e937b59ba1367ce5eecfa9b35cf60c4758815b268:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2453bf08ce953c079a23db6e937b59ba1367ce5eecfa9b35cf60c4758815b268:es": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2453bf08ce953c079a23db6e937b59ba1367ce5eecfa9b35cf60c4758815b268:ar": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "UPS",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "e2570a061259ee5b9cd43e0c3ca2fa302c40a1352776def346cd2b47581fd841:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "The message requests a password, security code, or payment details."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "The message requests a password, security code, or payment details."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "e2570a061259ee5b9cd43e0c3ca2fa302c40a1352776def346cd2b47581fd841:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "e2570a061259ee5b9cd43e0c3ca2fa302c40a1352776def346cd2b47581fd841:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "e2570a061259ee5b9cd43e0c3ca2fa302c40a1352776def346cd2b47581fd841:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "e2570a061259ee5b9cd43e0c3ca2fa302c40a1352776def346cd2b47581fd841:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "cb04c59f2eed6996df8dbd448ecb2cac150d6548c90a80badefafab8d4aa0405:en": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "cb04c59f2eed6996df8dbd448ecb2cac150d6548c90a80badefafab8d4aa0405:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "cb04c59f2eed6996df8dbd448ecb2cac150d6548c90a80badefafab8d4aa0405:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "cb04c59f2eed6996df8dbd448ecb2cac150d6548c90a80badefafab8d4aa0405:es": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "cb04c59f2eed6996df8dbd448ecb2cac150d6548c90a80badefafab8d4aa0405:ar": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "28b9c47ad3f2ee2bc695be7c745edd4430ceb67182f5011aea363372beea565d:en": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "28b9c47ad3f2ee2bc695be7c745edd4430ceb67182f5011aea363372beea565d:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "28b9c47ad3f2ee2bc695be7c745edd4430ceb67182f5011aea363372beea565d:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "28b9c47ad3f2ee2bc695be7c745edd4430ceb67182f5011aea363372beea565d:es": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "28b9c47ad3f2ee2bc695be7c745edd4430ceb67182f5011aea363372beea565d:ar": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "21a1500f96bab272087c33024f284870fac584716fac772eda24c43dd614ea17:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "An unexpected small delivery fee is used to request payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "An unexpected small delivery fee is used to request payment details. Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "An unexpected small delivery fee is used to request payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "An unexpected small delivery fee is used to request payment details. Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "21a1500f96bab272087c33024f284870fac584716fac772eda24c43dd614ea17:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以少量、未預期的配送費用索取付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "以少量、未預期的配送費用索取付款資料。 催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以少量、未預期的配送費用索取付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "以少量、未預期的配送費用索取付款資料。 催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "21a1500f96bab272087c33024f284870fac584716fac772eda24c43dd614ea17:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以小额、意料之外的配送费用索取付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "以小额、意料之外的配送费用索取付款资料。 催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以小额、意料之外的配送费用索取付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "以小额、意料之外的配送费用索取付款资料。 催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "21a1500f96bab272087c33024f284870fac584716fac772eda24c43dd614ea17:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "21a1500f96bab272087c33024f284870fac584716fac772eda24c43dd614ea17:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "406dcfd42c4552e7386236ad4c4fba59d10344da84635744cf66e57579067fb9:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "406dcfd42c4552e7386236ad4c4fba59d10344da84635744cf66e57579067fb9:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "406dcfd42c4552e7386236ad4c4fba59d10344da84635744cf66e57579067fb9:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "406dcfd42c4552e7386236ad4c4fba59d10344da84635744cf66e57579067fb9:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "406dcfd42c4552e7386236ad4c4fba59d10344da84635744cf66e57579067fb9:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4d6481c5369cf92d81358754fba50a6d9bdff2e13535c3cc513ab39332272ba7:en": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4d6481c5369cf92d81358754fba50a6d9bdff2e13535c3cc513ab39332272ba7:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4d6481c5369cf92d81358754fba50a6d9bdff2e13535c3cc513ab39332272ba7:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4d6481c5369cf92d81358754fba50a6d9bdff2e13535c3cc513ab39332272ba7:es": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4d6481c5369cf92d81358754fba50a6d9bdff2e13535c3cc513ab39332272ba7:ar": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "bc173567470bd94d3e9d76ea7088d7a0079fae2fea4a4daa3f6b2137bce914d2:en": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "bc173567470bd94d3e9d76ea7088d7a0079fae2fea4a4daa3f6b2137bce914d2:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "bc173567470bd94d3e9d76ea7088d7a0079fae2fea4a4daa3f6b2137bce914d2:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "bc173567470bd94d3e9d76ea7088d7a0079fae2fea4a4daa3f6b2137bce914d2:es": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "bc173567470bd94d3e9d76ea7088d7a0079fae2fea4a4daa3f6b2137bce914d2:ar": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9eaef0dd8bb25ecb0ba117208f8db2dd90a3fbe03834858f419afdb4fe6d6e11:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Guaranteed unusually high returns and cryptocurrency transfers are warning signs."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "Guaranteed unusually high returns and cryptocurrency transfers are warning signs.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Guaranteed unusually high returns and cryptocurrency transfers are warning signs."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "Guaranteed unusually high returns and cryptocurrency transfers are warning signs.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9eaef0dd8bb25ecb0ba117208f8db2dd90a3fbe03834858f419afdb4fe6d6e11:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "保證異常高報酬並要求轉入加密貨幣是警訊。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "保證異常高報酬並要求轉入加密貨幣是警訊。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "保證異常高報酬並要求轉入加密貨幣是警訊。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "保證異常高報酬並要求轉入加密貨幣是警訊。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9eaef0dd8bb25ecb0ba117208f8db2dd90a3fbe03834858f419afdb4fe6d6e11:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "保证异常高回报并要求转入加密货币是警示信号。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "保证异常高回报并要求转入加密货币是警示信号。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "保证异常高回报并要求转入加密货币是警示信号。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "保证异常高回报并要求转入加密货币是警示信号。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9eaef0dd8bb25ecb0ba117208f8db2dd90a3fbe03834858f419afdb4fe6d6e11:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Las ganancias inusualmente altas garantizadas y las transferencias de criptomonedas son señales de alerta."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Las ganancias inusualmente altas garantizadas y las transferencias de criptomonedas son señales de alerta.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Las ganancias inusualmente altas garantizadas y las transferencias de criptomonedas son señales de alerta."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Las ganancias inusualmente altas garantizadas y las transferencias de criptomonedas son señales de alerta.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9eaef0dd8bb25ecb0ba117208f8db2dd90a3fbe03834858f419afdb4fe6d6e11:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "الأرباح المرتفعة بشكل غير عادي والمضمونة وطلبات تحويل العملات المشفرة علامات تحذير."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "الأرباح المرتفعة بشكل غير عادي والمضمونة وطلبات تحويل العملات المشفرة علامات تحذير.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "الأرباح المرتفعة بشكل غير عادي والمضمونة وطلبات تحويل العملات المشفرة علامات تحذير."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "الأرباح المرتفعة بشكل غير عادي والمضمونة وطلبات تحويل العملات المشفرة علامات تحذير.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f8d42df7029d382fda75454a3d4ee0dc0f8e1ec3e0712c31d09ba0bcaf8ed5c7:en": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f8d42df7029d382fda75454a3d4ee0dc0f8e1ec3e0712c31d09ba0bcaf8ed5c7:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f8d42df7029d382fda75454a3d4ee0dc0f8e1ec3e0712c31d09ba0bcaf8ed5c7:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f8d42df7029d382fda75454a3d4ee0dc0f8e1ec3e0712c31d09ba0bcaf8ed5c7:es": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f8d42df7029d382fda75454a3d4ee0dc0f8e1ec3e0712c31d09ba0bcaf8ed5c7:ar": {
+    "initial": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "b11538c921b80581dc16f949e2e163968f6805db8b5bdef95cd08a3f1840d330:en": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "There is too little information to verify the sender or request."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "We could not verify this message. Contact the bank through the app or the number on your card before taking action.",
+        "explanation_in_user_language": "There is too little information to verify the sender or request.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "There is too little information to verify the sender or request."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "We could not verify this message. Contact the bank through the app or the number on your card before taking action.",
+        "explanation_in_user_language": "There is too little information to verify the sender or request.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "b11538c921b80581dc16f949e2e163968f6805db8b5bdef95cd08a3f1840d330:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "資訊不足，無法確認寄件者或要求。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我們無法確認這則訊息。採取行動前，請透過銀行應用程式或卡片上的電話號碼聯絡銀行。",
+        "explanation_in_user_language": "資訊不足，無法確認寄件者或要求。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "資訊不足，無法確認寄件者或要求。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我們無法確認這則訊息。採取行動前，請透過銀行應用程式或卡片上的電話號碼聯絡銀行。",
+        "explanation_in_user_language": "資訊不足，無法確認寄件者或要求。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "b11538c921b80581dc16f949e2e163968f6805db8b5bdef95cd08a3f1840d330:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "信息不足，无法确认发件人或请求。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我们无法确认这条消息。采取行动前，请通过银行应用或卡片上的电话号码联系银行。",
+        "explanation_in_user_language": "信息不足，无法确认发件人或请求。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "信息不足，无法确认发件人或请求。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我们无法确认这条消息。采取行动前，请通过银行应用或卡片上的电话号码联系银行。",
+        "explanation_in_user_language": "信息不足，无法确认发件人或请求。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "b11538c921b80581dc16f949e2e163968f6805db8b5bdef95cd08a3f1840d330:es": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "No hay información suficiente para verificar al remitente o la solicitud."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No pudimos verificar este mensaje. Antes de actuar, contacta con el banco desde la aplicación o llama al número de tu tarjeta.",
+        "explanation_in_user_language": "No hay información suficiente para verificar al remitente o la solicitud.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "No hay información suficiente para verificar al remitente o la solicitud."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No pudimos verificar este mensaje. Antes de actuar, contacta con el banco desde la aplicación o llama al número de tu tarjeta.",
+        "explanation_in_user_language": "No hay información suficiente para verificar al remitente o la solicitud.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "b11538c921b80581dc16f949e2e163968f6805db8b5bdef95cd08a3f1840d330:ar": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "لا توجد معلومات كافية للتحقق من المرسل أو الطلب."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لم نتمكن من التحقق من هذه الرسالة. تواصل مع البنك عبر التطبيق أو الرقم الموجود على بطاقتك قبل اتخاذ أي إجراء.",
+        "explanation_in_user_language": "لا توجد معلومات كافية للتحقق من المرسل أو الطلب.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "لا توجد معلومات كافية للتحقق من المرسل أو الطلب."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لم نتمكن من التحقق من هذه الرسالة. تواصل مع البنك عبر التطبيق أو الرقم الموجود على بطاقتك قبل اتخاذ أي إجراء.",
+        "explanation_in_user_language": "لا توجد معلومات كافية للتحقق من المرسل أو الطلب.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9b021b9ba3c28449747257a6dab1333dfec0b0ce798296f5bc7b8ba8fd9a9b31:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "This message contains instructions trying to change the checker’s answer."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. This message contains instructions trying to change the checker’s answer.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "This message contains instructions trying to change the checker’s answer."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. This message contains instructions trying to change the checker’s answer.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9b021b9ba3c28449747257a6dab1333dfec0b0ce798296f5bc7b8ba8fd9a9b31:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "訊息含有試圖改變檢查結果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 訊息含有試圖改變檢查結果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "訊息含有試圖改變檢查結果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 訊息含有試圖改變檢查結果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9b021b9ba3c28449747257a6dab1333dfec0b0ce798296f5bc7b8ba8fd9a9b31:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "消息含有试图改变检查结果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 消息含有试图改变检查结果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "消息含有试图改变检查结果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 消息含有试图改变检查结果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9b021b9ba3c28449747257a6dab1333dfec0b0ce798296f5bc7b8ba8fd9a9b31:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "9b021b9ba3c28449747257a6dab1333dfec0b0ce798296f5bc7b8ba8fd9a9b31:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "7cc00da6accc47316f22342db7659f18c17ace5ad5cc3838922517dab1a91ad7:en": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "An unexpected new number asks for money and discourages a phone call.",
+          "Pressure to act quickly discourages you from checking first."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "An unexpected new number asks for money and discourages a phone call. Pressure to act quickly discourages you from checking first.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "An unexpected new number asks for money and discourages a phone call.",
+          "Pressure to act quickly discourages you from checking first."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "An unexpected new number asks for money and discourages a phone call. Pressure to act quickly discourages you from checking first.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "7cc00da6accc47316f22342db7659f18c17ace5ad5cc3838922517dab1a91ad7:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "陌生新號碼要求匯款，並阻止您打電話確認。",
+          "催促您立即行動，讓您來不及查證。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "陌生新號碼要求匯款，並阻止您打電話確認。 催促您立即行動，讓您來不及查證。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "陌生新號碼要求匯款，並阻止您打電話確認。",
+          "催促您立即行動，讓您來不及查證。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "陌生新號碼要求匯款，並阻止您打電話確認。 催促您立即行動，讓您來不及查證。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "7cc00da6accc47316f22342db7659f18c17ace5ad5cc3838922517dab1a91ad7:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "陌生新号码要求转账，并阻止您打电话确认。",
+          "催促您立即行动，让您来不及核实。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "陌生新号码要求转账，并阻止您打电话确认。 催促您立即行动，让您来不及核实。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "陌生新号码要求转账，并阻止您打电话确认。",
+          "催促您立即行动，让您来不及核实。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "陌生新号码要求转账，并阻止您打电话确认。 催促您立即行动，让您来不及核实。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "7cc00da6accc47316f22342db7659f18c17ace5ad5cc3838922517dab1a91ad7:es": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "Un número nuevo inesperado pide dinero e intenta evitar una llamada.",
+          "La presión para actuar rápido intenta impedir que verifiques primero."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Un número nuevo inesperado pide dinero e intenta evitar una llamada. La presión para actuar rápido intenta impedir que verifiques primero.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "Un número nuevo inesperado pide dinero e intenta evitar una llamada.",
+          "La presión para actuar rápido intenta impedir que verifiques primero."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Un número nuevo inesperado pide dinero e intenta evitar una llamada. La presión para actuar rápido intenta impedir que verifiques primero.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "7cc00da6accc47316f22342db7659f18c17ace5ad5cc3838922517dab1a91ad7:ar": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "رقم جديد غير متوقع يطلب المال ويمنع الاتصال للتحقق.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "رقم جديد غير متوقع يطلب المال ويمنع الاتصال للتحقق. الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_scam",
+        "confidence": 0.87,
+        "red_flags": [
+          "رقم جديد غير متوقع يطلب المال ويمنع الاتصال للتحقق.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "رقم جديد غير متوقع يطلب المال ويمنع الاتصال للتحقق. الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4e3353bff69c118f2a81cba2e467dbf6268f57226d0afcf602ceef9b7deaf07a:en": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "There is too little information to verify the sender or request.",
+          "A shortened link hides its destination and cannot be verified without opening it. We did not open it."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "We could not verify this message. Contact the bank through the app or the number on your card before taking action.",
+        "explanation_in_user_language": "There is too little information to verify the sender or request. A shortened link hides its destination and cannot be verified without opening it. We did not open it.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "There is too little information to verify the sender or request.",
+          "A shortened link hides its destination and cannot be verified without opening it. We did not open it."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "We could not verify this message. Contact the bank through the app or the number on your card before taking action.",
+        "explanation_in_user_language": "There is too little information to verify the sender or request. A shortened link hides its destination and cannot be verified without opening it. We did not open it.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4e3353bff69c118f2a81cba2e467dbf6268f57226d0afcf602ceef9b7deaf07a:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "資訊不足，無法確認寄件者或要求。",
+          "縮短連結隱藏了目的地，無法確認其安全性。我們沒有開啟連結。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我們無法確認這則訊息。採取行動前，請透過銀行應用程式或卡片上的電話號碼聯絡銀行。",
+        "explanation_in_user_language": "資訊不足，無法確認寄件者或要求。 縮短連結隱藏了目的地，無法確認其安全性。我們沒有開啟連結。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "資訊不足，無法確認寄件者或要求。",
+          "縮短連結隱藏了目的地，無法確認其安全性。我們沒有開啟連結。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我們無法確認這則訊息。採取行動前，請透過銀行應用程式或卡片上的電話號碼聯絡銀行。",
+        "explanation_in_user_language": "資訊不足，無法確認寄件者或要求。 縮短連結隱藏了目的地，無法確認其安全性。我們沒有開啟連結。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4e3353bff69c118f2a81cba2e467dbf6268f57226d0afcf602ceef9b7deaf07a:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "信息不足，无法确认发件人或请求。",
+          "短链接隐藏了目的地，无法确认其安全性。我们没有打开链接。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我们无法确认这条消息。采取行动前，请通过银行应用或卡片上的电话号码联系银行。",
+        "explanation_in_user_language": "信息不足，无法确认发件人或请求。 短链接隐藏了目的地，无法确认其安全性。我们没有打开链接。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "信息不足，无法确认发件人或请求。",
+          "短链接隐藏了目的地，无法确认其安全性。我们没有打开链接。"
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "我们无法确认这条消息。采取行动前，请通过银行应用或卡片上的电话号码联系银行。",
+        "explanation_in_user_language": "信息不足，无法确认发件人或请求。 短链接隐藏了目的地，无法确认其安全性。我们没有打开链接。",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4e3353bff69c118f2a81cba2e467dbf6268f57226d0afcf602ceef9b7deaf07a:es": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "No hay información suficiente para verificar al remitente o la solicitud.",
+          "Un enlace acortado oculta su destino y no puede verificarse sin abrirlo. No lo abrimos."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No pudimos verificar este mensaje. Antes de actuar, contacta con el banco desde la aplicación o llama al número de tu tarjeta.",
+        "explanation_in_user_language": "No hay información suficiente para verificar al remitente o la solicitud. Un enlace acortado oculta su destino y no puede verificarse sin abrirlo. No lo abrimos.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "No hay información suficiente para verificar al remitente o la solicitud.",
+          "Un enlace acortado oculta su destino y no puede verificarse sin abrirlo. No lo abrimos."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "No pudimos verificar este mensaje. Antes de actuar, contacta con el banco desde la aplicación o llama al número de tu tarjeta.",
+        "explanation_in_user_language": "No hay información suficiente para verificar al remitente o la solicitud. Un enlace acortado oculta su destino y no puede verificarse sin abrirlo. No lo abrimos.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4e3353bff69c118f2a81cba2e467dbf6268f57226d0afcf602ceef9b7deaf07a:ar": {
+    "initial": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.61,
+        "red_flags": [
+          "لا توجد معلومات كافية للتحقق من المرسل أو الطلب.",
+          "الرابط المختصر يخفي وجهته ولا يمكن التحقق منه دون فتحه. لم نفتحه."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لم نتمكن من التحقق من هذه الرسالة. تواصل مع البنك عبر التطبيق أو الرقم الموجود على بطاقتك قبل اتخاذ أي إجراء.",
+        "explanation_in_user_language": "لا توجد معلومات كافية للتحقق من المرسل أو الطلب. الرابط المختصر يخفي وجهته ولا يمكن التحقق منه دون فتحه. لم نفتحه.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "unclear",
+        "confidence": 0.52,
+        "red_flags": [
+          "لا توجد معلومات كافية للتحقق من المرسل أو الطلب.",
+          "الرابط المختصر يخفي وجهته ولا يمكن التحقق منه دون فتحه. لم نفتحه."
+        ],
+        "impersonated_brand": null,
+        "recommended_action": "لم نتمكن من التحقق من هذه الرسالة. تواصل مع البنك عبر التطبيق أو الرقم الموجود على بطاقتك قبل اتخاذ أي إجراء.",
+        "explanation_in_user_language": "لا توجد معلومات كافية للتحقق من المرسل أو الطلب. الرابط المختصر يخفي وجهته ولا يمكن التحقق منه دون فتحه. لم نفتحه.",
+        "escalate_to_human": true,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2ddb824df9ced35b76317fcc5d3e6714e623340405f2e3be12c40cece6660d53:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "An unexpected small delivery fee is used to request payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "An unexpected small delivery fee is used to request payment details. Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "An unexpected small delivery fee is used to request payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "At least one link is outside the configured domain allowlist."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "An unexpected small delivery fee is used to request payment details. Pressure to act quickly discourages you from checking first. At least one link is outside the configured domain allowlist.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2ddb824df9ced35b76317fcc5d3e6714e623340405f2e3be12c40cece6660d53:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以少量、未預期的配送費用索取付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "以少量、未預期的配送費用索取付款資料。 催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以少量、未預期的配送費用索取付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "至少一個連結的網域不在設定的允許清單中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "以少量、未預期的配送費用索取付款資料。 催促您立即行動，讓您來不及查證。 至少一個連結的網域不在設定的允許清單中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2ddb824df9ced35b76317fcc5d3e6714e623340405f2e3be12c40cece6660d53:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以小额、意料之外的配送费用索取付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "以小额、意料之外的配送费用索取付款资料。 催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "以小额、意料之外的配送费用索取付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "至少一个链接的域名不在设置的允许列表中。"
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "以小额、意料之外的配送费用索取付款资料。 催促您立即行动，让您来不及核实。 至少一个链接的域名不在设置的允许列表中。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2ddb824df9ced35b76317fcc5d3e6714e623340405f2e3be12c40cece6660d53:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "Al menos un enlace está fuera de la lista de dominios permitidos."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "Un pequeño cargo de entrega inesperado se usa para pedir datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. Al menos un enlace está fuera de la lista de dominios permitidos.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "2ddb824df9ced35b76317fcc5d3e6714e623340405f2e3be12c40cece6660d53:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها."
+        ],
+        "impersonated_brand": "UPS",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تُستخدم رسوم توصيل صغيرة غير متوقعة لطلب بيانات الدفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. يوجد رابط واحد على الأقل خارج قائمة النطاقات المسموح بها.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f1681f1a267eb188862f486dca4643103c6df66c8727e3043932e61bffca6ef6:en": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Open the bank or delivery service’s official app yourself to verify. A familiar domain alone does not prove who sent the message.",
+        "explanation_in_user_language": "The message asks you to use the official app and does not request secrets or payment. Still verify there before acting.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f1681f1a267eb188862f486dca4643103c6df66c8727e3043932e61bffca6ef6:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請自行開啟銀行或快遞公司的官方應用程式確認。熟悉的網域不代表寄件者身分已獲驗證。",
+        "explanation_in_user_language": "訊息請您使用官方應用程式，沒有要求機密資料或付款。採取行動前仍應在應用程式中確認。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f1681f1a267eb188862f486dca4643103c6df66c8727e3043932e61bffca6ef6:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请自行打开银行或快递公司的官方应用确认。熟悉的域名不代表发件人身份已获验证。",
+        "explanation_in_user_language": "消息请您使用官方应用，没有要求机密资料或付款。采取行动前仍应在应用中确认。",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f1681f1a267eb188862f486dca4643103c6df66c8727e3043932e61bffca6ef6:es": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Abre la aplicación oficial del banco o del servicio de reparto para verificarlo. Un dominio conocido no demuestra quién envió el mensaje.",
+        "explanation_in_user_language": "El mensaje pide usar la aplicación oficial y no solicita secretos ni pagos. Verifica allí antes de actuar.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "f1681f1a267eb188862f486dca4643103c6df66c8727e3043932e61bffca6ef6:ar": {
+    "initial": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "likely_legitimate",
+        "confidence": 0.93,
+        "red_flags": [],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "افتح التطبيق الرسمي للبنك أو شركة التوصيل بنفسك للتحقق. اسم النطاق المألوف وحده لا يثبت هوية المرسل.",
+        "explanation_in_user_language": "تطلب الرسالة استخدام التطبيق الرسمي ولا تطلب معلومات سرية أو دفعاً. تحقق من التطبيق قبل التصرف.",
+        "escalate_to_human": false,
+        "injection_detected": false
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4270f4ed22909e06965d9dc4190e46b7e6426b7dde0d0b2c1a54783f3e46ce79:en": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "This message contains instructions trying to change the checker’s answer."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. Pressure to act quickly discourages you from checking first. This message contains instructions trying to change the checker’s answer.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "The message requests a password, security code, or payment details.",
+          "Pressure to act quickly discourages you from checking first.",
+          "This message contains instructions trying to change the checker’s answer."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "Do not use links or phone numbers in this message. Open the official app yourself, or contact the organization using a number you already trust.",
+        "explanation_in_user_language": "The message requests a password, security code, or payment details. Pressure to act quickly discourages you from checking first. This message contains instructions trying to change the checker’s answer.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4270f4ed22909e06965d9dc4190e46b7e6426b7dde0d0b2c1a54783f3e46ce79:zh-TW": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "訊息含有試圖改變檢查結果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 催促您立即行動，讓您來不及查證。 訊息含有試圖改變檢查結果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "訊息要求提供密碼、驗證碼或付款資料。",
+          "催促您立即行動，讓您來不及查證。",
+          "訊息含有試圖改變檢查結果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "請勿使用訊息中的連結或電話號碼。請自行開啟官方應用程式，或使用您原本信任的電話號碼聯絡該機構。",
+        "explanation_in_user_language": "訊息要求提供密碼、驗證碼或付款資料。 催促您立即行動，讓您來不及查證。 訊息含有試圖改變檢查結果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4270f4ed22909e06965d9dc4190e46b7e6426b7dde0d0b2c1a54783f3e46ce79:zh-CN": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "消息含有试图改变检查结果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 催促您立即行动，让您来不及核实。 消息含有试图改变检查结果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "消息要求提供密码、验证码或付款资料。",
+          "催促您立即行动，让您来不及核实。",
+          "消息含有试图改变检查结果的指令。"
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "请勿使用消息中的链接或电话号码。请自行打开官方应用，或使用您原本信任的电话号码联系该机构。",
+        "explanation_in_user_language": "消息要求提供密码、验证码或付款资料。 催促您立即行动，让您来不及核实。 消息含有试图改变检查结果的指令。",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4270f4ed22909e06965d9dc4190e46b7e6426b7dde0d0b2c1a54783f3e46ce79:es": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "El mensaje pide una contraseña, un código de seguridad o datos de pago.",
+          "La presión para actuar rápido intenta impedir que verifiques primero.",
+          "El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "No uses los enlaces ni los números de teléfono de este mensaje. Abre la aplicación oficial o contacta con la organización usando un número de confianza.",
+        "explanation_in_user_language": "El mensaje pide una contraseña, un código de seguridad o datos de pago. La presión para actuar rápido intenta impedir que verifiques primero. El mensaje contiene instrucciones que intentan cambiar el resultado de la revisión.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  },
+  "4270f4ed22909e06965d9dc4190e46b7e6426b7dde0d0b2c1a54783f3e46ce79:ar": {
+    "initial": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 720,
+        "cachedInput": 0,
+        "output": 190
+      }
+    },
+    "escalation": {
+      "result": {
+        "verdict": "scam",
+        "confidence": 0.98,
+        "red_flags": [
+          "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع.",
+          "الضغط للتصرف بسرعة يمنعك من التحقق أولاً.",
+          "تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص."
+        ],
+        "impersonated_brand": "Harbor Community Bank",
+        "recommended_action": "لا تستخدم الروابط أو أرقام الهاتف في هذه الرسالة. افتح التطبيق الرسمي بنفسك أو اتصل بالجهة باستخدام رقم تثق به مسبقاً.",
+        "explanation_in_user_language": "تطلب الرسالة كلمة مرور أو رمز أمان أو بيانات دفع. الضغط للتصرف بسرعة يمنعك من التحقق أولاً. تحتوي الرسالة على تعليمات تحاول تغيير نتيجة الفحص.",
+        "escalate_to_human": false,
+        "injection_detected": true
+      },
+      "usage": {
+        "input": 740,
+        "cachedInput": 0,
+        "output": 230
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "harbor-message-check",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch server/index.ts",
+    "start": "tsx server/index.ts",
+    "build": "tsc --noEmit && vite build",
+    "test": "tsx --test tests/*.test.ts",
+    "eval": "tsx scripts/eval.ts",
+    "fixtures": "tsx scripts/make-fixtures.ts",
+    "screenshot": "tsx scripts/make-screenshot.ts",
+    "test:ui": "tsx scripts/test-ui.ts",
+    "verify:live": "tsx scripts/verify-live.ts"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "lucide-react": "latest",
+    "openai": "7.25.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "tldts": "^7.4.16",
+    "vite": "8.3.1",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/express": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "playwright": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}

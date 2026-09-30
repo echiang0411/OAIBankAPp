@@ -1,0 +1,15 @@
+{
+  "result": {
+    "text": "UPS: We could not deliver your package. Pay the $1.99 redelivery fee within 12 hours to avoid return: https://ups-redelivery-fee.example/pay",
+    "extracted_links": [
+      "https://ups-redelivery-fee.example/pay"
+    ],
+    "readable": true,
+    "injection_detected": false
+  },
+  "usage": {
+    "input": 1080,
+    "cachedInput": 0,
+    "output": 160
+  }
+}

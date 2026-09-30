@@ -1,0 +1,24 @@
+{
+  "smallModel": "gpt-6-luna",
+  "strongModel": "gpt-6-sol",
+  "confidenceThreshold": 0.8,
+  "maxOutputTokens": 2500,
+  "pricesVerifiedOn": "2026-09-29",
+  "pricesPerMillion": {
+    "gpt-6-luna": { "input": 0.1, "cachedInput": 0.01, "output": 0.5 },
+    "gpt-6-sol": { "input": 2, "cachedInput": 0.2, "output": 10 }
+  },
+  "allowlistedDomains": ["ups.com", "usps.com"],
+  "demoAllowlistedDomains": ["harbor.example"],
+  "shortenerDomains": ["bit.ly", "tinyurl.com", "t.co", "ow.ly", "is.gd", "buff.ly", "shorturl.at", "cutt.ly", "rebrand.ly"],
+  "weeklySampleSize": 5,
+  "sampleLookbackDays": 7,
+  "campaignWindowDays": 30,
+  "campaignSimilarityThreshold": 0.88,
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-6-luna",
+    "https://developers.openai.com/api/docs/models/gpt-6-sol",
+    "https://developers.openai.com/api/docs/guides/structured-outputs",
+    "https://developers.openai.com/api/docs/guides/images-vision"
+  ]
+}

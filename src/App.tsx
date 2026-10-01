@@ -80,13 +80,7 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
     clear(); setSelected(id);
     const demo = demos.find(d => d.id === id);
     if (!demo) return;
-    if (id === 'ups-fee') {
-      const response = await fetch('/demo/ups-message.png');
-      const blob = await response.blob();
-      const reader = new FileReader();
-      reader.onload = () => { setImage(reader.result as string); setFilename('ups-message.png'); setTab('image'); setText(''); };
-      reader.readAsDataURL(blob);
-    } else { setText(demo.text); setImage(''); setFilename(''); setTab('text'); }
+    setText(demo.text); setImage(''); setFilename(''); setTab('text');
   }
   function upload(file?: File) {
     if (!file) return;
@@ -104,20 +98,17 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
     finally { setBusy(false); }
   }
   return <div className="customer-view" lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'}>
-    <div className="language-choice">
-      <label htmlFor="language" className="language-choice-label"><Globe2 size={20} aria-hidden="true"/> {t.language}</label>
-      <select id="language" value={preference} disabled={busy} onChange={e => changeLanguage(e.target.value)}>
-        <option value="auto">{automaticLabels[language]}: {languageNames[browserLanguage(navigator.languages)]}</option>
+    <section className="customer-heading">
+      <h1>{hasChecked ? t.checkAnotherTitle : t.checkTitle}</h1>
+      <select id="language" className="compact-language" aria-label={t.language} value={language} disabled={busy} onChange={e => changeLanguage(e.target.value)}>
         {languages.map(value => <option key={value} value={value} lang={value}>{languageNames[value]}</option>)}
       </select>
-    </div>
+    </section>
     {notices}
-    <section className="hero"><div className="hero-copy"><p className="eyebrow"><span className="small-diamond"/>{t.eyebrow}</p><h1>{t.title}<br/><span>{t.subtitle}</span></h1><p className="hero-description">{t.intro}</p></div><div className="hero-seal" aria-hidden="true"><div className="seal-ring"><ShieldCheck size={66} strokeWidth={1.1}/></div><span>HERE TO HELP YOU<br/>FEEL MORE SURE</span><i className="seal-dot one"/><i className="seal-dot two"/></div></section>
     <div className={`customer-grid ${result ? 'has-result' : ''}`}>
       {result && <div className="result-followup" ref={resultRef} tabIndex={-1} role="region" aria-label={followupCopy[result.language].question}><Followup key={result.id} language={result.language} exposure={exposure} onChange={setExposure}/></div>}
       <div className="input-column">
         <form className="panel checker-panel" onSubmit={submit}>
-          <div className="panel-heading"><span className="icon-box"><MessageSquareText size={20}/></span><h2>{hasChecked ? t.checkAnotherTitle : t.checkTitle}</h2></div>
           <fieldset disabled={busy}><legend className="sr-only">Message input</legend>
           <div className="input-tabs"><button type="button" className={tab === 'text' ? 'selected' : ''} onClick={() => { setTab('text'); clear(); }}><MessageSquareText size={17}/>{t.textTab}</button><button type="button" className={tab === 'image' ? 'selected' : ''} onClick={() => { setTab('image'); clear(); }}><ImagePlus size={17}/>{t.imageTab}</button></div>
           {tab === 'text' ? <div className="text-field"><label htmlFor="message">{t.label}</label><textarea dir="auto" id="message" placeholder={t.placeholder} value={text} maxLength={6000} onChange={e => { setText(e.target.value); setSelected(''); clear(); }} rows={6}/><span className="character-count">{text.length.toLocaleString()} / 6,000</span></div> : <div className="upload-area">
@@ -129,7 +120,7 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
           {error && <div className="error-message" role="alert"><CircleAlert size={18}/><span>{error}</span></div>}
           <p className="privacy-note"><LockKeyhole size={13}/>{t.privacy}</p>
         </form>
-        <div className="samples"><p className="eyebrow">{t.examples}</p><div className="sample-buttons">{[{ id: 'ups-fee', title: t.ups, Icon: Package }, { id: 'harbor-alert', title: t.bank, Icon: Landmark }, { id: 'injection', title: t.injection, Icon: CodeXml }].map(({ id, title, Icon }) => <button key={id} disabled={busy} className={selected === id ? 'selected' : ''} onClick={() => void pickDemo(id).catch(e => setError(e.message))}><Icon size={15}/>{title}</button>)}</div><p className="synthetic-note">{t.synthetic}</p></div>
+        <div className="samples"><p className="eyebrow">{t.examples}</p><div className="sample-buttons">{[{ id: 'harbor-alert', title: t.bank, Icon: Landmark }, { id: 'injection', title: t.injection, Icon: CodeXml }].map(({ id, title, Icon }) => <button key={id} disabled={busy} className={selected === id ? 'selected' : ''} onClick={() => void pickDemo(id).catch(e => setError(e.message))}><Icon size={15}/>{title}</button>)}</div><p className="synthetic-note">{t.synthetic}</p></div>
       </div>
       <div className="result-column" role="region" aria-label={t.result} aria-live="polite" aria-busy={busy}>
         {busy ? <div className="panel loading-panel"><div className="loading-symbol"><ShieldCheck size={36}/><LoaderCircle className="spin" size={65}/></div><h2>{t.checking}</h2><p>{meta?.mode === 'live' ? g.loadingLive : g.loadingMock}</p></div> : result ? <ResultCard key={result.id} data={result} refresh={refresh} exposure={exposure}/> : <aside className="guide-panel"><div className="guide-art" aria-hidden="true"><div className="art-message"><span/><span/><span/><div className="art-link"><LockKeyhole size={12}/> harbor.example</div></div><div className="art-shield"><ShieldCheck size={34}/></div><span className="art-spark"><Sparkles size={20}/></span></div><p className="eyebrow">{g.eyebrow}</p><h2>{g.title}</h2><p className="guide-description">{g.description}</p><div className="guide-steps"><div><span>01</span><p><strong>{g.share}</strong>{g.shareBody}</p></div><div><span>02</span><p><strong>{g.understand}</strong>{g.understandBody}</p></div><div><span>03</span><p><strong>{g.decide}</strong>{g.decideBody}</p></div></div><div className="guide-bottom"><ShieldCheck size={17}/><span>{g.policy}</span></div></aside>}

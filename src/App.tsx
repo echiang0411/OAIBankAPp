@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Anchor, ShieldCheck, MessageSquareText, ImagePlus, LockKeyhole, Sparkles, Package, Landmark, CodeXml, CircleCheck, CircleAlert, LoaderCircle, Check, X, ThumbsUp, ThumbsDown, CreditCard, ChevronDown, FileCheck2, Inbox, Globe2, CircleHelp, ShieldAlert, Upload, SlidersHorizontal } from 'lucide-react';
-import type { Campaign, CustomerNotification, CheckResponse, EvalItem, Language, ReviewItem, ReviewSource, Verdict } from '../shared/schema.ts';
+import type { Campaign, CustomerNotification, CheckResponse, EvalItem, Language, ReportResponse, ReviewItem, ReviewSource, Verdict } from '../shared/schema.ts';
 import { languages, verdicts } from '../shared/schema.ts';
 import { automaticLabels, browserLanguage, languageNames, validPreference, type LanguagePreference } from '../shared/language.ts';
 import { actionFor, copy } from '../shared/copy.ts';
@@ -32,18 +32,27 @@ export default function App() {
       <div className="header-status"><span className={`mode-badge ${meta?.mode === 'live' ? 'live' : ''}`}><span/>{meta?.mode === 'live' ? 'Live API' : 'Mock mode'}</span><span className="demo-label">LOCAL DEMO</span></div>
     </div></header>
     {bootError && <div role="alert" className="boot-error">{bootError}</div>}
-    <main>{screen === 'customer' ? <Customer meta={meta} refresh={refresh} notices={notifications.map(note => <ResolutionNotice key={note.id} note={note} dismiss={async () => { await api(`/notifications/${note.id}/read`, {}); await refreshNotifications(); }}/>)}/> : <Analyst refresh={refresh}/>}</main>
+    <main>{screen === 'customer' ? <Customer meta={meta} refresh={refresh} notices={notifications} dismissNotice={async id => { await api(`/notifications/${id}/read`, {}); await refreshNotifications(); }}/> : <Analyst refresh={refresh}/>}</main>
     <footer className="site-footer"><span><Anchor size={15}/> Fictional bank. Synthetic data. Real peace of mind.</span><span>Built with the OpenAI Responses API</span></footer>
   </div>;
 }
 
 function ResolutionNotice({ note, dismiss }: { note: CustomerNotification; dismiss: () => Promise<void> }) {
-  const t = notificationCopy[note.language];
+  const t = notificationCopy[note.language], f = followupCopy[note.language];
   const [error, setError] = useState('');
-  return <section className="resolution-notice" role="status" lang={note.language} dir={note.language === 'ar' ? 'rtl' : 'ltr'}><div><p className="eyebrow">{t.simulated}</p><h2>{t.title}</h2><p><strong>{t.final}: {t[note.verdict]}</strong></p><p>{t.next}: {actionFor(note.verdict, note.language)}</p>{error && <p role="alert">{error}</p>}</div><button aria-label={t.dismiss} onClick={() => void dismiss().catch(e => setError(e.message))}><X size={19}/></button></section>;
+  const [exposure, setExposure] = useState<'checking' | 'card' | 'password' | null>(null);
+  const danger = note.verdict === 'scam' || note.verdict === 'likely_scam';
+  return <section className="resolution-notice" lang={note.language} dir={note.language === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="resolution-content">
+      <div role="status"><h2>{t.title}</h2><p className={`resolution-final ${danger ? 'scam' : ''}`}><strong>{t.final}: {t[note.verdict]}</strong></p><p>{t.next}: {actionFor(note.verdict, note.language)}</p></div>
+      <div className="resolution-followup"><Followup language={note.language} exposure={exposure} onChange={setExposure}/>{exposure === 'checking' && <ul className="safe-steps">{f.safeSteps.map(step => <li key={step}>{step}</li>)}</ul>}</div>
+      {error && <p role="alert">{error}</p>}
+    </div>
+    <button aria-label={t.dismiss} onClick={() => void dismiss().catch(e => setError(e.message))}><X size={19}/></button>
+  </section>;
 }
 
-function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () => Promise<void>; notices: React.ReactNode }) {
+function Customer({ meta, refresh, notices, dismissNotice }: { meta: Meta | null; refresh: () => Promise<void>; notices: CustomerNotification[]; dismissNotice: (id: string) => Promise<void> }) {
   const [preference, setPreference] = useState<LanguagePreference>(() => {
     try { return validPreference(localStorage.getItem('harbor.language')); } catch { return 'auto'; }
   });
@@ -73,6 +82,7 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
     resultRef.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
   }, [result]);
   const t = ui[language], g = guideCopy[language];
+  const resolved = Boolean(result && notices.some(note => note.checkId === result.id));
   useEffect(() => { api<Demo[]>('/demos').then(setDemos).catch(e => setError(e.message)); }, []);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   const clear = () => { setResult(null); setExposure(null); setError(''); };
@@ -104,9 +114,9 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
         {languages.map(value => <option key={value} value={value} lang={value}>{languageNames[value]}</option>)}
       </select>
     </section>
-    {notices}
+    {notices.map(note => <ResolutionNotice key={note.id} note={note} dismiss={() => dismissNotice(note.id)}/>)}
     <div className={`customer-grid ${result ? 'has-result' : ''}`}>
-      {result && <div className="result-followup" ref={resultRef} tabIndex={-1} role="region" aria-label={followupCopy[result.language].question}><Followup key={result.id} language={result.language} exposure={exposure} onChange={setExposure}/></div>}
+      {result && !resolved && <div className="result-followup" ref={resultRef} tabIndex={-1} role="region" aria-label={followupCopy[result.language].question}><Followup key={result.id} language={result.language} exposure={exposure} onChange={setExposure}/></div>}
       <div className="input-column">
         <form className="panel checker-panel" onSubmit={submit}>
           <fieldset disabled={busy}><legend className="sr-only">Message input</legend>
@@ -123,16 +133,17 @@ function Customer({ meta, refresh, notices }: { meta: Meta | null; refresh: () =
         <div className="samples"><p className="eyebrow">{t.examples}</p><div className="sample-buttons">{[{ id: 'harbor-alert', title: t.bank, Icon: Landmark }, { id: 'injection', title: t.injection, Icon: CodeXml }].map(({ id, title, Icon }) => <button key={id} disabled={busy} className={selected === id ? 'selected' : ''} onClick={() => void pickDemo(id).catch(e => setError(e.message))}><Icon size={15}/>{title}</button>)}</div><p className="synthetic-note">{t.synthetic}</p></div>
       </div>
       <div className="result-column" role="region" aria-label={t.result} aria-live="polite" aria-busy={busy}>
-        {busy ? <div className="panel loading-panel"><div className="loading-symbol"><ShieldCheck size={36}/><LoaderCircle className="spin" size={65}/></div><h2>{t.checking}</h2><p>{meta?.mode === 'live' ? g.loadingLive : g.loadingMock}</p></div> : result ? <ResultCard key={result.id} data={result} refresh={refresh} exposure={exposure}/> : <aside className="guide-panel"><div className="guide-art" aria-hidden="true"><div className="art-message"><span/><span/><span/><div className="art-link"><LockKeyhole size={12}/> harbor.example</div></div><div className="art-shield"><ShieldCheck size={34}/></div><span className="art-spark"><Sparkles size={20}/></span></div><p className="eyebrow">{g.eyebrow}</p><h2>{g.title}</h2><p className="guide-description">{g.description}</p><div className="guide-steps"><div><span>01</span><p><strong>{g.share}</strong>{g.shareBody}</p></div><div><span>02</span><p><strong>{g.understand}</strong>{g.understandBody}</p></div><div><span>03</span><p><strong>{g.decide}</strong>{g.decideBody}</p></div></div><div className="guide-bottom"><ShieldCheck size={17}/><span>{g.policy}</span></div></aside>}
+        {busy ? <div className="panel loading-panel"><div className="loading-symbol"><ShieldCheck size={36}/><LoaderCircle className="spin" size={65}/></div><h2>{t.checking}</h2><p>{meta?.mode === 'live' ? g.loadingLive : g.loadingMock}</p></div> : result ? <ResultCard key={result.id} data={result} refresh={refresh} exposure={exposure} resolved={resolved}/> : <aside className="guide-panel"><div className="guide-art" aria-hidden="true"><div className="art-message"><span/><span/><span/><div className="art-link"><LockKeyhole size={12}/> harbor.example</div></div><div className="art-shield"><ShieldCheck size={34}/></div><span className="art-spark"><Sparkles size={20}/></span></div><p className="eyebrow">{g.eyebrow}</p><h2>{g.title}</h2><p className="guide-description">{g.description}</p><div className="guide-steps"><div><span>01</span><p><strong>{g.share}</strong>{g.shareBody}</p></div><div><span>02</span><p><strong>{g.understand}</strong>{g.understandBody}</p></div><div><span>03</span><p><strong>{g.decide}</strong>{g.decideBody}</p></div></div><div className="guide-bottom"><ShieldCheck size={17}/><span>{g.policy}</span></div></aside>}
       </div>
     </div>
     <div className="principle-strip"><span><span className="principle-dot"/>{g.interprets}</span><span><span className="principle-dot"/>{g.validates}</span><span><span className="principle-dot"/>{g.youDecide}</span></div>
   </div>;
 }
 
-function ResultCard({ data, refresh, exposure }: { data: CheckResponse; refresh: () => Promise<void>; exposure: 'checking' | 'card' | 'password' | null }) {
+function ResultCard({ data, refresh, exposure, resolved }: { data: CheckResponse; refresh: () => Promise<void>; exposure: 'checking' | 'card' | 'password' | null; resolved: boolean }) {
   const { result: r } = data;
   const t = ui[data.language], f = followupCopy[data.language];
+  const [estimatedWait, setEstimatedWait] = useState<number | null>(null);
   const [sent, setSent] = useState<Array<'report' | 'escalation'>>([]);
   const [sending, setSending] = useState<'report' | 'escalation' | null>(null);
   const [error, setError] = useState('');
@@ -140,7 +151,12 @@ function ResultCard({ data, refresh, exposure }: { data: CheckResponse; refresh:
   const danger = r.verdict === 'scam' || r.verdict === 'likely_scam';
   async function send(kind: 'report' | 'escalation') {
     setSending(kind); setError('');
-    try { await api('/reports', { checkId: data.id, kind }); setSent(previous => [...new Set([...previous, kind])]); await refresh(); }
+    try {
+      const submission = await api<ReportResponse>('/reports', { checkId: data.id, kind });
+      if (kind === 'escalation') setEstimatedWait(submission.estimatedWaitMinutes);
+      setSent(previous => [...new Set([...previous, kind])]);
+      await refresh();
+    }
     catch (e) { setError((e as Error).message); } finally { setSending(null); }
   }
   return <div className={`panel result-panel ${safe ? 'safe' : danger ? 'danger' : 'unclear'}`}>
@@ -148,8 +164,9 @@ function ResultCard({ data, refresh, exposure }: { data: CheckResponse; refresh:
     <div className="verdict-heading"><span className="verdict-icon">{safe ? <ShieldCheck size={27}/> : danger ? <ShieldAlert size={27}/> : <CircleHelp size={27}/>}</span><h2>{copy[data.language][r.verdict]}</h2></div>
     <div className={`fraud-help ${r.escalate_to_human || r.verdict === 'unclear' ? 'recommended' : ''}`}>
       {(r.escalate_to_human || r.verdict === 'unclear') && <p className="human-note"><CircleHelp size={18}/>{t.human}</p>}
-      <button className={r.escalate_to_human || r.verdict === 'unclear' ? 'primary-button' : 'secondary-button'} disabled={Boolean(sending) || sent.includes('escalation')} onClick={() => void send('escalation')}>{sending === 'escalation' ? <LoaderCircle size={18} className="spin"/> : sent.includes('escalation') ? <CircleCheck size={18}/> : <CircleHelp size={18}/>} {f.escalation}</button>
-      <p className="fraud-hotline">{f.hotline} <bdi dir="ltr">1-800-422-6398</bdi></p>
+      <button className={r.escalate_to_human || r.verdict === 'unclear' ? 'primary-button' : 'secondary-button'} disabled={resolved || Boolean(sending) || sent.includes('escalation')} onClick={() => void send('escalation')}>{sending === 'escalation' ? <LoaderCircle size={18} className="spin"/> : sent.includes('escalation') ? <CircleCheck size={18}/> : <CircleHelp size={18}/>} {f.escalation}</button>
+      {!resolved && estimatedWait !== null && estimatedWait > 0 && <p className="fraud-wait" role="status">{f.estimatedWait.replace('{minutes}', new Intl.NumberFormat(data.language).format(estimatedWait))}</p>}
+      <p className="fraud-hotline">{f.hotline} <bdi dir="ltr">1-800-422-6398</bdi> <span>{f.hotlineWait}</span></p>
       {sent.length > 0 && <p className="feedback-thanks" role="status"><CircleCheck size={18}/>{f.sent}</p>}
       {error && <p className="error-message" role="alert">{error}</p>}
     </div>
@@ -187,6 +204,7 @@ function InternalDiagnostics({ checks }: { checks: CheckResponse[] }) {
 type DemoAction = 'freeze' | 'replace' | 'reset' | 'signout';
 function Followup({ language, exposure, onChange }: { language: Language; exposure: 'checking' | 'card' | 'password' | null; onChange: (value: 'checking' | 'card' | 'password') => void }) {
   const f = followupCopy[language];
+  const actionTitleId = useId();
   const [confirm, setConfirm] = useState<DemoAction | null>(null);
   const [completed, setCompleted] = useState<DemoAction[]>([]);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -194,7 +212,7 @@ function Followup({ language, exposure, onChange }: { language: Language; exposu
   const actions: DemoAction[] = exposure === 'card' ? ['freeze', 'replace'] : exposure === 'password' ? ['reset', 'signout'] : [];
   return <section className="followup"><h3>{f.question}</h3><div className="exposure-options">{(['checking', 'card', 'password'] as const).map(value => <button key={value} aria-pressed={exposure === value} className={exposure === value ? 'selected' : ''} onClick={() => onChange(value)}>{f[value]}</button>)}</div>
     {actions.length > 0 && <div className="recovery-actions"><small>{f.simulated}</small>{actions.map(action => <div key={action}>{completed.includes(action) ? <p role="status" className="action-completed"><CircleCheck size={17}/><span>{f[action]}: {f.completed}</span></p> : <button className="freeze-button" onClick={() => setConfirm(action)}>{exposure === 'card' ? <CreditCard size={17}/> : <LockKeyhole size={17}/>} {f[action]}</button>}</div>)}</div>}
-    <dialog ref={dialog} onCancel={() => setConfirm(null)} onClose={() => setConfirm(null)} aria-labelledby="action-title"><div className="dialog-icon"><ShieldCheck size={27}/></div><p className="eyebrow">{f.confirmation}</p><h2 id="action-title">{confirm ? f[confirm] : ''}</h2><p>{f.body}</p><div className="dialog-actions"><button className="secondary-button" onClick={() => setConfirm(null)} autoFocus>{f.cancel}</button><button className="primary-button" onClick={() => { if (confirm) setCompleted(previous => [...previous, confirm]); setConfirm(null); }}>{f.confirm}</button></div></dialog>
+    <dialog ref={dialog} onCancel={() => setConfirm(null)} onClose={() => setConfirm(null)} aria-labelledby={actionTitleId}><div className="dialog-icon"><ShieldCheck size={27}/></div><p className="eyebrow">{f.confirmation}</p><h2 id={actionTitleId}>{confirm ? f[confirm] : ''}</h2><p>{f.body}</p><div className="dialog-actions"><button className="secondary-button" onClick={() => setConfirm(null)} autoFocus>{f.cancel}</button><button className="primary-button" onClick={() => { if (confirm) setCompleted(previous => [...previous, confirm]); setConfirm(null); }}>{f.confirm}</button></div></dialog>
   </section>;
 }
 

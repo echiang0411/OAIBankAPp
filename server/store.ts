@@ -5,7 +5,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { maskPersonalDetails, sanitizeCallbackNumbers, sanitizeDeep } from './privacy.ts';
 import { config } from './config.ts';
 import { groupCampaigns } from './campaigns.ts';
-import type { CheckResponse, CustomerNotification, EvalItem, ReviewItem, ReviewSource, Verdict } from '../shared/schema.ts';
+import type { CheckResponse, CustomerNotification, EvalItem, ReportResponse, ReviewItem, ReviewSource, Verdict } from '../shared/schema.ts';
 
 type Row = { payload: string };
 export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harbor.sqlite')) {
@@ -87,9 +87,12 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
       const safe: CheckResponse = { id: check.id, result: sanitizeDeep(check.result), redactedText: maskPersonalDetails(check.redactedText), callback_numbers: sanitizeCallbackNumbers(check.callback_numbers), links: sanitizeDeep(check.links), extracted_links: sanitizeDeep(check.extracted_links ?? []), language: check.language, mode: check.mode, source: check.source, calls: check.calls, estimatedCost: check.estimatedCost, escalated: check.escalated, escalationReason: check.escalationReason, durationMs: check.durationMs };
       db.prepare('INSERT OR IGNORE INTO checks VALUES (?, ?, ?)').run(check.id, at, JSON.stringify(safe));
     },
-    submit(check: CheckResponse, kind: 'report' | 'escalation') {
+    submit(check: CheckResponse, kind: 'report' | 'escalation'): ReportResponse {
       if (kind === 'report' && !['scam', 'likely_scam'].includes(check.result.verdict)) throw new Error('This action is not available for the result verdict.');
-      return queue(check, kind);
+      const submission = queue(check, kind);
+      // Snapshot after insertion: include this item and all pending review sources.
+      const pendingCount = Number((db.prepare("SELECT count(*) AS count FROM reviews WHERE status = 'pending'").get() as { count: number }).count);
+      return { ...submission, pendingCount, estimatedWaitMinutes: pendingCount * 2 };
     },
     sample(now = new Date()) {
       const monday = new Date(now);

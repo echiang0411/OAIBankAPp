@@ -78,3 +78,12 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 
 .fraud-help .fraud-hotline { margin: 10px 0 0; color: #637265; font-size: 14px; line-height: 1.6; text-align: center; }
 .fraud-hotline bdi { white-space: nowrap; font-weight: 600; }
+
+.fraud-help .fraud-wait { margin: 12px 0 0; color: #234e3f; font-size: 15px; font-weight: 600; line-height: 1.6; text-align: center; }
+.resolution-content { flex: 1; min-width: 0; }
+.resolution-notice .resolution-final.scam { color: #b42318; }
+.resolution-followup .followup h3 { font-size: 20px; }
+.resolution-followup .exposure-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.resolution-followup .exposure-options button { min-height: 48px; font-size: 15px; background: #fff; }
+.resolution-followup .exposure-options button.selected { background: #dceace; border-color: #6e8e57; }
+@media(max-width:760px) { .resolution-notice { padding: 18px; gap: 8px; } .resolution-followup .exposure-options { grid-template-columns: 1fr; } .resolution-followup .followup h3 { font-size: 18px; } }

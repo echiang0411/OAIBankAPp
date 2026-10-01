@@ -414,3 +414,20 @@ test('callback evidence survives history, sampling and approval while model inpu
     assert.equal(store.notifications().length, 1);
   } finally { store.close(); }
 });
+
+test('reply estimates count the pending queue after submission without inflating duplicates or counting resolved reviews', async () => {
+  const store = openStore(':memory:');
+  try {
+    const first = await checkMessage({ text: demos[0].text, language: 'en', mode: 'mock' });
+    const second = { ...first, id: randomUUID() };
+    const third = { ...first, id: randomUUID() };
+    assert.deepEqual(store.submit(first, 'escalation'), { added: true, pendingCount: 1, estimatedWaitMinutes: 2 });
+    assert.deepEqual(store.submit(second, 'report'), { added: true, pendingCount: 2, estimatedWaitMinutes: 4 });
+    assert.deepEqual(store.submit(second, 'escalation'), { added: false, pendingCount: 2, estimatedWaitMinutes: 4 });
+    assert.deepEqual(store.submit(first, 'escalation'), { added: false, pendingCount: 2, estimatedWaitMinutes: 4 });
+    store.approve(store.pending().find(item => item.checkId === first.id)!.id, 'scam');
+    assert.deepEqual(store.submit(third, 'escalation'), { added: true, pendingCount: 2, estimatedWaitMinutes: 4 });
+    for (const item of store.pending()) store.approve(item.id, 'scam');
+    assert.deepEqual(store.submit(third, 'escalation'), { added: false, pendingCount: 0, estimatedWaitMinutes: 0 });
+  } finally { store.close(); }
+});

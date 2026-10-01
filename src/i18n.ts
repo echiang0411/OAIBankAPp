@@ -95,7 +95,7 @@ export const ui = {
 
 export const followupCopy = {
   en: {
-    report: 'Report this scam', escalation: 'Submit to our fraud team', hotline: 'Still unsure? Call our fraud hotline at', sent: 'A masked copy has been sent to our fraud team for review.',
+    report: 'Report this scam', escalation: 'Submit to our fraud team', hotline: 'Still unsure? Call our fraud hotline at', hotlineWait: '(average wait: 25 mins)', estimatedWait: 'Estimated reply time: about {minutes} minutes.', sent: 'A masked copy has been sent to our fraud team for review.',
     question: 'Did you tap the link or share anything?', checking: 'No, just checking', card: 'I entered card details', password: 'I entered my password',
     safeSteps: ['Don’t tap the link.', 'Delete the message.', 'Block the sender.'],
     freeze: 'Freeze my card', replace: 'Order a replacement card', reset: 'Reset my password', signout: 'Sign out other devices',
@@ -103,7 +103,7 @@ export const followupCopy = {
     links: 'Extracted URLs (plain text)', registeredDomain: 'Registered domain', unverifiable: 'Unverifiable: shortened link',
   },
   'zh-TW': {
-    report: '檢舉這則詐騙訊息', escalation: '提交給防詐團隊', hotline: '還是不確定？請撥打防詐專線', sent: '已將遮蔽個人資訊的副本交由防詐團隊審查。',
+    report: '檢舉這則詐騙訊息', escalation: '提交給防詐團隊', hotline: '還是不確定？請撥打防詐專線', hotlineWait: '（平均等候時間：25 分鐘）', estimatedWait: '預計回覆時間：約 {minutes} 分鐘。', sent: '已將遮蔽個人資訊的副本交由防詐團隊審查。',
     question: '您有點擊連結或提供任何資料嗎？', checking: '沒有，只是確認一下', card: '我輸入了卡片資料', password: '我輸入了密碼',
     safeSteps: ['不要點擊連結。', '刪除訊息。', '封鎖寄件者。'],
     freeze: '凍結我的卡片', replace: '申請補發卡片', reset: '重設我的密碼', signout: '登出其他裝置',
@@ -111,7 +111,7 @@ export const followupCopy = {
     links: '擷取的網址（純文字）', registeredDomain: '註冊網域', unverifiable: '無法驗證：縮短連結',
   },
   'zh-CN': {
-    report: '举报这条诈骗消息', escalation: '提交给反诈团队', hotline: '还是不确定？请拨打反诈热线', sent: '已将遮盖个人信息的副本交由反诈团队审核。',
+    report: '举报这条诈骗消息', escalation: '提交给反诈团队', hotline: '还是不确定？请拨打反诈热线', hotlineWait: '（平均等候时间：25 分钟）', estimatedWait: '预计回复时间：约 {minutes} 分钟。', sent: '已将遮盖个人信息的副本交由反诈团队审核。',
     question: '您有点击链接或提供任何资料吗？', checking: '没有，只是确认一下', card: '我输入了卡片资料', password: '我输入了密码',
     safeSteps: ['不要点击链接。', '删除消息。', '屏蔽发件人。'],
     freeze: '冻结我的卡片', replace: '申请补发卡片', reset: '重设我的密码', signout: '退出其他设备',
@@ -122,6 +122,8 @@ export const followupCopy = {
     "report": "Denunciar esta estafa",
     "escalation": "Enviar a nuestro equipo de fraude",
     "hotline": "¿Aún tienes dudas? Llama a nuestra línea de atención de fraude al",
+    "hotlineWait": "(espera media: 25 min)",
+    "estimatedWait": "Tiempo estimado de respuesta: unos {minutes} minutos.",
     "sent": "Se envió una copia con los datos personales ocultos a nuestro equipo de fraude.",
     "question": "¿Tocaste el enlace o compartiste algún dato?",
     "checking": "No, solo estoy comprobando",
@@ -150,6 +152,8 @@ export const followupCopy = {
     "report": "الإبلاغ عن هذا الاحتيال",
     "escalation": "إرسال إلى فريق مكافحة الاحتيال",
     "hotline": "هل ما زلت غير متأكد؟ اتصل بالخط الساخن لمكافحة الاحتيال على",
+    "hotlineWait": "(متوسط الانتظار: 25 دقيقة)",
+    "estimatedWait": "وقت الرد المتوقع: حوالي {minutes} دقيقة.",
     "sent": "أُرسلت نسخة بعد إخفاء البيانات الشخصية إلى فريق مكافحة الاحتيال لمراجعتها.",
     "question": "هل ضغطت على الرابط أو شاركت أي معلومات؟",
     "checking": "لا، أتحقق فقط",

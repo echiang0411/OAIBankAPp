@@ -75,3 +75,6 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 .lookout-brand .brand-sub { font-size: 9px; line-height: 1.4; font-weight: 550; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; color: #63796d; }
 @media(max-width:800px) { .lookout-brand .lookout-name { font-size: 27px; } .lookout-brand .brand-sub { font-size: 8px; letter-spacing: .7px; } }
 @media(max-width:400px) { .lookout-brand { gap: 8px; } .lookout-brand .lookout-name { font-size: 24px; } .lookout-brand .brand-sub { font-size: 7px; } }
+
+.fraud-help .fraud-hotline { margin: 10px 0 0; color: #637265; font-size: 14px; line-height: 1.6; text-align: center; }
+.fraud-hotline bdi { white-space: nowrap; font-weight: 600; }

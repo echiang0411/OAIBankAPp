@@ -149,6 +149,7 @@ function ResultCard({ data, refresh, exposure }: { data: CheckResponse; refresh:
     <div className={`fraud-help ${r.escalate_to_human || r.verdict === 'unclear' ? 'recommended' : ''}`}>
       {(r.escalate_to_human || r.verdict === 'unclear') && <p className="human-note"><CircleHelp size={18}/>{t.human}</p>}
       <button className={r.escalate_to_human || r.verdict === 'unclear' ? 'primary-button' : 'secondary-button'} disabled={Boolean(sending) || sent.includes('escalation')} onClick={() => void send('escalation')}>{sending === 'escalation' ? <LoaderCircle size={18} className="spin"/> : sent.includes('escalation') ? <CircleCheck size={18}/> : <CircleHelp size={18}/>} {f.escalation}</button>
+      <p className="fraud-hotline">{f.hotline} <bdi dir="ltr">1-800-422-6398</bdi></p>
       {sent.length > 0 && <p className="feedback-thanks" role="status"><CircleCheck size={18}/>{f.sent}</p>}
       {error && <p className="error-message" role="alert">{error}</p>}
     </div>

@@ -7,7 +7,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { checkMessage, estimateCost, liveProvider, validateImage, type Provider } from '../server/checker.ts';
 import { checkLinks, detectInjection } from '../server/security.ts';
-import { maskPersonalDetails } from '../server/privacy.ts';
+import { extractCallbackNumbers, maskPersonalDetails, sanitizeCallbackNumbers } from '../server/privacy.ts';
 import { openStore } from '../server/store.ts';
 import { languages, ResultSchema, type Result, type Language, type CheckResponse } from '../shared/schema.ts';
 
@@ -290,7 +290,7 @@ test('live screenshot extraction exposes extracted_links and validates them in c
       assert.equal(evidence[0].registeredDomain, 'verify-account.example');
       assert.equal(evidence[0].status, 'unrecognized');
     }
-    const result = extraction ? { text: 'Please verify your account.', extracted_links: ['https://cibc.com.verify-account.example/login'], readable: true, injection_detected: false } : base;
+    const result = extraction ? { text: 'Your phone: 202-555-0147. Please call us back at 1-800-555-0199.', extracted_links: ['https://cibc.com.verify-account.example/login'], readable: true, injection_detected: false } : base;
     return new Response(JSON.stringify({ id: 'resp_test', object: 'response', created_at: 1, status: 'completed', model: 'gpt-6-luna', output: [{ id: 'msg_test', type: 'message', status: 'completed', role: 'assistant', content: [{ type: 'output_text', text: JSON.stringify(result), annotations: [] }] }], usage: { input_tokens: 1000, input_tokens_details: { cached_tokens: 0 }, output_tokens: 100, output_tokens_details: { reasoning_tokens: 0 }, total_tokens: 1100 } }), { headers: { 'Content-Type': 'application/json' } });
   };
   try {
@@ -298,6 +298,8 @@ test('live screenshot extraction exposes extracted_links and validates them in c
     const check = await checkMessage({ image, language: 'en', mode: 'live' });
     assert.equal(check.result.verdict, 'unclear');
     assert.deepEqual(check.extracted_links, ['https://cibc.com.verify-account.example/login']);
+    assert.deepEqual(check.callback_numbers, ['1-800-555-0199']);
+    assert.ok(!JSON.stringify(check).includes('555-0147'));
     assert.equal(calls, 2);
   } finally { globalThis.fetch = previousFetch; if (previousKey === undefined) delete process.env.OPENAI_API_KEY; else process.env.OPENAI_API_KEY = previousKey; }
 });
@@ -363,4 +365,52 @@ test('report and escalation share a queue item, including an escalation after re
       assert.equal(store.notifications()[0].checkId, check.id);
     } finally { store.close(); }
   }
+});
+
+const callbackExample = 'Harbor Bank: Hi, this is Sarah from Card Services. Please call us back at 1-800-555-0199 about a recent change on your account. Reference #48213. Our hours are 8am to 8pm ET.';
+
+test('callback evidence preserves requested destinations but suppresses personal, ambiguous and conflicting numbers', () => {
+  assert.deepEqual(extractCallbackNumbers(callbackExample), ['1-800-555-0199']);
+  assert.deepEqual(extractCallbackNumbers('Your phone: 202-555-0147. ' + callbackExample), ['1-800-555-0199']);
+  for (const text of [
+    'Your phone number is 202-555-0147.',
+    'From: 202-555-0147. A recent account change.',
+    'Phone: 202-555-0147.',
+    'Please call your registered number at 202-555-0147.',
+    'Your phone: (800) 555-0199. ' + callbackExample,
+    'Call 202-555-0147. My number is +1 (202) 555-0147.',
+    'Your account: call 202-555-0147.',
+    'Call 202-555-0147 is your phone number.',
+    'Call 4111 1111 1111 1111.',
+    'Call 48213.',
+  ]) assert.deepEqual(extractCallbackNumbers(text), [], text);
+  assert.deepEqual(extractCallbackNumbers('請致電 1-800-555-0199。您的電話是 202-555-0147。'), ['1-800-555-0199']);
+  assert.deepEqual(extractCallbackNumbers('Llame al 1-800-555-0199.'), ['1-800-555-0199']);
+  assert.deepEqual(extractCallbackNumbers('اتصل بنا 1-800-555-0199.'), ['1-800-555-0199']);
+  assert.deepEqual(sanitizeCallbackNumbers(['<script>', 'Alice Chen', '4111111111111111', '1-800-555-0199']), ['1-800-555-0199']);
+});
+
+test('callback evidence survives history, sampling and approval while model input and stored message mask customer details', async () => {
+  const store = openStore(':memory:');
+  try {
+    const check = await checkMessage({ text: 'Your phone: 202-555-0147. ' + callbackExample, language: 'en', mode: 'mock' }, async ({ text }) => {
+      assert.ok(!text.includes('555-0147'));
+      assert.ok(!text.includes('555-0199'));
+      return { result: base, usage };
+    });
+    assert.deepEqual(check.callback_numbers, ['1-800-555-0199']);
+    store.recordCheck(check);
+    assert.deepEqual(store.latestChecks()[0].callback_numbers, check.callback_numbers);
+    store.sample();
+    const item = store.pending()[0];
+    assert.deepEqual(item.callback_numbers, check.callback_numbers);
+    assert.ok(!JSON.stringify(item).includes('555-0147'));
+    assert.ok(!item.text.includes('555-0199'));
+    store.submit(check, 'escalation');
+    store.approve(item.id, 'unclear');
+    const saved = store.evals().find(e => e.origin === 'review')!;
+    assert.deepEqual(saved.callback_numbers, check.callback_numbers);
+    assert.ok(!JSON.stringify(saved).includes('555-0147'));
+    assert.equal(store.notifications().length, 1);
+  } finally { store.close(); }
 });

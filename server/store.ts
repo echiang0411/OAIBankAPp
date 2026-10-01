@@ -2,7 +2,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
-import { maskPersonalDetails, sanitizeDeep } from './privacy.ts';
+import { maskPersonalDetails, sanitizeCallbackNumbers, sanitizeDeep } from './privacy.ts';
 import { config } from './config.ts';
 import { groupCampaigns } from './campaigns.ts';
 import type { CheckResponse, CustomerNotification, EvalItem, ReviewItem, ReviewSource, Verdict } from '../shared/schema.ts';
@@ -70,7 +70,7 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
       }
       return { added: false };
     }
-    const item: ReviewItem = { id: randomUUID(), checkId: check.id, text: maskPersonalDetails(check.redactedText), result: sanitizeDeep(check.result), language: check.language, sources: [source], createdAt: new Date().toISOString(), mode: check.mode, extracted_links: sanitizeDeep(check.extracted_links ?? []) };
+    const item: ReviewItem = { id: randomUUID(), checkId: check.id, text: maskPersonalDetails(check.redactedText), callback_numbers: sanitizeCallbackNumbers(check.callback_numbers), result: sanitizeDeep(check.result), language: check.language, sources: [source], createdAt: new Date().toISOString(), mode: check.mode, extracted_links: sanitizeDeep(check.extracted_links ?? []) };
     db.prepare('INSERT INTO reviews (id, check_id, payload) VALUES (?, ?, ?)').run(item.id, check.id, JSON.stringify(item));
     return { added: true };
   }
@@ -84,7 +84,7 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
     readNotification: (id: string) => db.prepare('UPDATE notifications SET is_read = 1 WHERE id = ?').run(id).changes === 1,
     recordCheck(check: CheckResponse, at = new Date().toISOString()) {
       // Construct the stored shape explicitly so images or future raw input fields cannot leak in.
-      const safe: CheckResponse = { id: check.id, result: sanitizeDeep(check.result), redactedText: maskPersonalDetails(check.redactedText), links: sanitizeDeep(check.links), extracted_links: sanitizeDeep(check.extracted_links ?? []), language: check.language, mode: check.mode, source: check.source, calls: check.calls, estimatedCost: check.estimatedCost, escalated: check.escalated, escalationReason: check.escalationReason, durationMs: check.durationMs };
+      const safe: CheckResponse = { id: check.id, result: sanitizeDeep(check.result), redactedText: maskPersonalDetails(check.redactedText), callback_numbers: sanitizeCallbackNumbers(check.callback_numbers), links: sanitizeDeep(check.links), extracted_links: sanitizeDeep(check.extracted_links ?? []), language: check.language, mode: check.mode, source: check.source, calls: check.calls, estimatedCost: check.estimatedCost, escalated: check.escalated, escalationReason: check.escalationReason, durationMs: check.durationMs };
       db.prepare('INSERT OR IGNORE INTO checks VALUES (?, ?, ?)').run(check.id, at, JSON.stringify(safe));
     },
     submit(check: CheckResponse, kind: 'report' | 'escalation') {
@@ -118,7 +118,7 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
       review.approvedAt = new Date().toISOString();
       const key = fingerprint(review.text, review.language);
       const existing = db.prepare('SELECT id, payload FROM evals WHERE fingerprint = ?').get(key) as (Row & { id: string }) | undefined;
-      const item: EvalItem = { id: existing?.id ?? randomUUID(), addedAt: existing ? (JSON.parse(existing.payload) as EvalItem).addedAt : review.approvedAt, updatedAt: review.approvedAt, text: maskPersonalDetails(review.text), language: review.language, label, origin: 'review', reviewSources: review.sources, extracted_links: sanitizeDeep(review.extracted_links ?? []) };
+      const item: EvalItem = { id: existing?.id ?? randomUUID(), addedAt: existing ? (JSON.parse(existing.payload) as EvalItem).addedAt : review.approvedAt, updatedAt: review.approvedAt, text: maskPersonalDetails(review.text), callback_numbers: sanitizeCallbackNumbers(review.callback_numbers), language: review.language, label, origin: 'review', reviewSources: review.sources, extracted_links: sanitizeDeep(review.extracted_links ?? []) };
       db.exec('BEGIN IMMEDIATE');
       try {
         db.prepare('INSERT INTO evals VALUES (?, ?, ?) ON CONFLICT(fingerprint) DO UPDATE SET payload = excluded.payload').run(item.id, key, JSON.stringify(item));

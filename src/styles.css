@@ -55,3 +55,8 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 .fraud-help button{width:100%;min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px}
 .fraud-help button svg{flex-shrink:0}
 .fraud-help .feedback-thanks{line-height:1.7;align-items:flex-start}
+
+.callback-evidence { margin: 16px 0; padding: 16px; border: 1px solid #e5d8c6; border-radius: 12px; background: #fbf7f0; overflow-wrap: anywhere; }
+.callback-evidence strong, .callback-evidence code { display: block; }
+.callback-evidence code { margin-top: 8px; font-size: 17px; color: #203b34; user-select: text; }
+.callback-evidence p { margin: 10px 0 0; font-size: 14px; line-height: 1.6; }

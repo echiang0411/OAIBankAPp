@@ -194,7 +194,7 @@ function InternalDiagnostics({ checks }: { checks: CheckResponse[] }) {
   return <section className="panel internal-diagnostics"><div className="eval-header"><h2>Developer diagnostics</h2><span>Internal demo view</span></div>
     <p className="diagnostics-description">API costs are estimates for the bank, not customer charges. Showing the latest 50 checks. Mock estimates use illustrative token usage; actual mock spend is $0.</p>
     {checks.length ? checks.map(check => <article className="diagnostic-check" key={check.id}>
-      <div className="diagnostic-summary"><span><strong>{verdictLabel(check.result.verdict)}</strong><small>{check.language} · {check.source} · {check.mode}</small></span><span>{check.mode === 'mock' ? 'Illustrative API cost' : 'Estimated API cost'}<strong>{money(check.estimatedCost)}</strong></span></div>
+      <div className="diagnostic-summary"><span><strong className={`diagnostic-verdict ${check.result.verdict}`}>{verdictLabel(check.result.verdict)}</strong><small>{check.language} · {check.source} · {check.mode}</small></span><span>{check.mode === 'mock' ? 'Illustrative API cost' : 'Estimated API cost'}<strong>{money(check.estimatedCost)}</strong></span></div>
       <p className="diagnostic-message">{check.redactedText}</p>
       <CheckDetails data={check} internal/>
     </article>) : <p className="diagnostics-description">Run a message check to see its cost, token usage, and model routing here.</p>}

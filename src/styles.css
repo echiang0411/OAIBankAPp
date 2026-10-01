@@ -87,3 +87,6 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 .resolution-followup .exposure-options button { min-height: 48px; font-size: 15px; background: #fff; }
 .resolution-followup .exposure-options button.selected { background: #dceace; border-color: #6e8e57; }
 @media(max-width:760px) { .resolution-notice { padding: 18px; gap: 8px; } .resolution-followup .exposure-options { grid-template-columns: 1fr; } .resolution-followup .followup h3 { font-size: 18px; } }
+
+.diagnostic-verdict.scam, .diagnostic-verdict.likely_scam { color: #b42318; }
+.diagnostic-verdict.unclear { color: #b45309; }

@@ -196,10 +196,24 @@ function InternalDiagnostics({ checks }: { checks: CheckResponse[] }) {
     <p className="diagnostics-description">API costs are estimates for the bank, not customer charges. Showing the latest 50 checks. Mock estimates use illustrative token usage; actual mock spend is $0.</p>
     {checks.length ? checks.map(check => <article className="diagnostic-check" key={check.id}>
       <div className="diagnostic-summary"><span><strong className={`diagnostic-verdict ${check.result.verdict}`}>{verdictLabel(check.result.verdict)}</strong><small>{check.language} · {check.source} · {check.mode}</small></span><span>{check.mode === 'mock' ? 'Illustrative API cost' : 'Estimated API cost'}<strong>{money(check.estimatedCost)}</strong></span></div>
-      <p className="diagnostic-message">{check.redactedText}</p>
+      <p className="diagnostic-message">{check.source === 'image' && check.redactedText === '[Unreadable screenshot]' ? 'Text could not be extracted from this screenshot.' : check.redactedText}</p>
+      {check.hasScreenshot ? <DiagnosticScreenshot id={check.id}/> : check.source === 'image' && check.redactedText === '[Unreadable screenshot]' && <p className="screenshot-missing">The original image is no longer available. Upload and check the screenshot again to retain it here.</p>}
       <CheckDetails data={check} internal/>
     </article>) : <p className="diagnostics-description">Run a message check to see its cost, token usage, and model routing here.</p>}
   </section>;
+}
+
+function DiagnosticScreenshot({ id }: { id: string }) {
+  const [open, setOpen] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const url = `/api/checks/${encodeURIComponent(id)}/screenshot`;
+  return <details className="technical-details diagnostic-screenshot" onToggle={event => setOpen(event.currentTarget.open)}>
+    <summary>See full screenshot<ChevronDown size={16}/></summary>
+    {open && <div className="review-screenshot">
+      <p>Original image. Personal details are not masked. Retained while this check is among the latest 50 diagnostic checks.</p>
+      {failed ? <p role="alert">The screenshot is unavailable. Refresh the diagnostics to check whether it is still retained.</p> : <><a href={url} target="_blank" rel="noopener noreferrer">Open full-size screenshot</a><img src={url} alt="Original screenshot that could not be read" onError={() => setFailed(true)}/></>}
+    </div>}
+  </details>;
 }
 
 type DemoAction = 'freeze' | 'replace' | 'reset' | 'signout';
@@ -266,7 +280,7 @@ function Analyst({ refresh }: { refresh: () => Promise<void> }) {
     <div className="analyst-tabs"><button className={tab === 'queue' ? 'active' : ''} onClick={() => setTab('queue')}>Review queue <span>{items.length}</span></button><button className={tab === 'evals' ? 'active' : ''} onClick={() => { setTab('evals'); setEvalFilter('all'); }}>Evaluation set <span>{evals.length}</span></button></div>
     {notice && <div className="success-notice" role="status"><CircleCheck size={18}/>{notice}<button aria-label="Dismiss" onClick={() => setNotice('')}><X size={17}/></button></div>}
     {error && <div className="error-message" role="alert">{error}</div>}
-    <p className="queue-note"><LockKeyhole size={13}/> Message text is masked before storage. Screenshots sent by customers are retained unmasked until review is complete. Only analyst-approved items join the eval set. Customers do not assign labels.</p>
+    <p className="queue-note"><LockKeyhole size={13}/> Message text is masked before storage. Review screenshots are retained unmasked until review is complete. Unreadable screenshots also remain with the latest 50 diagnostic checks. Only analyst-approved items join the eval set. Customers do not assign labels.</p>
     {loading ? <div className="empty-state"><LoaderCircle className="spin"/>Loading reviews...</div> : tab === 'queue' ? items.length ? <div className="review-list">{items.map(item => <ReviewCard key={item.id} item={item} onApprove={approve}/>)}</div> : <div className="panel empty-state"><div className="empty-icon"><Inbox size={32}/></div><h2>You’re all caught up.</h2><p>Reported scams, fraud-team escalations, and weekly random samples appear here for analyst review.</p><span className="small-label">YOUR NEXT REVIEW MAKES THE CHECKER MORE TESTABLE</span></div> : <div className="panel eval-panel"><div className="eval-header"><h2>{evalFilter === 'review' ? 'Analyst-approved evaluation examples' : 'The bank’s evaluation set'}</h2>{evalFilter === 'review' && <button type="button" className="text-button" onClick={() => setEvalFilter('all')}>Show all examples</button>}<span>Newest first · dates in your local time</span><span>Run with <code>npm run eval</code></span></div><div className="table-scroll"><table><thead><tr><th aria-sort="descending">Added / updated</th><th>Message</th><th>Language</th><th>Expected verdict</th><th>Source</th></tr></thead><tbody>{visibleEvals.length === 0 && <tr><td colSpan={5}>No analyst-approved examples yet.</td></tr>}{visibleEvals.map(item => <tr key={item.id}><td className="eval-date">{item.updatedAt || item.addedAt ? <time dateTime={item.updatedAt ?? item.addedAt} title={item.updatedAt ? "Last analyst approval" : "Added to the evaluation set"}>{new Date((item.updatedAt ?? item.addedAt)!).toLocaleString([], { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit", second: "2-digit" })}</time> : <span title="This older example has no recorded date">Not recorded</span>}</td><td>{item.text}<CallbackEvidence numbers={item.callback_numbers}/></td><td>{item.language}</td><td><span className={`label-badge ${item.label}`}>{verdictLabel(item.label)}</span></td><td>{item.origin === 'seed' ? 'Synthetic seed' : 'Analyst approved'}</td></tr>)}</tbody></table></div></div>}
     </div>
     <InternalDiagnostics checks={checks}/>

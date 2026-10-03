@@ -50,7 +50,7 @@ app.post('/api/check', async (req, res, next) => {
     purgeExpiredChecks();
     if (recentChecks.size >= 100) recentChecks.delete(recentChecks.keys().next().value!);
     recentChecks.set(result.id, { value: result, image: input.image, expires: Date.now() + 30 * 60_000 });
-    store.recordCheck(result);
+    store.recordCheck(result, undefined, input.image);
     res.json(result);
   } catch (error) { next(error); }
 });
@@ -63,6 +63,14 @@ app.post('/api/reports', (req, res) => {
   res.json(store.submit(check.value, kind, check.image));
 });
 app.get('/api/reviews', (_req, res) => res.json({ items: store.pending(), recentChecks: store.latestChecks(), evalCount: store.evals().length, historyCount: store.historyCount(), sampleSize: config.weeklySampleSize, lookbackDays: config.sampleLookbackDays, campaigns: store.campaigns(), campaignWindowDays: config.campaignWindowDays }));
+app.get('/api/checks/:id/screenshot', (req, res) => {
+  const id = z.string().uuid().parse(req.params.id);
+  const screenshot = store.diagnosticScreenshot(id);
+  if (!screenshot) return res.status(404).json({ error: 'This check has no retained diagnostic screenshot.' });
+  res.setHeader('Content-Type', screenshot.mime);
+  res.setHeader('Content-Disposition', 'inline; filename="diagnostic-screenshot.' + (screenshot.mime === 'image/png' ? 'png' : 'jpg') + '"');
+  res.send(screenshot.bytes);
+});
 app.get('/api/reviews/:id/screenshot', (req, res) => {
   const id = z.string().uuid().parse(req.params.id);
   const screenshot = store.reviewScreenshot(id);

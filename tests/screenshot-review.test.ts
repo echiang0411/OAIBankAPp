@@ -65,6 +65,65 @@ test('invalid attachments cannot create reviews; sampling and older reviews do n
   } finally { store.close(); }
 });
 
+test('unreadable diagnostics retain original images without reporting, survive restart, and preserve labels', () => {
+  const folder = mkdtempSync(join(tmpdir(), 'harbor-diagnostic-image-'));
+  const path = join(folder, 'checks.sqlite');
+  let store = openStore(path);
+  try {
+    const check = unreadable();
+    const originalEvals = store.evals();
+    store.recordCheck(check, undefined, image);
+    store.recordCheck(check, undefined, image);
+    assert.equal(store.historyCount(), 1);
+    assert.equal(store.pending().length, 0);
+    assert.equal(store.latestChecks()[0].hasScreenshot, true);
+    assert.deepEqual(store.diagnosticScreenshot(check.id)?.bytes, bytes);
+    assert.doesNotMatch(JSON.stringify(store.latestChecks()), /data:image|iVBORw0KGgo/);
+    store.close(); store = openStore(path);
+    assert.deepEqual(store.diagnosticScreenshot(check.id)?.bytes, bytes);
+    assert.deepEqual(store.evals(), originalEvals);
+    store.submit(check, 'escalation', image);
+    store.approve(store.pending()[0].id, 'unclear');
+    assert.deepEqual(store.diagnosticScreenshot(check.id)?.bytes, bytes);
+  } finally { store.close(); rmSync(folder, { recursive: true, force: true }); }
+});
+
+test('diagnostic retention is bounded to latest 50 checks and does not retain readable images', () => {
+  const store = openStore(':memory:');
+  try {
+    const check = unreadable();
+    assert.throws(() => store.recordCheck(check, undefined, 'data:image/png;base64,bm90YW5pbWFnZQ=='));
+    assert.equal(store.historyCount(), 0);
+    store.recordCheck(check, undefined, image);
+    for (let i = 0; i < 49; i++) store.recordCheck({ ...unreadable(), redactedText: 'Readable message' }, undefined, image);
+    assert.deepEqual(store.diagnosticScreenshot(check.id)?.bytes, bytes);
+    assert.equal(store.latestChecks().filter(c => c.hasScreenshot).length, 1);
+    const readable = { ...unreadable(), redactedText: 'Readable message' };
+    store.recordCheck(readable, undefined, image);
+    assert.equal(store.diagnosticScreenshot(check.id), null);
+    assert.equal(store.diagnosticScreenshot(readable.id), null);
+    assert.equal(store.latestChecks().some(c => c.hasScreenshot), false);
+    assert.equal(store.historyCount(), 51);
+    assert.equal(store.evals().length, 20);
+  } finally { store.close(); }
+});
+
+test('existing unreadable review images are backfilled into diagnostics without replacing records', () => {
+  const folder = mkdtempSync(join(tmpdir(), 'harbor-diagnostic-backfill-'));
+  const path = join(folder, 'checks.sqlite');
+  let store = openStore(path);
+  try {
+    const check = unreadable();
+    store.recordCheck(check);
+    store.submit(check, 'escalation', image);
+    const before = { reviews: store.pending(), evals: store.evals(), notices: store.notifications() };
+    assert.equal(store.diagnosticScreenshot(check.id), null);
+    store.close(); store = openStore(path);
+    assert.deepEqual(store.diagnosticScreenshot(check.id)?.bytes, bytes);
+    assert.deepEqual({ reviews: store.pending(), evals: store.evals(), notices: store.notifications() }, before);
+  } finally { store.close(); rmSync(folder, { recursive: true, force: true }); }
+});
+
 test('HTTP unreadable screenshot check passes its original bytes into analyst review without another upload', async () => {
   const folder = mkdtempSync(join(tmpdir(), 'harbor-image-http-'));
   const stub = join(folder, 'stub.mjs');
@@ -94,6 +153,17 @@ test('HTTP unreadable screenshot check passes its original bytes into analyst re
     const check = await response.json() as CheckResponse;
     assert.equal(check.redactedText, '[Unreadable screenshot]');
     assert.equal(check.result.verdict, 'unclear');
+    const beforeReport = await (await fetch(url + '/api/reviews')).json();
+    assert.equal(beforeReport.items.length, 0);
+    assert.equal(beforeReport.recentChecks[0].hasScreenshot, true);
+    const diagnosticPath = `/api/checks/${check.id}/screenshot`;
+    const diagnosticImage = await fetch(url + diagnosticPath);
+    assert.equal(diagnosticImage.headers.get('content-type'), 'image/png');
+    assert.equal(diagnosticImage.headers.get('cache-control'), 'no-store');
+    assert.equal(diagnosticImage.headers.get('x-content-type-options'), 'nosniff');
+    assert.deepEqual(Buffer.from(await diagnosticImage.arrayBuffer()), bytes);
+    assert.equal((await fetch(url + diagnosticPath, { headers: { Origin: 'https://evil.example' } })).status, 403);
+    assert.equal((await fetch(url + `/api/checks/${randomUUID()}/screenshot`)).status, 404);
     assert.equal((await post('/api/reports', { checkId: check.id, kind: 'escalation' })).status, 200);
     const queue = await (await fetch(url + '/api/reviews')).json();
     assert.equal(queue.items[0].hasScreenshot, true);
@@ -107,6 +177,7 @@ test('HTTP unreadable screenshot check passes its original bytes into analyst re
     assert.equal((await fetch(url + `/api/reviews/${randomUUID()}/screenshot`)).status, 404);
     assert.equal((await post(`/api/reviews/${queue.items[0].id}/approve`, { label: 'unclear' })).status, 200);
     assert.equal((await fetch(url + path)).status, 404);
+    assert.equal((await fetch(url + diagnosticPath)).status, 200);
   } finally {
     if (child.exitCode === null) { child.kill('SIGTERM'); await once(child, 'exit'); }
     rmSync(folder, { recursive: true, force: true });

@@ -17,8 +17,20 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
     CREATE TABLE IF NOT EXISTS review_screenshots (review_id TEXT PRIMARY KEY, mime TEXT NOT NULL, image BLOB NOT NULL);
     CREATE TABLE IF NOT EXISTS evals (id TEXT PRIMARY KEY, fingerprint TEXT UNIQUE NOT NULL, payload TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS checks (id TEXT PRIMARY KEY, created_at TEXT NOT NULL, payload TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS diagnostic_screenshots (check_id TEXT PRIMARY KEY, mime TEXT NOT NULL, image BLOB NOT NULL);
     CREATE TABLE IF NOT EXISTS sample_runs (week TEXT PRIMARY KEY, created_at TEXT NOT NULL, count INTEGER NOT NULL);
     CREATE TABLE IF NOT EXISTS notifications (id TEXT PRIMARY KEY, review_id TEXT UNIQUE NOT NULL, payload TEXT NOT NULL, is_read INTEGER NOT NULL DEFAULT 0);`);
+  // Recover existing unreadable evidence when a pending review still has the original image.
+  // No history, review, or evaluation records are replaced by this additive migration.
+  db.exec(`INSERT OR IGNORE INTO diagnostic_screenshots (check_id, mime, image)
+    SELECT checks.id, review_screenshots.mime, review_screenshots.image FROM checks
+    JOIN reviews ON reviews.check_id = checks.id
+    JOIN review_screenshots ON review_screenshots.review_id = reviews.id
+    WHERE json_extract(checks.payload, '$.source') = 'image'
+      AND json_extract(checks.payload, '$.redactedText') = '[Unreadable screenshot]'
+      AND checks.id IN (SELECT id FROM checks ORDER BY rowid DESC LIMIT 50);`);
+  const pruneDiagnosticScreenshots = () => db.exec('DELETE FROM diagnostic_screenshots WHERE check_id NOT IN (SELECT id FROM checks ORDER BY rowid DESC LIMIT 50)');
+  pruneDiagnosticScreenshots();
   const fingerprint = (text: string, language: string) => createHash('sha256').update(text + ':' + language).digest('hex');
   const seeds: EvalItem[] = JSON.parse(readFileSync(new URL('../data/seed-eval.json', import.meta.url), 'utf8'));
   const importedAt = new Date().toISOString();
@@ -84,14 +96,29 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
       return row ? { mime: row.mime, bytes: Buffer.from(row.image) } : null;
     },
     evals: (): EvalItem[] => (db.prepare("SELECT payload FROM evals ORDER BY COALESCE(json_extract(payload, '$.updatedAt'), json_extract(payload, '$.addedAt')) DESC, rowid DESC").all() as Row[]).map(row => JSON.parse(row.payload)),
-    latestChecks: (): CheckResponse[] => (db.prepare('SELECT payload FROM checks ORDER BY rowid DESC LIMIT 50').all() as Row[]).map(row => JSON.parse(row.payload)),
+    latestChecks: (): CheckResponse[] => (db.prepare('SELECT payload, EXISTS(SELECT 1 FROM diagnostic_screenshots WHERE check_id = checks.id) AS has_screenshot FROM checks ORDER BY rowid DESC LIMIT 50').all() as (Row & { has_screenshot: number })[]).map(row => ({ ...JSON.parse(row.payload), ...(row.has_screenshot ? { hasScreenshot: true } : {}) })),
+    diagnosticScreenshot(id: string): { mime: string; bytes: Buffer } | null {
+      const row = db.prepare('SELECT mime, image FROM diagnostic_screenshots WHERE check_id = ?').get(id) as { mime: string; image: Uint8Array } | undefined;
+      return row ? { mime: row.mime, bytes: Buffer.from(row.image) } : null;
+    },
     historyCount: () => Number((db.prepare('SELECT count(*) AS count FROM checks').get() as { count: number }).count),
     notifications: (): CustomerNotification[] => (db.prepare('SELECT payload, is_read FROM notifications ORDER BY rowid DESC').all() as (Row & { is_read: number })[]).map(row => ({ ...JSON.parse(row.payload), read: Boolean(row.is_read) })),
     readNotification: (id: string) => db.prepare('UPDATE notifications SET is_read = 1 WHERE id = ?').run(id).changes === 1,
-    recordCheck(check: CheckResponse, at = new Date().toISOString()) {
+    recordCheck(check: CheckResponse, at = new Date().toISOString(), image?: string) {
+      const retainScreenshot = Boolean(image && check.source === 'image' && check.redactedText === '[Unreadable screenshot]');
+      if (retainScreenshot) validateImage(image!);
       // Construct the stored shape explicitly so images or future raw input fields cannot leak in.
       const safe: CheckResponse = { id: check.id, result: sanitizeDeep(check.result), redactedText: maskPersonalDetails(check.redactedText), callback_numbers: sanitizeCallbackNumbers(check.callback_numbers), links: sanitizeDeep(check.links), extracted_links: sanitizeDeep(check.extracted_links ?? []), language: check.language, mode: check.mode, source: check.source, calls: check.calls, estimatedCost: check.estimatedCost, escalated: check.escalated, escalationReason: check.escalationReason, durationMs: check.durationMs };
-      db.prepare('INSERT OR IGNORE INTO checks VALUES (?, ?, ?)').run(check.id, at, JSON.stringify(safe));
+      db.exec('BEGIN IMMEDIATE');
+      try {
+        db.prepare('INSERT OR IGNORE INTO checks VALUES (?, ?, ?)').run(check.id, at, JSON.stringify(safe));
+        if (retainScreenshot) {
+          const mime = image!.startsWith('data:image/png;') ? 'image/png' : 'image/jpeg';
+          db.prepare('INSERT OR IGNORE INTO diagnostic_screenshots VALUES (?, ?, ?)').run(check.id, mime, Buffer.from(image!.split(',')[1], 'base64'));
+        }
+        pruneDiagnosticScreenshots();
+        db.exec('COMMIT');
+      } catch (error) { db.exec('ROLLBACK'); throw error; }
     },
     submit(check: CheckResponse, kind: 'report' | 'escalation', image?: string): ReportResponse {
       if (kind === 'report' && !['scam', 'likely_scam'].includes(check.result.verdict)) throw new Error('This action is not available for the result verdict.');

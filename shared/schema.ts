@@ -22,6 +22,7 @@ export type CheckResponse = {
   redactedText: string; calls: CallUsage[]; estimatedCost: number;
   escalated: boolean; escalationReason: string | null; durationMs: number;
   source: 'text' | 'image'; language: Language; extracted_links: string[]; callback_numbers?: string[];
+  hasScreenshot?: boolean;
 };
 export type ReportResponse = { added: boolean; pendingCount: number; estimatedWaitMinutes: number };
 export type ReviewSource = 'report' | 'escalation' | 'random_sample' | 'legacy_feedback';

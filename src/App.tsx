@@ -268,7 +268,7 @@ function Analyst({ refresh }: { refresh: () => Promise<void> }) {
       await load(); await refresh();
     } catch (e) { setError((e as Error).message); } finally { setSampling(false); }
   }
-  return <div className="analyst"><div className="analyst-heading"><div><p className="eyebrow"><span className="small-diamond"/>HUMAN OVERSIGHT</p><h1 className="sr-only">Analyst workspace</h1></div><span className="local-tag"><LockKeyhole size={14}/> Local analyst workspace</span></div>
+  return <div className="analyst"><div className="analyst-heading"><h1 className="analyst-title">Harbor Fraud Analyst Center</h1><span className="local-tag"><LockKeyhole size={14}/> Local analyst workspace</span></div>
     <div className="stat-grid">
       <button type="button" className="stat-card" aria-controls="analyst-records" onClick={() => openRecords('queue')}><span className="stat-icon"><Inbox size={23}/></span><span><strong>{items.length}</strong><small>Awaiting review</small></span></button>
       <button type="button" className="stat-card" aria-controls="analyst-records" onClick={() => openRecords('evals')}><span className="stat-icon"><FileCheck2 size={23}/></span><span><strong data-testid="eval-count">{evals.length}</strong><small>Bank-owned eval examples</small></span></button>

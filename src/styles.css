@@ -102,8 +102,7 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 /* Give the analyst workspace a distinct backdrop while keeping evidence cards light. */
 .app-shell.analyst-mode { min-height: 100vh; background: #284b40; }
 .analyst-mode .analyst { padding-top: 30px; }
-.analyst-mode .analyst-heading .eyebrow { color: #dce9d5; margin: 0; }
-.analyst-mode .analyst-heading .small-diamond { background: #bad39f; }
+.analyst-mode .analyst-heading .analyst-title { font-family: inherit; font-size: clamp(22px, 2.5vw, 30px); font-weight: 650; line-height: 1.25; letter-spacing: -.5px; color: #f2f6ec; margin: 0; }
 .analyst-mode .local-tag { color: #dce9d5; background: #ffffff08; border-color: #698377; }
 .analyst-mode .nav-button.active { background: #284b40; color: #fff; }
 .analyst-mode .nav-count { background: #dce9d5; color: #284b40; }

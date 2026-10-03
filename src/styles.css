@@ -98,3 +98,23 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 .review-screenshot p, .screenshot-missing { font-size: 14px; line-height: 1.6; }
 .review-screenshot a { color: #285442; text-underline-offset: 4px; }
 .review-screenshot img { display: block; width: auto; max-width: 100%; max-height: 560px; object-fit: contain; margin: 16px auto 0; border: 1px solid #dde5d4; border-radius: 8px; background: white; }
+
+/* Give the analyst workspace a distinct backdrop while keeping evidence cards light. */
+.app-shell.analyst-mode { min-height: 100vh; background: #284b40; }
+.analyst-mode .analyst { padding-top: 30px; }
+.analyst-mode .analyst-heading .eyebrow { color: #dce9d5; margin: 0; }
+.analyst-mode .analyst-heading .small-diamond { background: #bad39f; }
+.analyst-mode .local-tag { color: #dce9d5; background: #ffffff08; border-color: #698377; }
+.analyst-mode .nav-button.active { background: #284b40; color: #fff; }
+.analyst-mode .nav-count { background: #dce9d5; color: #284b40; }
+.analyst-mode .sample-toolbar strong { color: #f2f6ec; }
+.analyst-mode .sample-toolbar p,
+.analyst-mode .queue-note,
+.analyst-mode .analyst-footnote,
+.analyst-mode .analyst-footnote strong,
+.analyst-mode .site-footer { color: #d4e1cf; }
+.analyst-mode .sample-toolbar .secondary-button { background: #fff; }
+.analyst-mode .analyst-tabs { border-bottom-color: #6f8a7d; }
+.analyst-mode .analyst-tabs button { color: #d4e1cf; }
+.analyst-mode .analyst-tabs button.active { color: #fff; border-bottom-color: #c9dfa9; }
+.analyst-mode button.stat-card:focus-visible { outline-color: #d0e3bd; }

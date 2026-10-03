@@ -25,7 +25,7 @@ export default function App() {
   const refreshNotifications = () => api<{ items: CustomerNotification[] }>('/notifications').then(data => setNotifications(data.items.filter(n => !n.read))).catch(e => setBootError(e.message));
   const refresh = async () => { await Promise.all([api<Meta>('/meta').then(setMeta).catch(e => setBootError(e.message)), refreshNotifications()]); };
   useEffect(() => { void refresh(); const timer = setInterval(() => void refreshNotifications(), 5000); return () => clearInterval(timer); }, []);
-  return <div className="app-shell">
+  return <div className={`app-shell ${screen === 'analyst' ? 'analyst-mode' : ''}`}>
     <header className="site-header"><div className="header-inner">
       <button className="brand lookout-brand" onClick={() => setScreen('customer')} aria-label="Harbor Lookout home"><span className="brand-mark"><Anchor size={23} strokeWidth={1.7}/></span><span><span className="lookout-name">Harbor Lookout</span><span className="brand-sub">by Harbor National Bank</span></span></button>
       <nav aria-label="Demo views"><button className={screen === 'customer' ? 'nav-button active' : 'nav-button'} onClick={() => setScreen('customer')}><ShieldCheck size={17}/> Customer view</button><button className={screen === 'analyst' ? 'nav-button active' : 'nav-button'} onClick={() => setScreen('analyst')}><SlidersHorizontal size={16}/> Analyst view{Boolean(meta?.pendingCount) && <span className="nav-count">{meta?.pendingCount}</span>}</button></nav>
@@ -254,7 +254,7 @@ function Analyst({ refresh }: { refresh: () => Promise<void> }) {
       await load(); await refresh();
     } catch (e) { setError((e as Error).message); } finally { setSampling(false); }
   }
-  return <div className="analyst"><div className="analyst-heading"><div><p className="eyebrow"><span className="small-diamond"/>HUMAN OVERSIGHT</p><h1>Better with every review.</h1><p>Review reports and random samples to build a bank-owned evaluation set.</p></div><span className="local-tag"><LockKeyhole size={14}/> Local analyst workspace</span></div>
+  return <div className="analyst"><div className="analyst-heading"><div><p className="eyebrow"><span className="small-diamond"/>HUMAN OVERSIGHT</p><h1 className="sr-only">Analyst workspace</h1></div><span className="local-tag"><LockKeyhole size={14}/> Local analyst workspace</span></div>
     <div className="stat-grid">
       <button type="button" className="stat-card" aria-controls="analyst-records" onClick={() => openRecords('queue')}><span className="stat-icon"><Inbox size={23}/></span><span><strong>{items.length}</strong><small>Awaiting review</small></span></button>
       <button type="button" className="stat-card" aria-controls="analyst-records" onClick={() => openRecords('evals')}><span className="stat-icon"><FileCheck2 size={23}/></span><span><strong data-testid="eval-count">{evals.length}</strong><small>Bank-owned eval examples</small></span></button>

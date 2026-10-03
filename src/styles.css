@@ -90,3 +90,11 @@ button.stat-card{text-align:left;width:100%;cursor:pointer;color:inherit;font:in
 
 .diagnostic-verdict.scam, .diagnostic-verdict.likely_scam { color: #b42318; }
 .diagnostic-verdict.unclear { color: #b45309; }
+
+.screenshot-sharing-note { font-size: 14px; line-height: 1.6; margin: 12px 0 0; }
+.review-screenshot { background: #f7f9f3; border: 1px solid #dde5d4; border-radius: 12px; padding: 20px; margin: 20px 0; }
+.review-screenshot-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.review-screenshot h3 { margin: 0; }
+.review-screenshot p, .screenshot-missing { font-size: 14px; line-height: 1.6; }
+.review-screenshot a { color: #285442; text-underline-offset: 4px; }
+.review-screenshot img { display: block; width: auto; max-width: 100%; max-height: 560px; object-fit: contain; margin: 16px auto 0; border: 1px solid #dde5d4; border-radius: 8px; background: white; }

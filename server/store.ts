@@ -3,6 +3,7 @@ import { mkdirSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { maskPersonalDetails, sanitizeCallbackNumbers, sanitizeDeep } from './privacy.ts';
+import { validateImage } from './checker.ts';
 import { config } from './config.ts';
 import { groupCampaigns } from './campaigns.ts';
 import type { CheckResponse, CustomerNotification, EvalItem, ReportResponse, ReviewItem, ReviewSource, Verdict } from '../shared/schema.ts';
@@ -13,6 +14,7 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
   const db = new DatabaseSync(path);
   db.exec(`PRAGMA journal_mode = WAL;
     CREATE TABLE IF NOT EXISTS reviews (id TEXT PRIMARY KEY, check_id TEXT UNIQUE, payload TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'pending');
+    CREATE TABLE IF NOT EXISTS review_screenshots (review_id TEXT PRIMARY KEY, mime TEXT NOT NULL, image BLOB NOT NULL);
     CREATE TABLE IF NOT EXISTS evals (id TEXT PRIMARY KEY, fingerprint TEXT UNIQUE NOT NULL, payload TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS checks (id TEXT PRIMARY KEY, created_at TEXT NOT NULL, payload TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS sample_runs (week TEXT PRIMARY KEY, created_at TEXT NOT NULL, count INTEGER NOT NULL);
@@ -70,13 +72,17 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
       }
       return { added: false };
     }
-    const item: ReviewItem = { id: randomUUID(), checkId: check.id, text: maskPersonalDetails(check.redactedText), callback_numbers: sanitizeCallbackNumbers(check.callback_numbers), result: sanitizeDeep(check.result), language: check.language, sources: [source], createdAt: new Date().toISOString(), mode: check.mode, extracted_links: sanitizeDeep(check.extracted_links ?? []) };
+    const item: ReviewItem = { id: randomUUID(), checkId: check.id, text: maskPersonalDetails(check.redactedText), callback_numbers: sanitizeCallbackNumbers(check.callback_numbers), result: sanitizeDeep(check.result), language: check.language, sources: [source], createdAt: new Date().toISOString(), mode: check.mode, source: check.source, extracted_links: sanitizeDeep(check.extracted_links ?? []) };
     db.prepare('INSERT INTO reviews (id, check_id, payload) VALUES (?, ?, ?)').run(item.id, check.id, JSON.stringify(item));
     return { added: true };
   }
   return {
     close: () => db.close(),
-    pending: (): ReviewItem[] => (db.prepare("SELECT payload FROM reviews WHERE status = 'pending' ORDER BY rowid DESC").all() as Row[]).map(row => JSON.parse(row.payload)),
+    pending: (): ReviewItem[] => (db.prepare("SELECT payload, EXISTS(SELECT 1 FROM review_screenshots WHERE review_id = reviews.id) AS has_screenshot FROM reviews WHERE status = 'pending' ORDER BY rowid DESC").all() as (Row & { has_screenshot: number })[]).map(row => ({ ...JSON.parse(row.payload), ...(row.has_screenshot ? { hasScreenshot: true } : {}) })),
+    reviewScreenshot(id: string): { mime: string; bytes: Buffer } | null {
+      const row = db.prepare("SELECT mime, image FROM review_screenshots JOIN reviews ON reviews.id = review_id WHERE review_id = ? AND status = 'pending'").get(id) as { mime: string; image: Uint8Array } | undefined;
+      return row ? { mime: row.mime, bytes: Buffer.from(row.image) } : null;
+    },
     evals: (): EvalItem[] => (db.prepare("SELECT payload FROM evals ORDER BY COALESCE(json_extract(payload, '$.updatedAt'), json_extract(payload, '$.addedAt')) DESC, rowid DESC").all() as Row[]).map(row => JSON.parse(row.payload)),
     latestChecks: (): CheckResponse[] => (db.prepare('SELECT payload FROM checks ORDER BY rowid DESC LIMIT 50').all() as Row[]).map(row => JSON.parse(row.payload)),
     historyCount: () => Number((db.prepare('SELECT count(*) AS count FROM checks').get() as { count: number }).count),
@@ -87,9 +93,24 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
       const safe: CheckResponse = { id: check.id, result: sanitizeDeep(check.result), redactedText: maskPersonalDetails(check.redactedText), callback_numbers: sanitizeCallbackNumbers(check.callback_numbers), links: sanitizeDeep(check.links), extracted_links: sanitizeDeep(check.extracted_links ?? []), language: check.language, mode: check.mode, source: check.source, calls: check.calls, estimatedCost: check.estimatedCost, escalated: check.escalated, escalationReason: check.escalationReason, durationMs: check.durationMs };
       db.prepare('INSERT OR IGNORE INTO checks VALUES (?, ?, ?)').run(check.id, at, JSON.stringify(safe));
     },
-    submit(check: CheckResponse, kind: 'report' | 'escalation'): ReportResponse {
+    submit(check: CheckResponse, kind: 'report' | 'escalation', image?: string): ReportResponse {
       if (kind === 'report' && !['scam', 'likely_scam'].includes(check.result.verdict)) throw new Error('This action is not available for the result verdict.');
-      const submission = queue(check, kind);
+      if (image) {
+        if (check.source !== 'image') throw new Error('Only screenshot checks can include an image.');
+        validateImage(image);
+      }
+      db.exec('BEGIN IMMEDIATE');
+      let submission: { added: boolean };
+      try {
+        submission = queue(check, kind);
+        const review = db.prepare("SELECT id FROM reviews WHERE check_id = ? AND status = 'pending'").get(check.id) as { id: string } | undefined;
+        if (image && review) {
+          const mime = image.startsWith('data:image/png;') ? 'image/png' : 'image/jpeg';
+          // Keep original evidence separate from masked text, diagnostics, and eval records.
+          db.prepare('INSERT OR IGNORE INTO review_screenshots VALUES (?, ?, ?)').run(review.id, mime, Buffer.from(image.split(',')[1], 'base64'));
+        }
+        db.exec('COMMIT');
+      } catch (error) { db.exec('ROLLBACK'); throw error; }
       // Snapshot after insertion: include this item and all pending review sources.
       const pendingCount = Number((db.prepare("SELECT count(*) AS count FROM reviews WHERE status = 'pending'").get() as { count: number }).count);
       return { ...submission, pendingCount, estimatedWaitMinutes: pendingCount * 2 };
@@ -126,6 +147,7 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
       try {
         db.prepare('INSERT INTO evals VALUES (?, ?, ?) ON CONFLICT(fingerprint) DO UPDATE SET payload = excluded.payload').run(item.id, key, JSON.stringify(item));
         db.prepare("UPDATE reviews SET status = 'approved', payload = ? WHERE id = ?").run(JSON.stringify(review), id);
+        db.prepare('DELETE FROM review_screenshots WHERE review_id = ?').run(id);
         if (review.sources.includes('escalation')) {
           const notification: CustomerNotification = { id: randomUUID(), checkId: review.checkId, reviewId: review.id, language: review.language, verdict: label, createdAt: review.approvedAt, read: false };
           db.prepare('INSERT OR IGNORE INTO notifications (id, review_id, payload) VALUES (?, ?, ?)').run(notification.id, review.id, JSON.stringify(notification));

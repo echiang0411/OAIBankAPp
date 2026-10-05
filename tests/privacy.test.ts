@@ -13,6 +13,8 @@ const cases = [
   ['Dear Zoë O’Neill, your notice.', ['Zoë', 'O’Neill']],
   ['Name: Amina Hassan; Email: amina+bank@example.com', ['Amina', 'Hassan', 'amina+bank@example.com']],
   ['Harbor Bank: Hi, this is Sarah from Card Services. Call us back.', ['Sarah']],
+  ['Hi, I am Eve with Web Surveys. Can you answer a poll?', ['Eve']],
+  ["I’m Luis from Card Services.", ['Luis']],
   ['陳志明先生您好。姓名：林美華；聯絡 王.小明@郵件.example', ['陳志明', '林美華', '王.小明@郵件.example']],
   ['Hola Lucía Fernández, fecha de nacimiento: 14/03/1988; dirección: Calle Mayor 12, Madrid; contraseña: Secreto123', ['Lucía', 'Fernández', '14/03/1988', 'Calle Mayor', 'Secreto123']],
   ['الاسم: أحمد حسن; تاريخ الميلاد: ١٤/٠٣/١٩٨٨; العنوان: شارع النيل ١٢; كلمة المرور: Secret123', ['أحمد حسن', '1988', 'شارع النيل', 'Secret123']],
@@ -38,6 +40,8 @@ test('redaction preserves prices, deadlines, bank brands, domain evidence and sa
     '請勿提供密碼。請自行開啟銀行應用程式。',
     'No compartas tu contraseña. Abre la aplicación oficial.',
     'Your branch appointment is tomorrow at 10 AM.',
+    'This is a scam.',
+    'This is likely legitimate.',
   ]) assert.equal(maskPersonalDetails(text), text);
 });
 

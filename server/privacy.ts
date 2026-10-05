@@ -44,7 +44,11 @@ export function maskPersonalDetails(value: string): string {
   for (const name of syntheticNames) text = text.replace(new RegExp(name, 'gi'), '[NAME]');
   const person = "[\\p{L}\\p{M}][\\p{L}\\p{M}'’.-]*(?:[ \\t]+[\\p{L}\\p{M}][\\p{L}\\p{M}'’.-]*){0,5}";
   text = text.replace(new RegExp(`(\\b(?:Dear|Hello|Hi|Hola|Estimad[oa])\\s+)${person}(?=[,:!\\n]|$)`, 'giu'), '$1[NAME]');
-  text = text.replace(new RegExp(`(\\b(?:my name is|this is|soy|me llamo)\\s+)${person}(?=\\s+(?:from|calling|de)\\b|[,!;\\n]|$)`, 'giu'), '$1[NAME]');
+  text = text.replace(new RegExp(`(\\b(?:my name is|this is|I am|I[’']m|soy|me llamo)\\s+)(${person})(?=\\s+(?:from|with|calling|de)\\b|[,!;\\n]|$)`, 'giu'), (whole, lead: string, candidate: string) => {
+    // Ordinary verdict prose is not a personal introduction.
+    if (/^(?:a|an|the|your|our|not|likely|unclear|normal|ordinary|safe|legitimate|suspicious|scam|fraud|un|una|el|la|su|tu)\b/i.test(candidate)) return whole;
+    return `${lead}[NAME]`;
+  });
   text = text.replace(new RegExp(`(\\b(?:customer name|full name|name|nombre(?: completo)?)\\s*[:=]\\s*)${person}`, 'giu'), '$1[NAME]');
   text = text.replace(/([\p{Script=Han}]{2,4})(?=先生|女士|小姐)/gu, '[NAME]');
   text = text.replace(/((?:姓名|名字|客户姓名|客戶姓名)\s*[:=]?\s*)[\p{Script=Han}]{2,4}/gu, '$1[NAME]');

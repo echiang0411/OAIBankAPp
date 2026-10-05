@@ -22,11 +22,11 @@ export type CheckResponse = {
   redactedText: string; calls: CallUsage[]; estimatedCost: number;
   escalated: boolean; escalationReason: string | null; durationMs: number;
   source: 'text' | 'image'; language: Language; extracted_links: string[]; callback_numbers?: string[];
-  hasScreenshot?: boolean;
+  hasScreenshot?: boolean; analystText?: string;
 };
 export type ReportResponse = { added: boolean; pendingCount: number; estimatedWaitMinutes: number };
 export type ReviewSource = 'report' | 'escalation' | 'random_sample' | 'legacy_feedback';
-export type ReviewItem = { id: string; checkId: string; text: string; result: Result; language: Language; sources: ReviewSource[]; createdAt: string; mode: string; hasScreenshot?: boolean; source?: 'text' | 'image'; analystLabel?: Verdict; approvedAt?: string; callback_numbers?: string[]; extracted_links?: string[] };
-export type EvalItem = { id: string; text: string; language: Language; label: Verdict; origin: 'seed' | 'review'; addedAt?: string; updatedAt?: string; reviewSources?: ReviewSource[]; callback_numbers?: string[]; extracted_links?: string[]; expectedLinkStatuses?: LinkCheck['status'][] };
+export type ReviewItem = { id: string; checkId: string; text: string; analystText?: string; result: Result; language: Language; sources: ReviewSource[]; createdAt: string; mode: string; hasScreenshot?: boolean; source?: 'text' | 'image'; analystLabel?: Verdict; approvedAt?: string; callback_numbers?: string[]; extracted_links?: string[] };
+export type EvalItem = { id: string; text: string; analystText?: string; language: Language; label: Verdict; origin: 'seed' | 'review'; addedAt?: string; updatedAt?: string; reviewSources?: ReviewSource[]; callback_numbers?: string[]; extracted_links?: string[]; expectedLinkStatuses?: LinkCheck['status'][] };
 export type Campaign = { id: string; text: string; count: number; lastConfirmedAt: string };
 export type CustomerNotification = { id: string; checkId: string; reviewId: string; language: Language; verdict: Verdict; createdAt: string; read: boolean };

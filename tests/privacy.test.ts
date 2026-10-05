@@ -4,7 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { extractCallbackNumbers, maskPersonalDetails, sanitizeDeep } from '../server/privacy.ts';
+import { extractCallbackNumbers, maskAnalystText, maskPersonalDetails, sanitizeDeep } from '../server/privacy.ts';
 import { openStore } from '../server/store.ts';
 import { checkMessage } from '../server/checker.ts';
 import type { Result } from '../shared/schema.ts';
@@ -50,6 +50,8 @@ test('account-change message masks the full address and keeps only the explicit 
     return { result: { verdict: 'unclear', confidence: 0.5, red_flags: [], impersonated_brand: null, recommended_action: '', explanation_in_user_language: 'The sender cannot be verified.', escalate_to_human: true, injection_detected: false }, usage: { input: 100, output: 30, cachedInput: 0 } };
   });
   assert.deepEqual(check.callback_numbers, ['1-800-555-0199']);
+  assert.match(check.analystText!, /call us back immediately at 1-800-555-0199 to prevent your card/);
+  assert.match(check.redactedText, /call us back immediately at \[NUMBER\]/);
   const store = openStore(':memory:');
   try {
     store.recordCheck(check);
@@ -57,10 +59,33 @@ test('account-change message masks the full address and keeps only the explicit 
     assert.equal(store.evals().length, 20);
     const review = store.pending()[0];
     assert.deepEqual(review.callback_numbers, ['1-800-555-0199']);
+    assert.equal(review.analystText, check.analystText);
+    assert.equal(store.latestChecks()[0].analystText, check.analystText);
     assert.doesNotMatch(JSON.stringify([review, store.latestChecks()]), /Michael|Torres|Sarah|646-555|2418|Linden|3B|Brooklyn|11226/);
     store.approve(review.id, 'unclear');
     assert.deepEqual(store.evals().find(item => item.origin === 'review')!.callback_numbers, ['1-800-555-0199']);
+    const approved = store.evals().find(item => item.origin === 'review')!;
+    assert.equal(approved.analystText, check.analystText);
+    assert.doesNotMatch(approved.text, /800-555/);
   } finally { store.close(); }
+});
+
+test('analyst text preserves callback locations deterministically without restoring customer numbers or guessing historical slots', () => {
+  const text = 'Your number: 646-555-0147. Call us back at 1-800-555-0199. Or dial 212-555-0199. Call us again at 1-800-555-0199.';
+  // The last phrase is deliberately unsupported, so this number must stay masked everywhere.
+  const callbacks = extractCallbackNumbers(text);
+  const masked = maskAnalystText(text, callbacks);
+  assert.deepEqual(callbacks, ['212-555-0199']);
+  assert.equal(masked, 'Your number: [NUMBER]. Call us back at [NUMBER]. Or dial 212-555-0199. Call us again at [NUMBER].');
+  assert.equal(maskAnalystText(text, callbacks), masked);
+  assert.equal(maskAnalystText(masked, callbacks), masked);
+  const multiple = 'Your phone: 646-555-0147. Call 1-800-555-0199. Or dial 212-555-0199.';
+  assert.equal(maskAnalystText(multiple, extractCallbackNumbers(multiple)), 'Your phone: [NUMBER]. Call 1-800-555-0199. Or dial 212-555-0199.');
+  assert.equal(maskAnalystText('Please call [NUMBER].', ['1-800-555-0199']), 'Please call [NUMBER].');
+  assert.equal(maskAnalystText('Your phone: 1-800-555-0199. Please call 1-800-555-0199.', ['1-800-555-0199']), 'Your phone: [NUMBER]. Please call [NUMBER].');
+  assert.deepEqual(extractCallbackNumbers('Your phone: ١٨٠٠٥٥٥٠١٩٩. Please call 1-800-555-0199.'), []);
+  const markerText = 'HARBORCALLBACKTOKENXEND. Please call 1-800-555-0199.';
+  assert.equal(maskAnalystText(markerText, ['1-800-555-0199']), markerText);
 });
 
 test('urgency permits a callback role but never overrides customer ownership or ambiguity', () => {

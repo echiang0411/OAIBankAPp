@@ -5,7 +5,7 @@ import { zodTextFormat } from 'openai/helpers/zod';
 import { z } from 'zod';
 import { config } from './config.ts';
 import { detectInjection, checkLinks, extractLinks, normalizeMessage } from './security.ts';
-import { extractCallbackNumbers, maskPersonalDetails, sanitizeDeep } from './privacy.ts';
+import { extractCallbackNumbers, maskAnalystText, maskPersonalDetails, sanitizeDeep } from './privacy.ts';
 import { actionFor, copy } from '../shared/copy.ts';
 import { ResultSchema, type Result, type CheckResponse, type Language, type CallUsage } from '../shared/schema.ts';
 
@@ -116,6 +116,7 @@ export async function checkMessage(input: { text?: string; image?: string; langu
   extracted_links = [...new Set([...extracted_links, ...extractLinks(text)])];
   const injection = imageInjection || detectInjection(text);
   const callback_numbers = extractCallbackNumbers(text);
+  const analystText = callback_numbers.length ? maskAnalystText(normalizeMessage(text), callback_numbers) : undefined;
   const redactedText = maskPersonalDetails(normalizeMessage(text));
   const run = provider ?? (input.mode === 'mock' ? mockProvider : liveProvider);
   const common = { text: redactedText, language: input.language, links, injection, image: input.image };
@@ -147,5 +148,5 @@ export async function checkMessage(input: { text?: string; image?: string; langu
   // Customer actions are bounded by code. Free-form model instructions never become actions.
   result.recommended_action = actionFor(result.verdict, input.language);
   result = ResultSchema.parse(sanitizeDeep(result));
-  return { id: randomUUID(), result, links: sanitizeDeep(links), extracted_links: sanitizeDeep(extracted_links), mode: input.mode, redactedText, callback_numbers, calls, estimatedCost: calls.reduce((sum, c) => sum + c.estimatedCost, 0), escalated, escalationReason, durationMs: Math.round(performance.now() - start), source: input.image ? 'image' : 'text', language: input.language };
+  return { id: randomUUID(), result, links: sanitizeDeep(links), extracted_links: sanitizeDeep(extracted_links), mode: input.mode, redactedText, analystText, callback_numbers, calls, estimatedCost: calls.reduce((sum, c) => sum + c.estimatedCost, 0), escalated, escalationReason, durationMs: Math.round(performance.now() - start), source: input.image ? 'image' : 'text', language: input.language };
 }

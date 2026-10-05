@@ -406,11 +406,13 @@ test('callback evidence survives history, sampling and approval while model inpu
     assert.deepEqual(item.callback_numbers, check.callback_numbers);
     assert.ok(!JSON.stringify(item).includes('555-0147'));
     assert.ok(!item.text.includes('555-0199'));
+    assert.match(item.analystText!, /call us back at 1-800-555-0199/);
     store.submit(check, 'escalation');
     store.approve(item.id, 'unclear');
     const saved = store.evals().find(e => e.origin === 'review')!;
     assert.deepEqual(saved.callback_numbers, check.callback_numbers);
     assert.ok(!JSON.stringify(saved).includes('555-0147'));
+    assert.equal(saved.analystText, item.analystText);
     assert.equal(store.notifications().length, 1);
   } finally { store.close(); }
 });

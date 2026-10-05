@@ -1,6 +1,9 @@
 // Deterministic demo redaction. Context rules supplement known synthetic names;
 // they are not a guarantee of detecting every person or identifier in free text.
 const syntheticNames = ['Alice Chen', 'Robert Miller', 'Maria Garcia', 'David Wong', 'Susan Lee', 'James Smith', '王小明', '陳美玲', '陈美玲', '李大明', '張雅婷', '张雅婷'];
+const normalizePersonalText = (value: string) => value.normalize('NFKC')
+  .replace(/[\u200B-\u200F\u202A-\u202E\u2060-\u2069\uFEFF]/g, '')
+  .replace(/[٠-٩۰-۹]/g, digit => String(digit.charCodeAt(0) - (digit <= '٩' ? 0x660 : 0x6f0)));
 // Retain only explicit callback destinations as analyst evidence, never as trusted contacts.
 // Unknown roles stay masked. This is a bounded demo heuristic, not identity verification.
 const phonePattern = /(?<![\w\d])\+?\d(?:[\d ()-]*\d)?(?![\w\d])/g;
@@ -13,7 +16,7 @@ export function sanitizeCallbackNumbers(value: unknown): string[] {
   return [...new Set(value.filter((v): v is string => typeof v === 'string' && /^\+?\d[\d ()-]*\d$/.test(v) && v.length <= 32 && v.replace(/\D/g, '').length >= 10 && v.replace(/\D/g, '').length <= 15))].slice(0, 10);
 }
 export function extractCallbackNumbers(value: string): string[] {
-  const text = value.normalize('NFKC').replace(/[\u200B-\u200F\u202A-\u202E\u2060-\u2069\uFEFF]/g, '');
+  const text = normalizePersonalText(value);
   const candidates = new Map<string, string>();
   const hidden = new Set<string>();
   for (const match of text.matchAll(phonePattern)) {
@@ -29,6 +32,28 @@ export function extractCallbackNumbers(value: string): string[] {
   }
   // A number also appearing as a customer/unknown number cannot be released as evidence.
   return sanitizeCallbackNumbers([...candidates].filter(([key]) => !hidden.has(key)).map(([, number]) => number));
+}
+
+// Build the analyst's masked display directly from the original transcript. Never
+// guess which [NUMBER] in a historical message belongs to a retained callback.
+export function maskAnalystText(value: string, callbackNumbers: unknown): string {
+  const text = normalizePersonalText(value);
+  const retained = new Set(sanitizeCallbackNumbers(callbackNumbers).map(canonicalPhone));
+  const eligible = new Set(extractCallbackNumbers(text).map(canonicalPhone).filter(key => retained.has(key)));
+  // A deterministic, collision-free marker prevents user-authored placeholder text
+  // from gaining a number. All other masking still runs before numbers are restored.
+  let prefix = 'HARBORCALLBACKTOKEN';
+  while (text.includes(prefix)) prefix += 'X';
+  const preserved: [string, string][] = [];
+  const tokenized = text.replace(phonePattern, number => {
+    if (!eligible.has(canonicalPhone(number))) return number;
+    const marker = `${prefix}${'X'.repeat(preserved.length + 1)}END`;
+    preserved.push([marker, number]);
+    return marker;
+  });
+  let masked = maskPersonalDetails(tokenized);
+  for (const [marker, number] of preserved) masked = masked.replaceAll(marker, number);
+  return cleanTypography(masked);
 }
 
 function maskAddresses(text: string): string {
@@ -47,9 +72,7 @@ function maskAddresses(text: string): string {
 }
 
 export function maskPersonalDetails(value: string): string {
-  let text = value.normalize('NFKC')
-    .replace(/[\u200B-\u200F\u202A-\u202E\u2060-\u2069\uFEFF]/g, '')
-    .replace(/[٠-٩۰-۹]/g, digit => String(digit.charCodeAt(0) - (digit <= '٩' ? 0x660 : 0x6f0)));
+  let text = normalizePersonalText(value);
   // URLs are checked against domains before redaction. Remove credentials and
   // opaque personal URL values while keeping the destination useful for review.
   text = text.replace(/(?:https?:\/\/|www\.)[^\s<>]+/gi, raw => {

@@ -26,7 +26,7 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
   // Apply new redaction rules to existing text without changing labels, record IDs,
   // timestamps, model usage, or attachment policy. Never sanitize metadata as prose.
   db.exec('CREATE TABLE IF NOT EXISTS privacy_migrations (version TEXT PRIMARY KEY)');
-  const privacyVersion = 'expanded-text-v2';
+  const privacyVersion = 'complete-address-v3';
   if (!db.prepare('SELECT version FROM privacy_migrations WHERE version = ?').get(privacyVersion)) {
     db.exec('BEGIN IMMEDIATE');
     try {

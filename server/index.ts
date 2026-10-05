@@ -16,7 +16,7 @@ if (mode !== 'mock' && mode !== 'live') throw new Error('APP_MODE must be mock o
 const port = Number(process.env.PORT ?? 3000);
 const hosting = hostingConfig(process.env, port);
 const store = openStore();
-const recentChecks = new Map<string, { value: CheckResponse; image?: string; expires: number }>();
+const recentChecks = new Map<string, { value: CheckResponse; expires: number }>();
 const purgeExpiredChecks = () => {
   for (const [id, item] of recentChecks) if (item.expires < Date.now()) recentChecks.delete(id);
 };
@@ -49,8 +49,8 @@ app.post('/api/check', async (req, res, next) => {
     try { result = await checkMessage({ ...input, mode }); } finally { active--; }
     purgeExpiredChecks();
     if (recentChecks.size >= 100) recentChecks.delete(recentChecks.keys().next().value!);
-    recentChecks.set(result.id, { value: result, image: input.image, expires: Date.now() + 30 * 60_000 });
-    store.recordCheck(result, undefined, input.image);
+    recentChecks.set(result.id, { value: result, expires: Date.now() + 30 * 60_000 });
+    store.recordCheck(result);
     res.json(result);
   } catch (error) { next(error); }
 });
@@ -60,24 +60,12 @@ app.post('/api/reports', (req, res) => {
   if (!check || check.expires < Date.now()) return res.status(410).json({ error: 'This result has expired. Check the message again before sending it to the fraud team.' });
   const verdict = check.value.result.verdict;
   if (kind === 'report' && !['scam', 'likely_scam'].includes(verdict)) return res.status(400).json({ error: 'This action is not available for this verdict.' });
-  res.json(store.submit(check.value, kind, check.image));
+  res.json(store.submit(check.value, kind));
 });
 app.get('/api/reviews', (_req, res) => res.json({ items: store.pending(), recentChecks: store.latestChecks(), evalCount: store.evals().length, historyCount: store.historyCount(), sampleSize: config.weeklySampleSize, lookbackDays: config.sampleLookbackDays, campaigns: store.campaigns(), campaignWindowDays: config.campaignWindowDays }));
-app.get('/api/checks/:id/screenshot', (req, res) => {
-  const id = z.string().uuid().parse(req.params.id);
-  const screenshot = store.diagnosticScreenshot(id);
-  if (!screenshot) return res.status(404).json({ error: 'This check has no retained diagnostic screenshot.' });
-  res.setHeader('Content-Type', screenshot.mime);
-  res.setHeader('Content-Disposition', 'inline; filename="diagnostic-screenshot.' + (screenshot.mime === 'image/png' ? 'png' : 'jpg') + '"');
-  res.send(screenshot.bytes);
-});
-app.get('/api/reviews/:id/screenshot', (req, res) => {
-  const id = z.string().uuid().parse(req.params.id);
-  const screenshot = store.reviewScreenshot(id);
-  if (!screenshot) return res.status(404).json({ error: 'This review has no retained screenshot.' });
-  res.setHeader('Content-Type', screenshot.mime);
-  res.setHeader('Content-Disposition', 'inline; filename="review-screenshot.' + (screenshot.mime === 'image/png' ? 'png' : 'jpg') + '"');
-  res.send(screenshot.bytes);
+// Fail closed even for old links or a stale frontend. No image bytes leave storage.
+app.get(['/api/checks/:id/screenshot', '/api/reviews/:id/screenshot'], (_req, res) => {
+  res.status(410).json({ error: 'Original screenshots are withheld because personal details cannot be reliably redacted. Submit masked text or a new redacted message.' });
 });
 app.post('/api/reviews/sample', (req, res) => { z.object({}).strict().parse(req.body); res.json(store.sample()); });
 app.get('/api/evals', (_req, res) => res.json({ items: store.evals() }));

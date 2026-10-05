@@ -3,7 +3,7 @@ import { z } from 'zod';
 const schema = z.object({
   smallModel: z.string(), strongModel: z.string(), confidenceThreshold: z.number().min(0).max(1),
   maxOutputTokens: z.number().int().positive(), pricesVerifiedOn: z.string(),
-  pricesPerMillion: z.record(z.string(), z.object({ input: z.number().nonnegative(), cachedInput: z.number().nonnegative(), output: z.number().nonnegative() })),
+  pricesPerMillion: z.record(z.string(), z.object({ input: z.number().nonnegative(), cachedInput: z.number().nonnegative(), cacheWrite: z.number().nonnegative(), output: z.number().nonnegative() })),
   allowlistedDomains: z.array(z.string()), demoAllowlistedDomains: z.array(z.string()), sources: z.array(z.string()),
   shortenerDomains: z.array(z.string()), weeklySampleSize: z.number().int().min(1).max(100),
   sampleLookbackDays: z.number().int().min(1).max(365), campaignWindowDays: z.number().int().min(1).max(365),

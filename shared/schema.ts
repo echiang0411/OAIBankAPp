@@ -16,7 +16,7 @@ export const ResultSchema = z.object({
 export type Result = z.infer<typeof ResultSchema>;
 export type Verdict = Result['verdict'];
 export type LinkCheck = { domain: string; registeredDomain: string | null; status: 'allowlisted' | 'demo_allowlisted' | 'unrecognized' | 'invalid' | 'unverifiable' };
-export type CallUsage = { model: string; purpose: 'transcription' | 'initial' | 'escalation'; input: number; cachedInput: number; output: number; estimatedCost: number; simulated: boolean };
+export type CallUsage = { model: string; purpose: 'transcription' | 'initial' | 'escalation'; input: number; cachedInput: number; cacheWriteInput?: number; output: number; estimatedCost: number; simulated: boolean };
 export type CheckResponse = {
   id: string; result: Result; links: LinkCheck[]; mode: 'mock' | 'live';
   redactedText: string; calls: CallUsage[]; estimatedCost: number;

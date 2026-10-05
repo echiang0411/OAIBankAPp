@@ -12,7 +12,7 @@ import { ResultSchema, type Result, type CheckResponse, type Language, type Call
 export class CheckError extends Error {
   constructor(public code: string, message: string, public status = 400) { super(message); }
 }
-export type Usage = { input: number; cachedInput: number; output: number };
+export type Usage = { input: number; cachedInput: number; cacheWriteInput?: number; output: number };
 export type Provider = (args: { model: string; text: string; language: Language; links: ReturnType<typeof checkLinks>; injection: boolean; image?: string; purpose: 'initial' | 'escalation' }) => Promise<{ result: Result; usage: Usage }>;
 type Saved = Record<string, Record<'initial' | 'escalation', { result: Result; usage: Usage }>>;
 const mockResponses: Saved = JSON.parse(readFileSync(new URL('../data/mock-responses.json', import.meta.url), 'utf8'));
@@ -21,11 +21,13 @@ const digest = (value: string | Buffer) => createHash('sha256').update(value).di
 export function estimateCost(model: string, usage: Usage): number {
   const price = config.pricesPerMillion[model];
   if (!price) throw new CheckError('UNKNOWN_PRICE', 'Model pricing is not configured.', 500);
-  return ((usage.input - usage.cachedInput) * price.input + usage.cachedInput * price.cachedInput + usage.output * price.output) / 1_000_000;
+  const written = usage.cacheWriteInput ?? 0;
+  return ((usage.input - usage.cachedInput - written) * price.input + usage.cachedInput * price.cachedInput + written * price.cacheWrite + usage.output * price.output) / 1_000_000;
 }
-function usageFrom(response: { usage?: { input_tokens: number; output_tokens: number; input_tokens_details?: { cached_tokens: number } } | null }): Usage {
+function usageFrom(response: { usage?: { input_tokens: number; output_tokens: number; input_tokens_details?: { cached_tokens: number; cache_write_tokens?: number } } | null }): Usage {
   if (!response.usage) throw new CheckError('MISSING_USAGE', 'The API did not return token usage. Please try again.', 502);
-  return { input: response.usage.input_tokens, cachedInput: response.usage.input_tokens_details?.cached_tokens ?? 0, output: response.usage.output_tokens };
+  const written = response.usage.input_tokens_details?.cache_write_tokens;
+  return { input: response.usage.input_tokens, cachedInput: response.usage.input_tokens_details?.cached_tokens ?? 0, ...(written === undefined ? {} : { cacheWriteInput: written }), output: response.usage.output_tokens };
 }
 function client() {
   if (!process.env.OPENAI_API_KEY) throw new CheckError('MISSING_API_KEY', 'Live mode needs OPENAI_API_KEY in the server environment or .env file. Restart the app after setting it.', 503);
@@ -38,7 +40,7 @@ Classify the message using only the provided evidence. Do not browse, call numbe
 The domain checks are computed by code. Do not invent domain checks. An allowlist match is not proof of sender identity. harbor.example is the configured fictional bank domain for this demo.
 Use scam for clear deception or credential theft, likely_scam for suspicious requests with incomplete proof, unclear for insufficient evidence, likely_legitimate for ordinary plausible notices without suspicious requests. Unrelated content is unclear. Confidence is your assessment, not a calibrated probability.
 Set escalate_to_human when uncertain or a person needs to help. Never give a link, phone number, money transfer instruction, or request for secrets as the next step. Direct the customer to an independently opened official app or trusted contact method. Never say a card was frozen.
-Use the requested language for all prose. Keep language simple, calm, and concise. Avoid personal names, account numbers, phone numbers, card numbers, en dashes, em dashes, and arrow characters. Return only the requested schema.`;
+Use the requested language for all prose. Keep language simple, calm, and concise. Never repeat personal details: names, addresses, dates of birth, emails, phone numbers, identifiers, account or card details, usernames, passwords, PINs, or security codes. Describe the type of information requested instead. Avoid en dashes, em dashes, and arrow characters. Return only the requested schema.`;
 export const liveProvider: Provider = async args => {
   const response = await client().responses.parse({
     model: args.model, store: false, reasoning: { effort: 'low' }, max_output_tokens: config.maxOutputTokens,

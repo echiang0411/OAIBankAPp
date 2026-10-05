@@ -147,12 +147,12 @@ test('OpenAI SDK sends the Responses API schema, image input, and store:false wi
     assert.equal(request.text.format.schema.additionalProperties, false);
     assert.deepEqual([...request.text.format.schema.required].sort(), ['verdict', 'confidence', 'red_flags', 'impersonated_brand', 'recommended_action', 'explanation_in_user_language', 'escalate_to_human', 'injection_detected'].sort());
     assert.ok(request.input[2].content.some((c: { type: string }) => c.type === 'input_image'));
-    return new Response(JSON.stringify({ id: 'resp_test', object: 'response', created_at: 1, status: 'completed', model: 'gpt-6-luna', output: [{ id: 'msg_test', type: 'message', status: 'completed', role: 'assistant', content: [{ type: 'output_text', text: JSON.stringify(base), annotations: [] }] }], usage: { input_tokens: 1000, input_tokens_details: { cached_tokens: 200 }, output_tokens: 100, output_tokens_details: { reasoning_tokens: 0 }, total_tokens: 1100 } }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    return new Response(JSON.stringify({ id: 'resp_test', object: 'response', created_at: 1, status: 'completed', model: 'gpt-6-luna', output: [{ id: 'msg_test', type: 'message', status: 'completed', role: 'assistant', content: [{ type: 'output_text', text: JSON.stringify(base), annotations: [] }] }], usage: { input_tokens: 1000, input_tokens_details: { cached_tokens: 200, cache_write_tokens: 300 }, output_tokens: 100, output_tokens_details: { reasoning_tokens: 0 }, total_tokens: 1100 } }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   };
   try {
     const out = await liveProvider({ model: 'gpt-6-luna', text: 'https://untrusted.example', language: 'en', links: [], injection: false, image: 'data:image/png;base64,c3ludGhldGlj', purpose: 'initial' });
     assert.equal(out.result.verdict, base.verdict);
-    assert.deepEqual(out.usage, usage);
+    assert.deepEqual(out.usage, { ...usage, cacheWriteInput: 300 });
     assert.equal(calls, 1);
   } finally { globalThis.fetch = previousFetch; if (previousKey === undefined) delete process.env.OPENAI_API_KEY; else process.env.OPENAI_API_KEY = previousKey; }
 });
@@ -430,4 +430,11 @@ test('reply estimates count the pending queue after submission without inflating
     for (const item of store.pending()) store.approve(item.id, 'scam');
     assert.deepEqual(store.submit(third, 'escalation'), { added: false, pendingCount: 0, estimatedWaitMinutes: 0 });
   } finally { store.close(); }
+});
+
+
+test('cache reads, cache writes and uncached input each use their own price once', () => {
+  const tokens = { input: 1000, cachedInput: 200, cacheWriteInput: 300, output: 100 };
+  assert.equal(estimateCost('gpt-6-luna', tokens), (500 * 0.1 + 200 * 0.01 + 300 * 0.125 + 100 * 0.5) / 1_000_000);
+  assert.equal(estimateCost('gpt-6-sol', tokens), (500 * 2 + 200 * 0.2 + 300 * 2.5 + 100 * 10) / 1_000_000);
 });

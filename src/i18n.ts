@@ -2,19 +2,19 @@ export const ui = {
   en: {
     eyebrow: 'A LITTLE EXTRA PEACE OF MIND', title: 'Something feel off?', subtitle: 'Let’s take a closer look.', intro: 'Check a text or screenshot before you click, reply, or pay. We’ll help you spot the warning signs and find a safe next step.',
     checkTitle: 'Check a suspicious message', checkAnotherTitle: 'Check another message', textTab: 'Paste a message', imageTab: 'Upload a screenshot', label: 'What did the message say?', placeholder: 'Paste the entire message here, including any links...', upload: 'Choose a screenshot', fileHelp: 'PNG or JPEG, up to 4 MB', language: 'Your preferred language', submit: 'Check this message', checking: 'Taking a closer look...', examples: 'TRY A SYNTHETIC EXAMPLE', ups: 'UPS delivery fee', bank: 'Bank fraud alert', injection: 'Hidden instructions',
-    privacy: 'Check history is masked. Unreadable screenshots are kept with the latest 50 checks for analysts. Screenshots sent to our fraud team are also kept until review is complete. Images are not masked.', synthetic: 'Demo only. Please use synthetic messages.', result: 'YOUR MESSAGE CHECK', next: 'Your safe next step', flags: 'What we noticed', noFlags: 'No obvious warning signs found. Verify through the official app.', human: 'A bank team member can help you verify this.',
+    privacy: 'Detected personal details are masked in saved text. Original screenshots are not saved or shared with analysts.', synthetic: 'Demo only. Please use synthetic messages.', result: 'YOUR MESSAGE CHECK', next: 'Your safe next step', flags: 'What we noticed', noFlags: 'No obvious warning signs found. Verify through the official app.', human: 'A bank team member can help you verify this.',
     details: 'How this was checked', domains: 'Link checks by code', noLinks: 'No links detected in the message.', confidence: 'Model-reported confidence', confidenceHelp: 'This is not a calibrated probability or a guarantee.', cost: 'Estimated API cost', mockCost: 'Illustrative API cost', actualMock: 'Actual mock cost: $0', route: 'Model calls', policy: 'Links were inspected as text only. No links were opened.',
   },
   'zh-TW': {
     eyebrow: '多一份安心', title: '訊息有點不對勁？', subtitle: '我們一起仔細看看。', intro: '點擊、回覆或付款前，先檢查簡訊或截圖。我們會協助您辨識警訊，找到安全的下一步。',
     checkTitle: '檢查可疑訊息', checkAnotherTitle: '檢查另一則訊息', textTab: '貼上訊息', imageTab: '上傳截圖', label: '訊息說了什麼？', placeholder: '請貼上完整訊息，包括所有連結...', upload: '選擇截圖', fileHelp: 'PNG 或 JPEG，最大 4 MB', language: '您偏好的語言', submit: '檢查這則訊息', checking: '正在仔細檢查...', examples: '試用模擬範例', ups: 'UPS 配送費用', bank: '銀行交易提醒', injection: '隱藏指令',
-    privacy: '檢查紀錄會遮蔽個人資訊。無法辨識的截圖會隨最近 50 筆檢查保留供專員查看。提交給防詐團隊的截圖也會保留至審查完成。圖片不會遮蔽個人資訊。', synthetic: '僅供展示。請使用模擬訊息。', result: '您的訊息檢查結果', next: '安全的下一步', flags: '我們注意到的情況', noFlags: '未發現明顯警訊。請透過官方應用程式確認。', human: '銀行專員可以協助您確認。',
+    privacy: '儲存文字前會遮蔽偵測到的個人資訊。原始截圖不會儲存或提供給專員。', synthetic: '僅供展示。請使用模擬訊息。', result: '您的訊息檢查結果', next: '安全的下一步', flags: '我們注意到的情況', noFlags: '未發現明顯警訊。請透過官方應用程式確認。', human: '銀行專員可以協助您確認。',
     details: '檢查方式', domains: '程式執行的連結檢查', noLinks: '訊息中未偵測到連結。', confidence: '模型自行評估的信心程度', confidenceHelp: '這不是經過校準的機率，也不代表保證。', cost: '預估 API 費用', mockCost: '示意 API 費用', actualMock: '模擬模式實際費用：$0', route: '模型呼叫', policy: '僅分析連結文字，未開啟任何連結。',
   },
   'zh-CN': {
     eyebrow: '多一份安心', title: '消息有点不对劲？', subtitle: '我们一起仔细看看。', intro: '点击、回复或付款前，先检查短信或截图。我们会协助您识别警示信号，找到安全的下一步。',
     checkTitle: '检查可疑消息', checkAnotherTitle: '检查另一条消息', textTab: '粘贴消息', imageTab: '上传截图', label: '消息说了什么？', placeholder: '请粘贴完整消息，包括所有链接...', upload: '选择截图', fileHelp: 'PNG 或 JPEG，最大 4 MB', language: '您偏好的语言', submit: '检查这条消息', checking: '正在仔细检查...', examples: '试用模拟示例', ups: 'UPS 配送费用', bank: '银行交易提醒', injection: '隐藏指令',
-    privacy: '检查记录会遮盖个人信息。无法识别的截图会随最近 50 条检查保留供专员查看。提交给反诈团队的截图也会保留至审核完成。图片不会遮盖个人信息。', synthetic: '仅供展示。请使用模拟消息。', result: '您的消息检查结果', next: '安全的下一步', flags: '我们注意到的情况', noFlags: '未发现明显警示信号。请通过官方应用确认。', human: '银行专员可以协助您确认。',
+    privacy: '保存文字前会遮盖检测到的个人信息。原始截图不会保存或提供给专员。', synthetic: '仅供展示。请使用模拟消息。', result: '您的消息检查结果', next: '安全的下一步', flags: '我们注意到的情况', noFlags: '未发现明显警示信号。请通过官方应用确认。', human: '银行专员可以协助您确认。',
     details: '检查方式', domains: '程序执行的链接检查', noLinks: '消息中未检测到链接。', confidence: '模型自行评估的信心程度', confidenceHelp: '这不是经过校准的概率，也不代表保证。', cost: '预估 API 费用', mockCost: '示意 API 费用', actualMock: '模拟模式实际费用：$0', route: '模型调用', policy: '仅分析链接文字，未打开任何链接。',
   },
   "es": {
@@ -36,7 +36,7 @@ export const ui = {
     "ups": "Cargo de entrega de UPS",
     "bank": "Alerta de fraude bancario",
     "injection": "Instrucciones ocultas",
-    "privacy": "Ocultamos los datos personales del historial. Conservamos las capturas ilegibles de las últimas 50 comprobaciones para los analistas. Las capturas enviadas al equipo de fraude también se guardan hasta completar la revisión. Las imágenes no se ocultan.",
+    "privacy": "Ocultamos los datos personales detectados en el texto guardado. No guardamos ni compartimos las capturas originales con los analistas.",
     "synthetic": "Solo demostración. Usa mensajes ficticios.",
     "result": "RESULTADO DE LA REVISIÓN",
     "next": "Tu siguiente paso seguro",
@@ -73,7 +73,7 @@ export const ui = {
     "ups": "رسوم توصيل UPS",
     "bank": "تنبيه احتيال مصرفي",
     "injection": "تعليمات مخفية",
-    "privacy": "نخفي البيانات الشخصية في سجل الفحص. نحتفظ بلقطات الشاشة غير المقروءة ضمن آخر 50 فحصًا ليراها المحللون. ونحتفظ باللقطات المرسلة إلى فريق مكافحة الاحتيال حتى اكتمال المراجعة أيضًا. لا تُخفى البيانات الشخصية داخل الصور.",
+    "privacy": "نخفي البيانات الشخصية المكتشفة في النص المحفوظ. لا نحفظ لقطات الشاشة الأصلية ولا نشاركها مع المحللين.",
     "synthetic": "للعرض فقط. يرجى استخدام رسائل وهمية.",
     "result": "نتيجة فحص رسالتك",
     "next": "خطوتك الآمنة التالية",
@@ -297,9 +297,9 @@ export const guideCopy = {
 };
 
 export const screenshotCopy = {
-  en: { sharing: 'Submitting sends the original screenshot to our fraud team, including any personal details visible in the image.', sent: 'Your screenshot and masked message text have been sent to our fraud team.' },
-  'zh-TW': { sharing: '提交後，防詐團隊會收到原始截圖，包括圖片中可見的個人資訊。', sent: '已將您的截圖及遮蔽個人資訊後的訊息文字交給防詐團隊。' },
-  'zh-CN': { sharing: '提交后，反诈团队会收到原始截图，包括图片中可见的个人信息。', sent: '已将您的截图及遮盖个人信息后的消息文字交给反诈团队。' },
-  es: { sharing: 'Al enviar, nuestro equipo de fraude recibirá la captura original, incluidos los datos personales visibles en la imagen.', sent: 'Se enviaron tu captura y el texto con los datos personales ocultos a nuestro equipo de fraude.' },
-  ar: { sharing: 'عند الإرسال، يتلقى فريق مكافحة الاحتيال لقطة الشاشة الأصلية، بما فيها أي بيانات شخصية ظاهرة في الصورة.', sent: 'أُرسلت لقطة الشاشة ونص الرسالة بعد إخفاء بياناته الشخصية إلى فريق مكافحة الاحتيال.' },
+  en: { sharing: 'Only masked text is sent to our fraud team. Original screenshots are withheld to protect personal details. If unreadable, please paste the message with personal details removed.', sent: 'Your review request was sent. The original screenshot was not shared.' },
+  'zh-TW': { sharing: '防詐團隊只會收到已遮蔽個人資訊的文字。原始截圖不會提供給專員。若無法辨識，請貼上已移除個人資訊的訊息。', sent: '已送出審查請求，未分享原始截圖。' },
+  'zh-CN': { sharing: '反诈团队只会收到已遮盖个人信息的文字。原始截图不会提供给专员。若无法识别，请粘贴已移除个人信息的消息。', sent: '已发送审核请求，未分享原始截图。' },
+  es: { sharing: 'El equipo de fraude solo recibe texto con datos personales ocultos. No compartimos la captura original. Si es ilegible, pega el mensaje sin datos personales.', sent: 'Se envió tu solicitud de revisión. No se compartió la captura original.' },
+  ar: { sharing: 'يتلقى فريق مكافحة الاحتيال النص بعد إخفاء البيانات الشخصية فقط. لا نشارك الصورة الأصلية. إذا كانت غير مقروءة، الصق الرسالة بعد إزالة البيانات الشخصية.', sent: 'أُرسل طلب المراجعة. لم تتم مشاركة لقطة الشاشة الأصلية.' },
 };

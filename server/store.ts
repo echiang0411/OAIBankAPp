@@ -3,7 +3,6 @@ import { mkdirSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { maskPersonalDetails, sanitizeCallbackNumbers, sanitizeDeep } from './privacy.ts';
-import { validateImage } from './checker.ts';
 import { config } from './config.ts';
 import { groupCampaigns } from './campaigns.ts';
 import type { CheckResponse, CustomerNotification, EvalItem, ReportResponse, ReviewItem, ReviewSource, Verdict } from '../shared/schema.ts';
@@ -20,18 +19,41 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
     CREATE TABLE IF NOT EXISTS diagnostic_screenshots (check_id TEXT PRIMARY KEY, mime TEXT NOT NULL, image BLOB NOT NULL);
     CREATE TABLE IF NOT EXISTS sample_runs (week TEXT PRIMARY KEY, created_at TEXT NOT NULL, count INTEGER NOT NULL);
     CREATE TABLE IF NOT EXISTS notifications (id TEXT PRIMARY KEY, review_id TEXT UNIQUE NOT NULL, payload TEXT NOT NULL, is_read INTEGER NOT NULL DEFAULT 0);`);
-  // Recover existing unreadable evidence when a pending review still has the original image.
-  // No history, review, or evaluation records are replaced by this additive migration.
-  db.exec(`INSERT OR IGNORE INTO diagnostic_screenshots (check_id, mime, image)
-    SELECT checks.id, review_screenshots.mime, review_screenshots.image FROM checks
-    JOIN reviews ON reviews.check_id = checks.id
-    JOIN review_screenshots ON review_screenshots.review_id = reviews.id
-    WHERE json_extract(checks.payload, '$.source') = 'image'
-      AND json_extract(checks.payload, '$.redactedText') = '[Unreadable screenshot]'
-      AND checks.id IN (SELECT id FROM checks ORDER BY rowid DESC LIMIT 50);`);
-  const pruneDiagnosticScreenshots = () => db.exec('DELETE FROM diagnostic_screenshots WHERE check_id NOT IN (SELECT id FROM checks ORDER BY rowid DESC LIMIT 50)');
-  pruneDiagnosticScreenshots();
+  // Original pixels cannot be reliably redacted by this demo. Remove legacy
+  // attachments and never persist new originals. Text records and labels remain.
+  db.exec('BEGIN IMMEDIATE; DELETE FROM review_screenshots; DELETE FROM diagnostic_screenshots; COMMIT;');
   const fingerprint = (text: string, language: string) => createHash('sha256').update(text + ':' + language).digest('hex');
+  // Apply new redaction rules to existing text without changing labels, record IDs,
+  // timestamps, model usage, or attachment policy. Never sanitize metadata as prose.
+  db.exec('CREATE TABLE IF NOT EXISTS privacy_migrations (version TEXT PRIMARY KEY)');
+  const privacyVersion = 'expanded-text-v1';
+  if (!db.prepare('SELECT version FROM privacy_migrations WHERE version = ?').get(privacyVersion)) {
+    db.exec('BEGIN IMMEDIATE');
+    try {
+      for (const table of ['checks', 'reviews', 'evals']) {
+        for (const row of db.prepare(`SELECT id, payload FROM ${table}`).all() as (Row & { id: string })[]) {
+          const item = JSON.parse(row.payload);
+          for (const field of ['text', 'redactedText', 'result', 'links', 'extracted_links']) {
+            if (field in item) item[field] = sanitizeDeep(item[field]);
+          }
+          db.prepare(`UPDATE ${table} SET payload = ? WHERE id = ?`).run(JSON.stringify(item), row.id);
+        }
+      }
+      // Redaction can make two formerly distinct examples identical. Preserve both
+      // analyst labels and IDs; keep one canonical fingerprint for future approvals.
+      const evalRows = db.prepare('SELECT id, payload FROM evals ORDER BY rowid').all() as (Row & { id: string })[];
+      for (const row of evalRows) db.prepare('UPDATE evals SET fingerprint = ? WHERE id = ?').run(`privacy-migration:${row.id}`, row.id);
+      const seen = new Set<string>();
+      for (const row of evalRows) {
+        const item: EvalItem = JSON.parse(row.payload);
+        const key = fingerprint(item.text, item.language);
+        db.prepare('UPDATE evals SET fingerprint = ? WHERE id = ?').run(seen.has(key) ? `${key}:${row.id}` : key, row.id);
+        seen.add(key);
+      }
+      db.prepare('INSERT INTO privacy_migrations VALUES (?)').run(privacyVersion);
+      db.exec('COMMIT');
+    } catch (error) { db.exec('ROLLBACK'); db.close(); throw error; }
+  }
   const seeds: EvalItem[] = JSON.parse(readFileSync(new URL('../data/seed-eval.json', import.meta.url), 'utf8'));
   const importedAt = new Date().toISOString();
   for (const seed of seeds) {
@@ -90,52 +112,29 @@ export function openStore(path = process.env.DATABASE_PATH ?? resolve('data/harb
   }
   return {
     close: () => db.close(),
-    pending: (): ReviewItem[] => (db.prepare("SELECT payload, EXISTS(SELECT 1 FROM review_screenshots WHERE review_id = reviews.id) AS has_screenshot FROM reviews WHERE status = 'pending' ORDER BY rowid DESC").all() as (Row & { has_screenshot: number })[]).map(row => ({ ...JSON.parse(row.payload), ...(row.has_screenshot ? { hasScreenshot: true } : {}) })),
-    reviewScreenshot(id: string): { mime: string; bytes: Buffer } | null {
-      const row = db.prepare("SELECT mime, image FROM review_screenshots JOIN reviews ON reviews.id = review_id WHERE review_id = ? AND status = 'pending'").get(id) as { mime: string; image: Uint8Array } | undefined;
-      return row ? { mime: row.mime, bytes: Buffer.from(row.image) } : null;
-    },
+    pending: (): ReviewItem[] => (db.prepare("SELECT payload FROM reviews WHERE status = 'pending' ORDER BY rowid DESC").all() as Row[]).map(row => ({ ...JSON.parse(row.payload), hasScreenshot: false })),
+    reviewScreenshot(_id: string): { mime: string; bytes: Buffer } | null { return null; },
     evals: (): EvalItem[] => (db.prepare("SELECT payload FROM evals ORDER BY COALESCE(json_extract(payload, '$.updatedAt'), json_extract(payload, '$.addedAt')) DESC, rowid DESC").all() as Row[]).map(row => JSON.parse(row.payload)),
-    latestChecks: (): CheckResponse[] => (db.prepare('SELECT payload, EXISTS(SELECT 1 FROM diagnostic_screenshots WHERE check_id = checks.id) AS has_screenshot FROM checks ORDER BY rowid DESC LIMIT 50').all() as (Row & { has_screenshot: number })[]).map(row => ({ ...JSON.parse(row.payload), ...(row.has_screenshot ? { hasScreenshot: true } : {}) })),
-    diagnosticScreenshot(id: string): { mime: string; bytes: Buffer } | null {
-      const row = db.prepare('SELECT mime, image FROM diagnostic_screenshots WHERE check_id = ?').get(id) as { mime: string; image: Uint8Array } | undefined;
-      return row ? { mime: row.mime, bytes: Buffer.from(row.image) } : null;
-    },
+    latestChecks: (): CheckResponse[] => (db.prepare('SELECT payload FROM checks ORDER BY rowid DESC LIMIT 50').all() as Row[]).map(row => ({ ...JSON.parse(row.payload), hasScreenshot: false })),
+    diagnosticScreenshot(_id: string): { mime: string; bytes: Buffer } | null { return null; },
     historyCount: () => Number((db.prepare('SELECT count(*) AS count FROM checks').get() as { count: number }).count),
     notifications: (): CustomerNotification[] => (db.prepare('SELECT payload, is_read FROM notifications ORDER BY rowid DESC').all() as (Row & { is_read: number })[]).map(row => ({ ...JSON.parse(row.payload), read: Boolean(row.is_read) })),
     readNotification: (id: string) => db.prepare('UPDATE notifications SET is_read = 1 WHERE id = ?').run(id).changes === 1,
-    recordCheck(check: CheckResponse, at = new Date().toISOString(), image?: string) {
-      const retainScreenshot = Boolean(image && check.source === 'image' && check.redactedText === '[Unreadable screenshot]');
-      if (retainScreenshot) validateImage(image!);
+    recordCheck(check: CheckResponse, at = new Date().toISOString(), _image?: string) {
       // Construct the stored shape explicitly so images or future raw input fields cannot leak in.
       const safe: CheckResponse = { id: check.id, result: sanitizeDeep(check.result), redactedText: maskPersonalDetails(check.redactedText), callback_numbers: sanitizeCallbackNumbers(check.callback_numbers), links: sanitizeDeep(check.links), extracted_links: sanitizeDeep(check.extracted_links ?? []), language: check.language, mode: check.mode, source: check.source, calls: check.calls, estimatedCost: check.estimatedCost, escalated: check.escalated, escalationReason: check.escalationReason, durationMs: check.durationMs };
       db.exec('BEGIN IMMEDIATE');
       try {
         db.prepare('INSERT OR IGNORE INTO checks VALUES (?, ?, ?)').run(check.id, at, JSON.stringify(safe));
-        if (retainScreenshot) {
-          const mime = image!.startsWith('data:image/png;') ? 'image/png' : 'image/jpeg';
-          db.prepare('INSERT OR IGNORE INTO diagnostic_screenshots VALUES (?, ?, ?)').run(check.id, mime, Buffer.from(image!.split(',')[1], 'base64'));
-        }
-        pruneDiagnosticScreenshots();
         db.exec('COMMIT');
       } catch (error) { db.exec('ROLLBACK'); throw error; }
     },
-    submit(check: CheckResponse, kind: 'report' | 'escalation', image?: string): ReportResponse {
+    submit(check: CheckResponse, kind: 'report' | 'escalation', _image?: string): ReportResponse {
       if (kind === 'report' && !['scam', 'likely_scam'].includes(check.result.verdict)) throw new Error('This action is not available for the result verdict.');
-      if (image) {
-        if (check.source !== 'image') throw new Error('Only screenshot checks can include an image.');
-        validateImage(image);
-      }
       db.exec('BEGIN IMMEDIATE');
       let submission: { added: boolean };
       try {
         submission = queue(check, kind);
-        const review = db.prepare("SELECT id FROM reviews WHERE check_id = ? AND status = 'pending'").get(check.id) as { id: string } | undefined;
-        if (image && review) {
-          const mime = image.startsWith('data:image/png;') ? 'image/png' : 'image/jpeg';
-          // Keep original evidence separate from masked text, diagnostics, and eval records.
-          db.prepare('INSERT OR IGNORE INTO review_screenshots VALUES (?, ?, ?)').run(review.id, mime, Buffer.from(image.split(',')[1], 'base64'));
-        }
         db.exec('COMMIT');
       } catch (error) { db.exec('ROLLBACK'); throw error; }
       // Snapshot after insertion: include this item and all pending review sources.
